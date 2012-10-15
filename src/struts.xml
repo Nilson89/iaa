@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+		"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+		"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="default" extends="struts-default">
+		<default-action-ref name="ListRooms" />
+		<action name="ListRooms" class="de.nordakademie.roommgmt.action.ListRoomsAction">
+			<result>/roomlist.jsp</result>
+		</action>
+		<action name="AddRoom">
+			<result>/roomform.jsp</result>
+		</action>
+		<action name="ShowRoom" class="de.nordakademie.roommgmt.action.EditRoomAction"
+			method="show">
+			<result name="input" type="chain">ShowRoomList</result>
+			<result name="success">/roomform.jsp</result>
+		</action>
+		<action name="DeleteRoom" class="de.nordakademie.roommgmt.action.EditRoomAction"
+			method="delete">
+			<result name="input" type="chain">ShowRoomList</result>
+			<result name="success" type="chain">ShowRoomList</result>
+		</action>
+		<action name="SaveRoom" class="de.nordakademie.roommgmt.action.EditRoomAction"
+			method="save">
+			<result name="input">/roomform.jsp</result>
+			<result name="success" type="chain">ShowRoomList</result>
+		</action>
+	</package>
+</struts>
