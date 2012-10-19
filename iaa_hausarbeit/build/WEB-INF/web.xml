@@ -15,7 +15,7 @@
   
   <!-- Start-Files -->
   <welcome-file-list>
-    <welcome-file>mainLayout.jsp</welcome-file>
+    <welcome-file>index</welcome-file>
   </welcome-file-list>
   
   <!-- Struts 2 Filter -->

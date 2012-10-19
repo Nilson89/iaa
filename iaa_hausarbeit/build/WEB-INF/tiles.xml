@@ -10,7 +10,7 @@
 	<!-- MainLayout -->
 	<definition name="mainLayout" template="/mainLayout.jsp">
 		<put-attribute name="title" value="NORDAKADEMIE - Notendatenbank" />
-		<put-attribute name="content" value="" />
+		<put-attribute name="content" value="Willkommen" />
 	</definition>
 	
 	<!-- Index Seite -->
