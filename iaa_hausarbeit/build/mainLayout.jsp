@@ -7,6 +7,6 @@
 	</head>
 	<body>
 		<%--Content --%>
-		<tiles:insertAttribute="content" />
+		<tiles:insertAttribute name="content" />
 	</body>
 </html>

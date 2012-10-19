@@ -18,8 +18,8 @@
 		
 		<default-action-ref name="index" />
 		
-		<action name="index" class="IndexAction">
-			<result name="success">index</result>
+		<action name="index" class="de.nordakademie.hausarbeit.action.IndexAction">
+			<result name="success">/index</result>
 		</action>
 	</package>
 
