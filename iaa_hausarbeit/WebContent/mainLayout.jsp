@@ -6,7 +6,11 @@
 		<title><tiles:insertAttribute name="title" ignore="true" /></title>
 	</head>
 	<body>
+		<%--Head --%>
+		<tiles:insertAttribute name="header" />
 		<%--Content --%>
-		<tiles:insertAttribute name="content" />
+		<div id="content">
+			<tiles:insertAttribute name="content" />
+		</div>
 	</body>
 </html>
