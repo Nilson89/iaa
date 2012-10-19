@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+
+<!-- Autor: Niels Maseberg -->
+<tiles-definitions>
+	
+	<!-- MainLayout -->
+	<definition name="mainLayout" template="/mainLayout.jsp">
+		<put-attribute name="title" value="NORDAKADEMIE - Notendatenbank" />
+		<put-attribute name="content" value="" />
+	</definition>
+	
+	<!-- Index Seite -->
+	<definition name="/index" extends="mainLayout">
+		<put-attribute name="content" value="/index.jsp" />
+	</definition>
+	
+</tiles-definitions>

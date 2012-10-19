@@ -28,7 +28,6 @@
 			<classpath>
 				<path>
 			    	<fileset dir="${lib.home}" />
-					<fileset dir="${lib.external}" />
 			    </path>
 			</classpath>
 			
