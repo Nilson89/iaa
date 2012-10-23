@@ -19,7 +19,7 @@
 	
 	<!-- Index Seite -->
 	<definition name="/index" extends="mainLayout">
-		<put-attribute name="content" value="Ich bin der Content" />
+		<put-attribute name="content" value="/index.jsp" />
 	</definition>
 	
 </tiles-definitions>
