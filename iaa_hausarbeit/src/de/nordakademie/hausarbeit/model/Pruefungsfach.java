@@ -5,6 +5,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinColumns;
+import javax.persistence.ManyToOne;
 
 /**
  * 
@@ -15,6 +18,7 @@ public class Pruefungsfach {
 	private Long id;
 	private String titel;
 	private String beschreibung;
+	private Manipel manipel;
 	
 	/**
 	 * @return the id
@@ -57,5 +61,23 @@ public class Pruefungsfach {
 	 */
 	public void setBeschreibung(String beschreibung) {
 		this.beschreibung = beschreibung;
+	}
+	
+	/**
+	 * @return the manipel
+	 */
+	@ManyToOne
+	@JoinColumns({
+		@JoinColumn(name="manipelstudienrichtung", referencedColumnName="studienrichtung"),
+		@JoinColumn(name="manipeljahrgang", referencedColumnName="jahrgang")
+	})
+	public Manipel getManipel() {
+		return manipel;
+	}
+	/**
+	 * @param manipel the manipel to set
+	 */
+	public void setManipel(Manipel manipel) {
+		this.manipel = manipel;
 	}
 }

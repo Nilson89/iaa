@@ -1,5 +1,9 @@
 package de.nordakademie.hausarbeit.service;
 
-public interface PruefungsfaecherService {
+import java.util.List;
 
+import de.nordakademie.hausarbeit.model.Pruefungsfach;
+
+public interface PruefungsfaecherService {
+	public List<Pruefungsfach> listPruefungen();
 }
