@@ -7,6 +7,7 @@
 	<head>
 		<title><tiles:insertAttribute name="title" ignore="true" /></title>
 		<link rel="stylesheet" type="text/css" href="/iaa_hausarbeit/styles/reset.css" />
+		<link rel="stylesheet" type="text/css" href="/iaa_hausarbeit/styles/layout.css" />
 	</head>
 	<body>
 		<%--Head --%>

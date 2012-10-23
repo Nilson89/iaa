@@ -10,4 +10,5 @@
 			<a href="#">Notenübersicht</a>
 		</li>
 	</ul>
+	<div class="clear"></div>
 </div>
