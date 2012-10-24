@@ -23,9 +23,9 @@
 					<tr class="even">
 				</s:else>
 					<td class="cell_radio"><s:radio name="selectedPruefungsfachId" list="#{id:''}" theme="simple"/></td>
-					<td><s:property value="manipelstudienrichtung"/></td>
+					<td><s:property value="manipel.getPk().getStudienrichtung()"/></td>
 					<td><s:property value="titel"/></td>
-					<td><s:property value="manipeljahrgang"/></td>
+					<td><s:property value="manipel.getPk().getJahrgang()"/></td>
 					<td><s:property value="beschreibung"/></td>
 				</tr>
 			</s:iterator>
