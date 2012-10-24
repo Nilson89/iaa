@@ -33,7 +33,7 @@
 	</table>
 	<div class="buttons">
 		<div class="button">
-			<s:submit value="Prüfungen anzeigen" action="Pruefungslist" />
+			<s:submit value="Prüfungen anzeigen" action="pruefungslist" />
 		</div>
 		<div class="clear"></div>
 	</div>
