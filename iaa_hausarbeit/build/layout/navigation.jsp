@@ -4,10 +4,10 @@
 <div id="Navigation">
 	<ul class="nav">
 		<li>
-			<a href="#">Prüfungsfächer</a>
+			<a href="/iaa_hausarbeit">Prüfungsfächer</a>
 		</li>
 		<li>
-			<a href="#">Notenübersicht</a>
+			<a href="/iaa_hausarbeit/notenuebersicht">Notenübersicht</a>
 		</li>
 	</ul>
 	<div class="clear"></div>

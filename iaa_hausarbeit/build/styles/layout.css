@@ -1,7 +1,7 @@
 #Head {
     background-color: #003366;
     color: #ffffff;
-    padding: 0 10px 0 10px;
+    padding: 30px 10px 30px 10px;
 }
 
 #Navigation {
@@ -13,6 +13,26 @@
     font-weight: bold;
 }
 
+#Footer {
+    background-color: #003366;
+    color: #ffffff;
+    text-align:right;
+    margin: 30px 0 0 0;
+    padding: 10px 10px 10px 10px;
+}
+
+#Footer span.copyright {
+    font-size: 10px;
+    font-weight: bold;
+}
+
+/* Heading */
+h2 {
+    border-bottom: 2px dotted #CCCCCC;
+    margin: 5px 10px 5px 10px;
+}
+
+/* Navigation */
 #Navigation ul.nav {
     list-style-type: none;
 }
@@ -23,26 +43,102 @@
 
 #Navigation ul.nav li a {
 	display: block;
-	padding: 2px 6px 2px 6px;
+	padding: 4px 6px 6px 6px;
+	color: #ffffff;
+	text-decoration: none;
 }
 
 #Navigation ul.nav li a:hover {
 	background-color: #7fa8d1;
-	border: 1px solid #578dc2;
 }
 
-#Footer {
-    background-color: #003366;
-    color: #ffffff;
-    text-align:right;
-    padding: 0 10px 0 10px;
+/* Breadcrumb */
+#Content div.breadcrumb {
+    padding: 8px 10px 10px 10px;
 }
 
-#Footer span.copyright {
-    font-size: 10px;
-    font-weight: bold;
+#Content div.breadcrumb ul {
+    list-style-type: none;
 }
 
+#Content div.breadcrumb ul li {
+    float: left;
+}
+
+#Content div.breadcrumb ul li a {
+    padding: 2px 5px 2px 22px;
+    background-image: url('/iaa_hausarbeit/images/arrow_right.png');
+    background-position: left;
+    background-repeat: no-repeat;
+}
+
+#Content div.breadcrumb ul li:first-child a {
+    background-image: none;
+    padding-left: 6px;
+}
+
+
+/* Tabellen */
+#Content table {
+    width: 95%;
+    margin: 10px auto;
+    border: 1px solid #333333;
+}
+
+#Content table caption {
+    display: none;
+}
+
+#Content table tr {
+    line-height: 30px;
+}
+
+#Content table tr.odd {
+    background-color: #EEEEEE;
+}
+
+#Content table tr td {
+    border-bottom: 1px dotted #999999;
+    padding: 0 5px 0 5px;
+    margin: 0;
+}
+
+#Content table tr td.cell_radio {
+	text-align: center;
+}
+
+#Content table tr:last-child td {
+    border-bottom: none;
+}
+
+#Content table thead tr {
+    background-color: #8cbfff;
+    color: #003366;
+}
+
+#Content table thead tr th {
+    text-align: left;
+    text-indent: 5px;
+}
+
+/* Button-Bar */
+#Content div.buttons {
+    width: 95%;
+    margin: 10px auto;
+    text-align: left;
+}
+
+#Content div.buttons div.button {
+    float: left;
+}
+
+#Content div.buttons div.button input {
+    background-color: #CCCCCC;
+    border: 1px dotted #999999;
+    padding: 2px 4px 2px 4px;
+}
+
+/* Sonstiges */
 div.clear {
 	clear: both;
 }

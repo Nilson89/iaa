@@ -18,8 +18,13 @@
 	</definition>
 	
 	<!-- Index Seite -->
-	<definition name="/index" extends="mainLayout">
+	<definition name="index" extends="mainLayout">
 		<put-attribute name="content" value="/index.jsp" />
+	</definition>
+	
+	<!-- Notenuebersicht -->
+	<definition name="notenuebersicht" extends="mainLayout">
+		<put-attribute name="content" value="/notenuebersicht.jsp" />
 	</definition>
 	
 </tiles-definitions>

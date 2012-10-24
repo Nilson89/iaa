@@ -19,7 +19,11 @@
 		<default-action-ref name="index" />
 		
 		<action name="index" class="de.nordakademie.hausarbeit.action.IndexAction">
-			<result name="success">/index</result>
+			<result type="tiles">index</result>
+		</action>
+		
+		<action name="notenuebersicht" class="de.nordakademie.hausarbeit.action.NotenuebersichtAction">
+			<result type="tiles">notenuebersicht</result>
 		</action>
 	</package>
 
