@@ -25,6 +25,10 @@
 		<action name="notenuebersicht" class="de.nordakademie.hausarbeit.action.NotenuebersichtAction">
 			<result type="tiles">notenuebersicht</result>
 		</action>
+		
+		<action name="pruefungslist" class="de.nordakademie.hausarbeit.action.PruefungslistAction">
+			<result type="tiles">pruefungslist</result>
+		</action>
 	</package>
 
 </struts>

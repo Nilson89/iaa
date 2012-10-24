@@ -59,4 +59,13 @@
 		class="de.nordakademie.hausarbeit.service.PruefungsfaecherServiceImpl">
 		<property name="pruefungsfaecherDAO" ref="pruefungsfaecherDAO"/>
 	</bean>
+	
+	<!-- Pruefung -->
+	<bean id="pruefungenDAO" class="de.nordakademie.hausarbeit.dao.PruefungenDAO">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	
+	<bean id="preufungenService" class="de.nordakademie.hausarbeit.service.PruefungenServiceImpl">
+		<property name="pruefungenDAO" ref="pruefungenDAO" />
+	</bean>
 </beans>

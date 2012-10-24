@@ -1,5 +1,6 @@
 package de.nordakademie.hausarbeit.model;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -10,6 +11,7 @@ import javax.persistence.OneToOne;
  * 
  * @author Niels Maseberg
  */
+@Entity
 public class Dozent {
 	private Long id;
 	private Person person;

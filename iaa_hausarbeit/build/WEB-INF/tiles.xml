@@ -27,4 +27,9 @@
 		<put-attribute name="content" value="/notenuebersicht.jsp" />
 	</definition>
 	
+	<!-- Pruefungslist -->
+	<definition name="pruefungslist" extends="mainLayout">
+		<put-attribute name="content" value="/pruefungslist.jsp" />
+	</definition>
+	
 </tiles-definitions>
