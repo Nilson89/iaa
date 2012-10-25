@@ -18,7 +18,7 @@ public class PruefungenServiceImpl implements PruefungenService {
 	/**
 	 * getHistoriePruefungen
 	 * 
-	 * @param Student
+	 * @param student the student to get the history for
 	 * @return List<Pruefungsleistung>
 	 */
 	public List<Pruefungsleistung> getHistoriePruefungen(Student student) {
@@ -29,20 +29,19 @@ public class PruefungenServiceImpl implements PruefungenService {
 	/**
 	 * listPruefungen
 	 * 
-	 * @param Long
+	 * @param pruefungsfachId the Id of the pruefungsfach
 	 * @return List<Pruefung>
 	 */
 	public List<Pruefung> listPruefungen(Long pruefungsfachId) {
-		// TODO Auto-generated method stub
-		return null;
+		return pruefungenDAO.loadPruefungen(pruefungsfachId);
 	}
 
 	/**
 	 * createPruefung
 	 * 
-	 * @param Long
-	 * @param Date
-	 * @param Long
+	 * @param pruefungsfachId the Id of the pruefungsfach
+	 * @param datum the date of the pruefung
+	 * @param dozentId the dozent of the pruefung
 	 * @return Boolean
 	 */
 	public boolean createPruefung(Long pruefungsfachId, Date datum, Long dozentId) {
@@ -53,9 +52,9 @@ public class PruefungenServiceImpl implements PruefungenService {
 	/**
 	 * checkPruefungExists
 	 * 
-	 * @param Long
-	 * @param Date
-	 * @param Long
+	 * @param pruefungsfachId the Id of the pruefungsfach
+	 * @param datum the date of the pruefung
+	 * @param dozentId the dozent of the pruefung
 	 * @return Boolean
 	 */
 	public boolean checkPruefungExists(Long pruefungsfachId, Date datum, Long dozentId) {

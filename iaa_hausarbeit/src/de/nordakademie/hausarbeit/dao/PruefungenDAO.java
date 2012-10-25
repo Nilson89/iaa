@@ -13,16 +13,14 @@ import de.nordakademie.hausarbeit.model.Pruefung;
  * @author Niels Maseberg
  */
 public class PruefungenDAO extends HibernateDaoSupport {
-	private SessionFactory sessionFactory;
-	
 	/**
 	 * loadPruefungen
 	 * 
-	 * @param Long
+	 * @param pruefungsfachId the Id of the pruefungsfach
 	 * @return List<Pruefung>
 	 */
 	public List<Pruefung> loadPruefungen(Long pruefungsfachId) {
-		Session session = sessionFactory.getCurrentSession();
-		return session.createQuery("from Pruefung as pruefung.pruefungsfach.id = :pruefungsfachId").setLong("pruefungsfachId", pruefungsfachId).list();
+		Session session = this.getSessionFactory().getCurrentSession();
+		return session.createQuery("from Pruefung as pruefung WHERE pruefung.pruefungsfach.id = :pruefungsfachId").setLong("pruefungsfachId", pruefungsfachId).list();
 	}
 }

@@ -2,10 +2,14 @@ package de.nordakademie.hausarbeit.action;
 
 import java.util.List;
 
+import org.apache.log4j.Logger;
+
 import com.opensymphony.xwork2.Action;
 
 import de.nordakademie.hausarbeit.model.Pruefung;
+import de.nordakademie.hausarbeit.model.Pruefungsfach;
 import de.nordakademie.hausarbeit.service.PruefungenService;
+import de.nordakademie.hausarbeit.service.PruefungsfaecherService;
 
 /**
  * 
@@ -13,14 +17,28 @@ import de.nordakademie.hausarbeit.service.PruefungenService;
  */
 public class PruefungslistAction implements Action {
 	private PruefungenService pruefungenService;
+	private PruefungsfaecherService pruefungsfaecherService;
+	
 	private Long selectedPruefungsfachId;
 	private List<Pruefung> pruefungen;
+	private Pruefungsfach pruefungsfach;
+	private static final Logger logger = Logger.getLogger(PruefungslistAction.class);
 	
 	/**
 	 * execute
 	 */
 	public String execute() throws Exception {
+		// Logging selectedPruefungsfachId
+		if(logger.isDebugEnabled()){
+			logger.debug("Pruefungsfach mit der ID '" + selectedPruefungsfachId + "' wurde gewählt");
+		}
+		
+		// Load Pruefungen für das gewählte Prüfungsfach
 		pruefungen = pruefungenService.listPruefungen(selectedPruefungsfachId);
+		
+		// Load gewähltes Prüfungsfach
+		pruefungsfach = pruefungsfaecherService.getPruefungsfach(selectedPruefungsfachId);
+		
 		return SUCCESS;
 	}
 
@@ -50,6 +68,14 @@ public class PruefungslistAction implements Action {
 	 */
 	public void setPruefungenService(PruefungenService pruefungenService) {
 		this.pruefungenService = pruefungenService;
+	}
+
+	/**
+	 * @param pruefungsfaecherService the pruefungsfaecherService to set
+	 */
+	public void setPruefungsfaecherService(
+			PruefungsfaecherService pruefungsfaecherService) {
+		this.pruefungsfaecherService = pruefungsfaecherService;
 	}
 
 }

@@ -10,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import org.hibernate.annotations.Type;
+
 /**
  * 
  * @author Niels Maseberg
@@ -40,6 +42,7 @@ public class Pruefung {
 	 * @return the datum
 	 */
 	@Column(nullable = false)
+	@Type(type="date")
 	public Date getDatum() {
 		return datum;
 	}

@@ -1,10 +1,10 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
 
-<h2>Übersicht Prüfungen aus Prüfungsfach "ToDo"</h2>
+<h2>Übersicht Prüfungen aus Prüfungsfach "<s:property value="pruefungsfach.getTitel()" />"</h2>
 <s:form>
 	<table cellpadding="0">
-		<caption>Liste aller Prüfungen im Prüfungsfach "ToDo"</caption>
+		<caption>Liste aller Prüfungen im Prüfungsfach "<s:property value="pruefungsfach.getTitel()" />"</caption>
 		<thead>
 			<tr>
 				<th>&nbsp;</th>

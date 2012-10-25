@@ -65,7 +65,7 @@
 		<property name="sessionFactory" ref="sessionFactory"/>
 	</bean>
 	
-	<bean id="preufungenService" class="de.nordakademie.hausarbeit.service.PruefungenServiceImpl">
+	<bean id="pruefungenService" class="de.nordakademie.hausarbeit.service.PruefungenServiceImpl">
 		<property name="pruefungenDAO" ref="pruefungenDAO" />
 	</bean>
 </beans>
