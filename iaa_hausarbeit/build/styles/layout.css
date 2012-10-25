@@ -77,6 +77,22 @@ h2 {
     padding-left: 6px;
 }
 
+/* Formulare */
+#Content .form {
+    width: 95%;
+    margin: 10px auto;
+}
+
+#Content .form span.label {
+	width: 10%;
+	display: block;
+	float: left;
+}
+
+#Content .form span.errorMessage {
+	font-weight: bold;
+	color: red;
+}
 
 /* Tabellen */
 #Content table {

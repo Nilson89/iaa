@@ -68,4 +68,22 @@
 	<bean id="pruefungenService" class="de.nordakademie.hausarbeit.service.PruefungenServiceImpl">
 		<property name="pruefungenDAO" ref="pruefungenDAO" />
 	</bean>
+	
+	<!-- Manipel -->
+	<bean id="manipelDAO" class="de.nordakademie.hausarbeit.dao.ManipelDAO">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+	<bean id="manipelService" class="de.nordakademie.hausarbeit.service.ManipelServiceImpl">
+		<property name="manipelDAO" ref="manipelDAO" />
+	</bean>
+	
+	<!-- Pruefungsleistungen -->
+	<bean id="pruefungsleistungenDAO" class="de.nordakademie.hausarbeit.dao.PruefungsleistungenDAO">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+	<bean id="pruefungsleistungenService" class="de.nordakademie.hausarbeit.service.PruefungsleistungenServiceImpl">
+		<property name="pruefungsleistungenDAO" ref="pruefungsleistungenDAO" />
+	</bean>
 </beans>

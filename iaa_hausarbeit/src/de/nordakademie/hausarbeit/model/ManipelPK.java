@@ -46,4 +46,11 @@ public class ManipelPK implements Serializable {
 	public void setStudienrichtung(Studienrichtung studienrichtung) {
 		this.studienrichtung = studienrichtung;
 	}
+
+	/**
+	 * toString
+	 */
+	public String toString() {
+		return studienrichtung.toString() + String.format("%d", jahrgang);
+	}
 }

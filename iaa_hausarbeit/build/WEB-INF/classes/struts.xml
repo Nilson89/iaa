@@ -9,6 +9,10 @@
 	<constant name="struts.enable.DynamicMethodInvocation" value="false" />
 	<constant name="struts.devMode" value="false" />
 	<constant name="struts.custom.i18n.resources" value="ApplicationResources" />
+	
+	<!-- Custom Theme for Struts (Author: Niels Maseberg; Base of Theme xhtml) -->
+	<constant name="struts.ui.theme" value="notendatenbank" />
+	<constant name="struts.ui.templateDir" value="template" />
 
 	<!-- Struts Package -->
 	<package name="default" extends="tiles-default" namespace="/">
@@ -24,6 +28,15 @@
 		
 		<action name="notenuebersicht" class="de.nordakademie.hausarbeit.action.NotenuebersichtAction">
 			<result type="tiles">notenuebersicht</result>
+			<interceptor-ref name="validation">
+				<param name="validateAnnotatedMethodOnly">true</param>                
+  				<param name="excludeMethods">execute</param>
+			</interceptor-ref>
+		</action>
+		
+		<action name="notenuebersichtDetail" class="de.nordakademie.hausarbeit.action.NotenuebersichtAction" method="showDetail">
+			<result name="input">notenuebersicht</result>
+			<result name="success">notenuebersichtDetail</result>
 		</action>
 		
 		<action name="pruefungslist" class="de.nordakademie.hausarbeit.action.PruefungslistAction">

@@ -26,6 +26,9 @@
 	<definition name="notenuebersicht" extends="mainLayout">
 		<put-attribute name="content" value="/notenuebersicht.jsp" />
 	</definition>
+	<definition name="notenuebersichtDetail" extends="mainLayout">
+		<put-attribute name="content" value="/notenuebersichtDetail.jsp" />
+	</definition>
 	
 	<!-- Pruefungslist -->
 	<definition name="pruefungslist" extends="mainLayout">
