@@ -15,6 +15,7 @@ import javax.persistence.OneToOne;
 
 import org.hibernate.annotations.NotFound;
 import org.hibernate.annotations.NotFoundAction;
+import org.hibernate.annotations.Type;
 
 /**
  * 
@@ -24,7 +25,6 @@ import org.hibernate.annotations.NotFoundAction;
 public class Pruefungsleistung {
 	private Long id;
 	private int versuch;
-	@Enumerated(EnumType.STRING)
 	private Note note;
 	private boolean mdl_moeglich = false;
 	private boolean gueltig = true;
@@ -67,6 +67,7 @@ public class Pruefungsleistung {
 	 * @return the note
 	 */
 	@Column(nullable = false)
+	@Enumerated(EnumType.STRING)
 	public Note getNote() {
 		return note;
 	}
@@ -109,6 +110,7 @@ public class Pruefungsleistung {
 	 * @return the erfassungsdatum
 	 */
 	@Column(nullable = false)
+	@Type(type="date")
 	public Date getErfassungsdatum() {
 		return erfassungsdatum;
 	}
