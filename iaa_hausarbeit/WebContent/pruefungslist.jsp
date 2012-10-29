@@ -7,8 +7,8 @@
 <s:form>
 	<div class="buttons">
 		<div class="button">
-			<s:submit value="Pruefung anlegen" action="pruefungAnlage"/>
-			<s:submit value="Pruefungshistorie anzeigen" action="pruefungHistorieAnzeige"/>
+			<s:submit value="Pruefung anlegen" action="createPruefung"/>
+			<s:submit value="Pruefungshistorie anzeigen" action="historiePruefungen"/>
 		</div>
 		<div class="clear"></div>
 	</div>
