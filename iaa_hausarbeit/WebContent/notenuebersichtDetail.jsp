@@ -1,6 +1,8 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
 
+<%-- Niels Maseberg --%>
+
 <h2>Übersicht Noten</h2>
 <s:form>
 	<div class="form">
