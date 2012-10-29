@@ -17,4 +17,32 @@
 		<div class="clear"></div>
 	</div>
 </s:form>
-<p>Hier sind die Ergebnisse</p>
+
+<table>
+	<caption>Liste aller aktuellen Noten eines Manipel</caption>
+	<thead>
+		<tr>
+			<th>Matrikelnummer</th>
+			<th>Name</th>
+			<th>Vorname</th>
+			<th>Prüfungsfach</th>
+			<th>Aktuelle Note</th>
+		</tr>
+	</thead>
+	<tbody>
+		<s:iterator value="noten" status="rowstatus">
+			<s:if test="#rowstatus.odd == true">
+				<tr class="odd">
+			</s:if>
+			<s:else>
+				<tr class="even">
+			</s:else>
+				<td><s:property value="student.getMatrikelnummer()"/></td>
+				<td>ToDo</td>
+				<td>ToDo</td>
+				<td>ToDo</td>
+				<td><s:property value="note" /></td>
+			</tr>
+		</s:iterator>
+	</tbody>
+</table>

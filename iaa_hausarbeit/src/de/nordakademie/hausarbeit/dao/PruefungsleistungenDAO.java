@@ -24,6 +24,7 @@ public class PruefungsleistungenDAO extends HibernateDaoSupport {
 		Session session = getSessionFactory().getCurrentSession();
 		
 		// TODO: Anpassen, sodass nur aktuelle Noten angezeigt werden
-		return  session.createQuery("from Pruefungsleistung as pl join pruefung as p on p.id = pl.pruefungid join pruefungsfach as pf on pf.id = p.pruefungsfachid and pf.manipelstudienrichtung = :studienrichtung and pf.manipeljahrgang = :jahrgang").setString(":studienrichtung", studienrichtung.toString()).setInteger(":jahrgang", jahrgang).list();
+		// TODO: Auch Jahrgang und Studienrichtung mit berücksichtigen
+		return  session.createQuery("from Pruefungsleistung as pruefungsleistung JOIN Student as student on student.matrikelnummer = pruefungsleistung.studentmatrikelnummer").list();
 	}
 }

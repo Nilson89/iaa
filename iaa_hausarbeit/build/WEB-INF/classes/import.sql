@@ -84,6 +84,6 @@ INSERT INTO Pruefung (id, dozentid, pruefungsfachid, datum) VALUES (1, 1, 1, '20
 INSERT INTO Pruefung (id, dozentid, pruefungsfachid, datum) VALUES (2, 1, 1, '2012-11-26');
 
 /* Prüfungsleistungen */
-INSERT INTO Pruefungsleistung (id, studentmatrikelnummer, pruefungid, userid, versuch, note, mdl_moeglich, gueltig, erfassungsdatum) VALUES (1, 4016, 1, 1, 1, '5.0', 1, 1, '2012-10-25');
-INSERT INTO Pruefungsleistung (id, studentmatrikelnummer, pruefungid, userid, versuch, note, mdl_moeglich, gueltig, erfassungsdatum) VALUES (2, 4017, 1, 1, 1, '3.3', 1, 1, '2012-10-25');
-INSERT INTO Pruefungsleistung (id, studentmatrikelnummer, pruefungid, userid, versuch, note, mdl_moeglich, gueltig, erfassungsdatum) VALUES (3, 4018, 1, 1, 1, '1.7', 1, 1, '2012-10-25');
+INSERT INTO Pruefungsleistung (id, studentmatrikelnummer, pruefungid, userid, versuch, note, mdl_moeglich, gueltig, erfassungsdatum) VALUES (1, 4016, 1, 1, 1, 'FUENF', 1, 1, '2012-10-25');
+INSERT INTO Pruefungsleistung (id, studentmatrikelnummer, pruefungid, userid, versuch, note, mdl_moeglich, gueltig, erfassungsdatum) VALUES (2, 4017, 1, 1, 1, 'DREIDREI', 1, 1, '2012-10-25');
+INSERT INTO Pruefungsleistung (id, studentmatrikelnummer, pruefungid, userid, versuch, note, mdl_moeglich, gueltig, erfassungsdatum) VALUES (3, 4018, 1, 1, 1, 'EINSSIEBEN', 1, 1, '2012-10-25');
