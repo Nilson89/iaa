@@ -42,6 +42,11 @@
 		<action name="pruefungslist" class="de.nordakademie.hausarbeit.action.PruefungslistAction">
 			<result type="tiles">pruefungslist</result>
 		</action>
+		
+		<action name="createPruefung" class="de.nordakademie.hausarbeit.action.CreatePruefungAction">
+			<result type="tiles">createPruefung</result>
+		</action>
+		
 	</package>
 
 </struts>

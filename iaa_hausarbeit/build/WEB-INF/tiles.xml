@@ -4,7 +4,7 @@
        "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
        "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
 
-<!-- Autor: Niels Maseberg -->
+<!-- Autor: Niels Maseberg, Sabrina Schramm -->
 <tiles-definitions>
 	
 	<!-- MainLayout -->
@@ -33,6 +33,11 @@
 	<!-- Pruefungslist -->
 	<definition name="pruefungslist" extends="mainLayout">
 		<put-attribute name="content" value="/pruefungslist.jsp" />
+	</definition>
+	
+	<!-- CreatePruefung -->
+	<definition name="createPruefung" extends="mainLayout">
+		<put-attribute name="content" value="/createPruefung.jsp" />
 	</definition>
 	
 </tiles-definitions>
