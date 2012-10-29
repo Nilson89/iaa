@@ -40,9 +40,9 @@
 				<tr class="even">
 			</s:else>
 				<td><s:property value="student.getMatrikelnummer()"/></td>
-				<td>ToDo</td>
-				<td>ToDo</td>
-				<td>ToDo</td>
+				<td><s:property value="student.getPerson().getName()"/></td>
+				<td><s:property value="student.getPerson().getVorname()"/></td>
+				<td><s:property value="pruefung.getPruefungsfach().getTitel()"/></td>
 				<td><s:property value="note" /></td>
 			</tr>
 		</s:iterator>
