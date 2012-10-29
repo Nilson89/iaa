@@ -1,8 +1,17 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
 
+<%-- Niels Maseberg, Sabrina Schramm --%>
+
 <h2>Übersicht Prüfungen aus Prüfungsfach "<s:property value="pruefungsfach.getTitel()" />"</h2>
 <s:form>
+	<div class="buttons">
+		<div class="button">
+			<s:submit value="Pruefung anlegen" action="createPruefung"/>
+			<s:submit value="Pruefungshistorie anzeigen" action="historiePruefungen"/>
+		</div>
+		<div class="clear"></div>
+	</div>
 	<table cellpadding="0">
 		<caption>Liste aller Prüfungen im Prüfungsfach "<s:property value="pruefungsfach.getTitel()" />"</caption>
 		<thead>
@@ -27,9 +36,5 @@
 			</s:iterator>
 		</tbody>
 	</table>
-	<div class="buttons">
-		<div class="button">
-		</div>
-		<div class="clear"></div>
-	</div>
+	
 </s:form>
