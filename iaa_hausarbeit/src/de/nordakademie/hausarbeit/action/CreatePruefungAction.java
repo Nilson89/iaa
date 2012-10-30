@@ -2,13 +2,13 @@ package de.nordakademie.hausarbeit.action;
 
 import java.util.List;
 
+import org.apache.log4j.Logger;
+
 import com.opensymphony.xwork2.ActionSupport;
 
 import de.nordakademie.hausarbeit.model.Manipel;
-import de.nordakademie.hausarbeit.model.Pruefung;
-import de.nordakademie.hausarbeit.model.Pruefungsfach;
+import de.nordakademie.hausarbeit.model.Studienrichtung;
 import de.nordakademie.hausarbeit.service.ManipelService;
-import de.nordakademie.hausarbeit.service.PruefungenService;
 
 
 /**
@@ -17,19 +17,12 @@ import de.nordakademie.hausarbeit.service.PruefungenService;
  */
 
 public class CreatePruefungAction extends ActionSupport {
-	private transient  PruefungenService pruefungenService;
-	private ManipelService manipelService;
-	
-	private String selectedManipel = "none";
-	
-	private List<Manipel> manipelList;
-		
 		
 	/**
 	 * execute
 	 */
 	public String execute() throws Exception {
-			
+				
 		return SUCCESS;
 	}
 	

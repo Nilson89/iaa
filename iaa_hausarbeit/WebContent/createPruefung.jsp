@@ -15,7 +15,7 @@
 			<span class="label">Dozent:</span>
 			<s:textfield name="pruefung.dozent" label="Pruefungsdozent"/>
 			<div class="clear"></div>
-		</div>		
+		</div>	
 	</div>
 	<div class="buttons">
 		<div class="button">
