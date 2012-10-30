@@ -28,6 +28,7 @@
 			<th>Name</th>
 			<th>Vorname</th>
 			<th>Prüfungsfach</th>
+			<th>Versuch</th>
 			<th>Aktuelle Note</th>
 		</tr>
 	</thead>
@@ -43,6 +44,7 @@
 				<td><s:property value="student.getPerson().getName()"/></td>
 				<td><s:property value="student.getPerson().getVorname()"/></td>
 				<td><s:property value="pruefung.getPruefungsfach().getTitel()"/></td>
+				<td><s:property value="versuch"/></td>
 				<td><s:property value="note" /></td>
 			</tr>
 		</s:iterator>

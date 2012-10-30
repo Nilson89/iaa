@@ -17,7 +17,6 @@ import javax.persistence.Id;
 @Entity
 public class Ergaenzungspruefung {
 	private Long id;
-	@Enumerated(EnumType.STRING)
 	private Note note;
 	private Date datum;
 	private Date erfassungsdatum;
@@ -40,6 +39,7 @@ public class Ergaenzungspruefung {
 	/**
 	 * @return the note
 	 */
+	@Enumerated(EnumType.STRING)
 	@Column(nullable = false)
 	public Note getNote() {
 		return note;

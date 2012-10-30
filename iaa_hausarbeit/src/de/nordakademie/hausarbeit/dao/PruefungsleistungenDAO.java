@@ -3,6 +3,8 @@ package de.nordakademie.hausarbeit.dao;
 import java.util.List;
 
 import org.hibernate.Session;
+import org.hibernate.criterion.DetachedCriteria;
+import org.hibernate.criterion.Property;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 import de.nordakademie.hausarbeit.model.Pruefungsleistung;
@@ -23,12 +25,22 @@ public class PruefungsleistungenDAO extends HibernateDaoSupport {
 	public List<Pruefungsleistung> loadPruefungsleistungenByJahrgangAndStudienrichtung(Integer jahrgang, Studienrichtung studienrichtung) {
 		Session session = getSessionFactory().getCurrentSession();
 		
-		// TODO: Anpassen, sodass nur aktuelle Noten angezeigt werden
-		String query = "from " +
-					   "Pruefungsleistung as pruefungsleistung " +
-					   "where " +
-					   "pruefungsleistung.student.manipel.pk.jahrgang = :jahrgang " +
-					   "and pruefungsleistung.student.manipel.pk.studienrichtung = :studienrichtung";
-		return  session.createQuery(query).setInteger("jahrgang", jahrgang).setString("studienrichtung", studienrichtung.toString()).list();
+		DetachedCriteria letzterVersuch = DetachedCriteria.forClass(Pruefungsleistung.class, "pl2")
+				.setProjection( Property.forName("versuch").max() )
+				.add( Property.forName("pl2.student").eqProperty("pl.student") )
+				.createCriteria("pruefung", "pr2")
+				.add( Property.forName("pr2.pruefungsfach").eqProperty("pr.pruefungsfach") );
+		
+		List<Pruefungsleistung> pruefungsleistungen = session.createCriteria(Pruefungsleistung.class, "pl")
+				.add( Property.forName("versuch").eq(letzterVersuch) )
+				.createAlias("pruefung", "pr")
+				.createCriteria("student", "s")
+				.add( Property.forName("s.manipel.pk.jahrgang").eq(jahrgang) )
+				.add( Property.forName("s.manipel.pk.studienrichtung").eq(studienrichtung) )
+				.createCriteria("person", "p")
+				.addOrder( Property.forName("p.name").asc() )
+				.list();
+		
+		return pruefungsleistungen;
 	}
 }

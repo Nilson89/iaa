@@ -171,7 +171,7 @@ public class Pruefungsleistung {
 	 * @return the ergaenzungspruefung
 	 */
 	@OneToOne
-	@JoinColumn(name="id", referencedColumnName="pruefungsleistungid")
+	@JoinColumn(name="ergaenzungspruefungid", referencedColumnName="id")
 	@NotFound(action=NotFoundAction.IGNORE)
 	public Ergaenzungspruefung getErgaenzungspruefung() {
 		return ergaenzungspruefung;
