@@ -40,4 +40,9 @@
 		<put-attribute name="content" value="/createPruefung.jsp" />
 	</definition>
 	
+	<!-- PruefungenHistorie -->
+	<definition name="pruefungenHistorie" extends="mainLayout">
+		<put-attribute name="content" value="/pruefungenHistorie.jsp" />
+	</definition>
+	
 </tiles-definitions>

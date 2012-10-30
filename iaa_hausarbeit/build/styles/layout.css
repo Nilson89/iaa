@@ -32,6 +32,17 @@ h2 {
     margin: 5px 10px 5px 10px;
 }
 
+/* error */
+#Content div.errorMessage {
+    width: 95%;
+    margin: 10px auto;
+    background-color: #FFE47A;
+    border: 1px dotted red;
+    padding: 5px;
+    color: Red;
+    font-weight: bold;
+}
+
 /* Navigation */
 #Navigation ul.nav {
     list-style-type: none;
