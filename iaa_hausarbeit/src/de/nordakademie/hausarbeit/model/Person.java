@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Transient;
 
 /**
  * 
@@ -57,5 +58,13 @@ public class Person {
 	 */
 	public void setVorname(String vorname) {
 		this.vorname = vorname;
+	}
+	
+	/*
+	 * return String the Fullname
+	 */
+	@Transient
+	public String getFullName() {
+		return vorname + " " + name;		
 	}
 }

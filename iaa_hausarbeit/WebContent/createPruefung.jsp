@@ -13,7 +13,8 @@
 		</div>
 		<div class="field">
 			<span class="label">Dozent:</span>
-			<s:textfield name="pruefung.dozent" label="Pruefungsdozent"/>
+			<s:select label="Dozent" headerKey="none" headerValue="Bitte wählen..." list="dozentenList" listKey="id" listValue="person.getFullName()" 
+				name="selectedDozent" value="selectedDozent"/>
 			<div class="clear"></div>
 		</div>	
 	</div>

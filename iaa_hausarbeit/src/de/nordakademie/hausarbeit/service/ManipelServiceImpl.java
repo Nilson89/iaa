@@ -5,6 +5,10 @@ import java.util.List;
 import de.nordakademie.hausarbeit.dao.ManipelDAO;
 import de.nordakademie.hausarbeit.model.Manipel;
 
+/**
+ * 
+ * @author Niels Maseberg
+ */
 public class ManipelServiceImpl implements ManipelService {
 	private ManipelDAO manipelDAO;
 	

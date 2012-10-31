@@ -44,6 +44,8 @@
 		</action>
 		
 		<action name="createPruefung" class="de.nordakademie.hausarbeit.action.CreatePruefungAction">
+			<result name="input">createPruefung</result>
+			<result name="success">pruefungslist</result>
 			<result type="tiles">createPruefung</result>
 		</action>
 		
