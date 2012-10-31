@@ -15,6 +15,7 @@ import de.nordakademie.hausarbeit.service.StudentService;
  * @author Niels Maseberg
  */
 public class PruefungenHistorieAction extends ActionSupport {
+	private static final long serialVersionUID = 1L;
 	private StudentService studentService;
 	private PruefungsfaecherService pruefungsfaecherService;
 	private List<Integer> matrikelnummern;

@@ -7,15 +7,20 @@
 <s:form>
 	<div class="buttons">
 		<div class="button">
+			<!--
 			<s:url id="createPruefungUrl" action="createPruefung">
 				<s:param name="selectedPruefungsfachId"><s:property value="pruefungsfach.getId()" /></s:param>
 			</s:url>
 			<a href="${createPruefungUrl}"><s:text name="btnCreatePruefung" /></a>
-			
 			<s:url id="pruefungenHistorieActionUrl" action="pruefungenHistorie">
 				<s:param name="selectedPruefungsfachId"><s:property value="pruefungsfach.getId()" /></s:param>
 			</s:url>
 			<a href="${pruefungenHistorieActionUrl}"><s:text name="btnPruefungenHistorie" /></a>
+			-->
+			
+			<s:hidden name="selectedPruefungsfachId" value="%{pruefungsfach.id}" />
+			<s:submit key="btnCreatePruefung" action="createPruefung" />
+			<s:submit key="btnPruefungenHistorie" action="pruefungenHistorie" />
 		</div>
 		<div class="clear"></div>
 	</div>
