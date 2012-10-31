@@ -86,4 +86,13 @@
 	<bean id="pruefungsleistungenService" class="de.nordakademie.hausarbeit.service.PruefungsleistungenServiceImpl">
 		<property name="pruefungsleistungenDAO" ref="pruefungsleistungenDAO" />
 	</bean>
+	
+	<!-- Student -->
+	<bean id="studentDAO" class="de.nordakademie.hausarbeit.dao.StudentDAO">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+	<bean id="studentService" class="de.nordakademie.hausarbeit.service.StudentServiceImpl">
+		<property name="studentDAO" ref="studentDAO" />
+	</bean>
 </beans>

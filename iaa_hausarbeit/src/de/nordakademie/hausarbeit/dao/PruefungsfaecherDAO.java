@@ -32,7 +32,7 @@ public class PruefungsfaecherDAO extends HibernateDaoSupport {
 		Session session = this.getSessionFactory().getCurrentSession();
 		
 		try {
-			return (Pruefungsfach) session.load(Pruefungsfach.class, id);
+			return (Pruefungsfach) session.get(Pruefungsfach.class, id);
 		} catch (ObjectNotFoundException e) {
 			// TODO: handle exception
 			// TODO: get Logger and log this!!!

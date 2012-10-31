@@ -38,6 +38,9 @@ public class PruefungslistAction implements Action {
 		
 		// Load gewähltes Prüfungsfach
 		pruefungsfach = pruefungsfaecherService.getPruefungsfach(selectedPruefungsfachId);
+		if(logger.isDebugEnabled()){
+			logger.debug("Pruefungsfach mit der ID '" + pruefungsfach.getId() + "' wurde geladen");
+		}
 		
 		return SUCCESS;
 	}
@@ -76,6 +79,13 @@ public class PruefungslistAction implements Action {
 	public void setPruefungsfaecherService(
 			PruefungsfaecherService pruefungsfaecherService) {
 		this.pruefungsfaecherService = pruefungsfaecherService;
+	}
+
+	/**
+	 * @return the pruefungsfach
+	 */
+	public Pruefungsfach getPruefungsfach() {
+		return pruefungsfach;
 	}
 
 }

@@ -44,5 +44,8 @@
 	<definition name="pruefungenHistorie" extends="mainLayout">
 		<put-attribute name="content" value="/pruefungenHistorie.jsp" />
 	</definition>
+	<definition name="pruefungenHistorieDetail" extends="mainLayout">
+		<put-attribute name="content" value="/pruefungenHistorieDetail.jsp" />
+	</definition>
 	
 </tiles-definitions>

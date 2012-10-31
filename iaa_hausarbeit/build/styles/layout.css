@@ -159,10 +159,12 @@ h2 {
     float: left;
 }
 
-#Content div.buttons div.button input {
+#Content div.buttons div.button input, #Content div.buttons div.button a {
     background-color: #CCCCCC;
     border: 1px dotted #999999;
     padding: 2px 4px 2px 4px;
+    color: #000000;
+    text-decoration: none;
 }
 
 /* Sonstiges */
