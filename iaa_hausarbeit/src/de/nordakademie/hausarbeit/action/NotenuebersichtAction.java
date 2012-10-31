@@ -31,7 +31,7 @@ public class NotenuebersichtAction extends ActionSupport {
 	 */
 	public String execute() throws Exception {
 		// Load the List of all Manipel
-		loadManipelList();
+		_loadManipelList();
 		
 		return SUCCESS;
 	}
@@ -40,11 +40,6 @@ public class NotenuebersichtAction extends ActionSupport {
 	 * showDetail
 	 */
 	public String showDetail() throws Exception {
-		// Logging selectedPruefungsfachId
-		if(logger.isDebugEnabled()){
-			logger.debug("Manipel '" + selectedManipel + "' wurde gewählt");
-		}
-		
 		// Get selectedManipel and split in jahrgang and studienrichtung
 		int jahrgang = Integer.parseInt(selectedManipel.substring(1));
 		String studienrichtungTemp = (String) selectedManipel.subSequence(0, 1);
@@ -63,7 +58,7 @@ public class NotenuebersichtAction extends ActionSupport {
 		super.validate();
 		
 		// Load the List of all Manipel
-		loadManipelList();
+		_loadManipelList();
 		
 		// If no Manipel is selected, then show Error
 		if (getSelectedManipel().equals("none")) {
@@ -102,7 +97,7 @@ public class NotenuebersichtAction extends ActionSupport {
 	/**
 	 * loadManipelList
 	 */
-	private void loadManipelList() {
+	private void _loadManipelList() {
 		manipelList = manipelService.getManipelList();
 	}
 

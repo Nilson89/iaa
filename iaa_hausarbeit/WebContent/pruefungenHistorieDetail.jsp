@@ -3,19 +3,22 @@
 
 <%-- Niels Maseberg --%>
 
-<h2>Übersicht Noten</h2>
+<h2><s:text name="txtHeadingPruefungenHistorie" /> "ToDo"</h2>
+
 <s:form>
 	<div class="form">
 		<div class="field">
-			<span class="label">Manipel:</span>
-			<s:select label="Manipel" headerKey="none" headerValue="Bitte wählen..." list="manipelList" listKey="pk" listValue="pk" name="selectedManipel" value="selectedManipel"/>
+			<span class="label"><s:text name="txtLabelMatrikelnummer" /></span>
+			
 			<div class="clear"></div>
 		</div>
 	</div>
 	<div class="buttons">
 		<div class="button">
-			<s:submit value="Noten anzeigen" action="notenuebersichtDetail" />
+			<s:submit key="txtSubmitPruefungenHistorie" action="pruefungenHistorieDetail" />
 		</div>
 		<div class="clear"></div>
 	</div>
 </s:form>
+
+<p>Hier kommen die Prüfungen</p>

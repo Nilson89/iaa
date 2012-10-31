@@ -49,6 +49,19 @@
 			<result type="tiles">createPruefung</result>
 		</action>
 		
+		<action name="pruefungenHistorie" class="de.nordakademie.hausarbeit.action.PruefungenHistorieAction">
+			<result type="tiles">pruefungenHistorie</result>
+			<interceptor-ref name="validation">
+				<param name="validateAnnotatedMethodOnly">true</param>                
+  				<param name="excludeMethods">execute</param>
+			</interceptor-ref>
+		</action>
+		
+		<action name="pruefungenHistorieDetail" class="de.nordakademie.hausarbeit.action.PruefungenHistorieAction" method="showDetail">
+			<result name="input">pruefungenHistorie</result>
+			<result name="success">pruefungenHistorieDetail</result>
+		</action>
+		
 	</package>
 
 </struts>
