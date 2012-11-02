@@ -7,7 +7,10 @@ import org.apache.log4j.Logger;
 import com.opensymphony.xwork2.ActionSupport;
 
 import de.nordakademie.hausarbeit.model.Pruefungsfach;
+import de.nordakademie.hausarbeit.model.Pruefungsleistung;
+import de.nordakademie.hausarbeit.model.Student;
 import de.nordakademie.hausarbeit.service.PruefungsfaecherService;
+import de.nordakademie.hausarbeit.service.PruefungsleistungenService;
 import de.nordakademie.hausarbeit.service.StudentService;
 
 /**
@@ -18,10 +21,14 @@ public class PruefungenHistorieAction extends ActionSupport {
 	private static final long serialVersionUID = 1L;
 	private StudentService studentService;
 	private PruefungsfaecherService pruefungsfaecherService;
+	private PruefungsleistungenService pruefungsleistungenService;
 	private List<Integer> matrikelnummern;
 	private Long selectedPruefungsfachId;
 	private Integer selectedMatrikelnummer;
 	private static final Logger logger = Logger.getLogger(PruefungenHistorieAction.class);
+	private Student student;
+	private List<Pruefungsleistung> pruefungsleistungenList;
+	private Pruefungsfach pruefungsfach;
 	
 	/**
 	 * execute
@@ -36,8 +43,11 @@ public class PruefungenHistorieAction extends ActionSupport {
 	 * showDetail
 	 */
 	public String showDetail() {
-		// Load Noten-History
-		// TODO
+		// Load Student by Matrikelnummer
+		student = studentService.getStudentByMatrikelnummer(selectedMatrikelnummer);
+		
+		// Load Noten-History for student
+		pruefungsleistungenList = pruefungsleistungenService.getHistoriePruefungen(student, pruefungsfach);
 		
 		return SUCCESS;
 	}
@@ -122,5 +132,27 @@ public class PruefungenHistorieAction extends ActionSupport {
 	public void setPruefungsfaecherService(
 			PruefungsfaecherService pruefungsfaecherService) {
 		this.pruefungsfaecherService = pruefungsfaecherService;
+	}
+
+	/**
+	 * @return the pruefungsleistungenList
+	 */
+	public List<Pruefungsleistung> getPruefungsleistungenList() {
+		return pruefungsleistungenList;
+	}
+
+	/**
+	 * @param pruefungsleistungenService the pruefungsleistungenService to set
+	 */
+	public void setPruefungsleistungenService(
+			PruefungsleistungenService pruefungsleistungenService) {
+		this.pruefungsleistungenService = pruefungsleistungenService;
+	}
+
+	/**
+	 * @return the pruefungsfach
+	 */
+	public Pruefungsfach getPruefungsfach() {
+		return pruefungsfach;
 	}
 }

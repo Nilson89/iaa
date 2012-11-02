@@ -4,6 +4,7 @@ import java.util.List;
 
 import de.nordakademie.hausarbeit.dao.StudentDAO;
 import de.nordakademie.hausarbeit.model.Manipel;
+import de.nordakademie.hausarbeit.model.Student;
 
 /**
  * 
@@ -20,6 +21,16 @@ public class StudentServiceImpl implements StudentService {
 	 */
 	public List<Integer> getMatrikelnummerListByManipel(Manipel manipel) {
 		return studentDAO.loadMatrikelnummerListByManipel(manipel);
+	}
+	
+	/**
+	 * getStudentByMatrikelnummer
+	 * 
+	 * @param Integer the matrikelnummer
+	 * @return Student the Student
+	 */
+	public Student getStudentByMatrikelnummer(Integer matrikelnummer) {
+		return studentDAO.loadStudent(matrikelnummer);
 	}
 
 	/**

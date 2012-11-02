@@ -3,7 +3,9 @@ package de.nordakademie.hausarbeit.service;
 import java.util.List;
 
 import de.nordakademie.hausarbeit.dao.PruefungsleistungenDAO;
+import de.nordakademie.hausarbeit.model.Pruefungsfach;
 import de.nordakademie.hausarbeit.model.Pruefungsleistung;
+import de.nordakademie.hausarbeit.model.Student;
 import de.nordakademie.hausarbeit.model.Studienrichtung;
 
 /**
@@ -30,6 +32,14 @@ public class PruefungsleistungenServiceImpl implements PruefungsleistungenServic
 	public void setPruefungsleistungenDAO(
 			PruefungsleistungenDAO pruefungsleistungenDAO) {
 		this.pruefungsleistungenDAO = pruefungsleistungenDAO;
+	}
+
+	/**
+	 * getHistoriePruefungen
+	 */
+	public List<Pruefungsleistung> getHistoriePruefungen(Student student, Pruefungsfach pruefungsfach) {
+		// TODO
+		return null;
 	}
 
 }
