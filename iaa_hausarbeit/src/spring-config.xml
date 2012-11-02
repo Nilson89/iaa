@@ -55,8 +55,7 @@
 		<property name="sessionFactory" ref="sessionFactory"/>
 	</bean>
 	
-	<bean id="pruefungsfaecherService" 
-		class="de.nordakademie.hausarbeit.service.PruefungsfaecherServiceImpl">
+	<bean id="pruefungsfaecherService" class="de.nordakademie.hausarbeit.service.PruefungsfaecherServiceImpl">
 		<property name="pruefungsfaecherDAO" ref="pruefungsfaecherDAO"/>
 	</bean>
 	

@@ -51,9 +51,9 @@
 		
 		<action name="pruefungenHistorie" class="de.nordakademie.hausarbeit.action.PruefungenHistorieAction">
 			<result type="tiles">pruefungenHistorie</result>
-			<interceptor-ref name="validation">
-				<param name="validateAnnotatedMethodOnly">true</param>                
-  				<param name="excludeMethods">execute</param>
+			<interceptor-ref name="defaultStack">
+				<param name="validation.validateAnnotatedMethodOnly">true</param>                
+  				<param name="validation.excludeMethods">execute</param>
 			</interceptor-ref>
 		</action>
 		

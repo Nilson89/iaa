@@ -36,6 +36,9 @@ public class PruefungenHistorieAction extends ActionSupport {
 	 * showDetail
 	 */
 	public String showDetail() {
+		// Load Noten-History
+		// TODO
+		
 		return SUCCESS;
 	}
 	
@@ -48,8 +51,13 @@ public class PruefungenHistorieAction extends ActionSupport {
 		// Load MatrikelnummerList
 		_loadMatrikelnummerList();
 		
+		// Log selected Matrikelnummer
+		if(logger.isDebugEnabled()){
+			logger.debug("PruefungenHistorieAction: Matrikelnummer '" + selectedMatrikelnummer + "' selected");
+		}
+		
 		// If no Manipel is selected, then show Error
-		if (getSelectedMatrikelnummer().equals("none")) {
+		if (getSelectedMatrikelnummer().equals(0000)) {
 			addFieldError("selectedMatrikelnummer", getText("error.no.matrikelnummer.selected"));
 		}
 	}
@@ -59,7 +67,7 @@ public class PruefungenHistorieAction extends ActionSupport {
 	 */
 	private void _loadMatrikelnummerList() {
 		if(logger.isDebugEnabled()){
-			logger.debug("PruefungenHistorieAction: Pruefungsfach mit der ID '" + selectedPruefungsfachId + "' wird geladen");
+			logger.debug("PruefungenHistorieAction: Loading Pruefungsfach with ID '" + selectedPruefungsfachId + "'...");
 		}
 		
 		Pruefungsfach pruefungsfach = pruefungsfaecherService.getPruefungsfach(selectedPruefungsfachId);		
@@ -106,5 +114,13 @@ public class PruefungenHistorieAction extends ActionSupport {
 	 */
 	public void setSelectedMatrikelnummer(Integer selectedMatrikelnummer) {
 		this.selectedMatrikelnummer = selectedMatrikelnummer;
+	}
+
+	/**
+	 * @param pruefungsfaecherService the pruefungsfaecherService to set
+	 */
+	public void setPruefungsfaecherService(
+			PruefungsfaecherService pruefungsfaecherService) {
+		this.pruefungsfaecherService = pruefungsfaecherService;
 	}
 }

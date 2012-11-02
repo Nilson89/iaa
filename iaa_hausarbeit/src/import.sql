@@ -65,6 +65,8 @@ INSERT INTO Person (id, name, vorname) VALUES (4, 'Schramm', 'Sabrina');
 INSERT INTO Person (id, name, vorname) VALUES (5, 'Hauschildt', 'Stefan');
 INSERT INTO Person (id, name, vorname) VALUES (6, 'Maseberg', 'Niels');
 INSERT INTO Person (id, name, vorname) VALUES (7, 'Heinrich', 'Ulrike');
+INSERT INTO Person (id, name, vorname) VALUES (8, 'Peter', 'Pan');
+INSERT INTO Person (id, name, vorname) VALUES (9, 'Biene', 'Maya');
 
 /* Dozent */
 INSERT INTO Dozent (personid) VALUES (1);
@@ -75,6 +77,8 @@ INSERT INTO Dozent (personid) VALUES (3);
 INSERT INTO Student (matrikelnummer, manipelstudienrichtung, manipeljahrgang, personid) VALUES (4016, 'I', 2009, 6);
 INSERT INTO Student (matrikelnummer, manipelstudienrichtung, manipeljahrgang, personid) VALUES (4017, 'I', 2009, 5);
 INSERT INTO Student (matrikelnummer, manipelstudienrichtung, manipeljahrgang, personid) VALUES (4018, 'I', 2009, 4);
+INSERT INTO Student (matrikelnummer, manipelstudienrichtung, manipeljahrgang, personid) VALUES (4019, 'I', 2007, 8);
+INSERT INTO Student (matrikelnummer, manipelstudienrichtung, manipeljahrgang, personid) VALUES (4020, 'I', 2007, 9);
 
 /* User */
 INSERT INTO User (id, personid) VALUES (1, 7);
