@@ -10,6 +10,7 @@
 <s:form>
 	<s:hidden name="selectedPruefungsfachId" value="%{selectedPruefungsfachId}" />
 	<table cellpadding="0">
+		<caption>Liste aller Studenten, die für eine mündliche Prüfungsleistung im gewählten Prüfungsfach in Frage kommen</caption>
 		<thead>
 			<tr>
 				<th>&nbsp;</th>

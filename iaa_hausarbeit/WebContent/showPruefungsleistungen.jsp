@@ -6,6 +6,7 @@
 <h2><s:text name="txtHeadingPruefungsleistungenanzeige" />  "<s:property value="pruefungsfach.getTitel()" />"</h2>
 <s:form>
 	<table cellpadding="0">
+		<caption>Liste aller Prüfungsleistungen in dem gewählten Prüfungsfach</caption>
 		<thead>
 			<tr>
 				<th>&nbsp;</th>
