@@ -2,7 +2,9 @@ package de.nordakademie.hausarbeit.service;
 
 import java.util.List;
 
+import de.nordakademie.hausarbeit.model.Pruefungsfach;
 import de.nordakademie.hausarbeit.model.Pruefungsleistung;
+import de.nordakademie.hausarbeit.model.Student;
 import de.nordakademie.hausarbeit.model.Studienrichtung;
 
 /**
@@ -11,4 +13,5 @@ import de.nordakademie.hausarbeit.model.Studienrichtung;
  */
 public interface PruefungsleistungenService {
 	public List<Pruefungsleistung> listNoten(Integer jahrgang, Studienrichtung studienrichtung);
+	public List<Pruefungsleistung> getHistoriePruefungen(Student student, Pruefungsfach pruefungsfach);
 }

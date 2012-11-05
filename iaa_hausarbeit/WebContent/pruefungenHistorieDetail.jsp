@@ -3,13 +3,14 @@
 
 <%-- Niels Maseberg --%>
 
-<h2><s:text name="txtHeadingPruefungenHistorie" /> "ToDo"</h2>
+<h2><s:text name="txtHeadingPruefungenHistorie" /> "<s:property value="pruefungsfach.getTitel()" />"</h2>
 
 <s:form>
 	<div class="form">
 		<div class="field">
 			<span class="label"><s:text name="txtLabelMatrikelnummer" /></span>
-			
+			<s:hidden name="selectedPruefungsfachId" value="%{selectedPruefungsfachId}" />
+			<s:select headerKey="0000" headerValue="Bitte wählen..." list="matrikelnummern" name="selectedMatrikelnummer" value="selectedMatrikelnummer"/>
 			<div class="clear"></div>
 		</div>
 	</div>
