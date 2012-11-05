@@ -3,7 +3,8 @@
 
 <%-- Sabrina Schramm --%>
 
-<h2>Anlage einer neuen Prüfung im Fach "<s:property value="pruefungsfach.getTitel()" />"</h2>
+<h2><s:text name="txtHeadingPruefungsanlage" />" <s:property value="pruefungsfach.getTitel()" />"</h2>
+<h5><s:text name="txtAnweisungPruefungsanlage" /></h5>
 <s:form>
 	<div class="form">
 		<div class="field">
