@@ -9,9 +9,10 @@ import de.nordakademie.hausarbeit.model.Student;
 
 /**
  * 
- * @author Niels Maseberg
+ * @author Niels Maseberg, Sabrina Schramm
  */
 public interface PruefungenService {
+	public Pruefung savePruefung(Pruefung pruefung);
 	public List<Pruefungsleistung> getHistoriePruefungen(Student student);
 	public List<Pruefung> listPruefungen(Long pruefungsfachId);
 	public boolean createPruefung(Long pruefungsfachId, Date datum, Long dozentId);
