@@ -9,24 +9,41 @@
 </div>
 <s:form>
 	<s:hidden name="selectedPruefungsfachId" value="%{selectedPruefungsfachId}" />
-	<table cellpadding="0">
-		<caption>Liste aller Studenten, die für eine Prüfungsleistung im gewählten Prüfungsfach in Frage kommen</caption>
-		<thead>
-			<tr>
-				<th>&nbsp;</th>
-				<th>Matrikelnummer</th>
-				<th>Name</th>
-				<th>Vorname</th>
-				<th>Titel</th>
-				<th>Datum</th>
-				<th>Dozent</th>
-				<th>Note</th>
-			</tr>
-		</thead>
-		<tbody>
-		</tbody>
-	</table>
-
+	<div class="form">
+		<div class="field">
+			<span class="label"><s:text name="txtLabelPLMatrikelnummer" /></span>
+			<s:textfield name="pruefungsleistung.student.matrikelnummer" label="Matrikelnummer"/>
+			<div class="clear"></div>
+		</div>
+		<div class="field">
+			<span class="label"><s:text name="txtLabelPLName" /></span>
+			<s:textfield name="pruefungsleistung.student.person.name" label="Studentenname"/>
+			<div class="clear"></div>
+		</div>
+		<div class="field">
+			<span class="label"><s:text name="txtLabelPLVorname" /></span>
+			<s:textfield name="pruefungsleistung.student.person.vorname" label="Studentenvorname"/>
+			<div class="clear"></div>
+		</div>
+		<div class="field">
+			<span class="label"><s:text name="txtLabelPLErsterVersuch" /></span>
+			<s:select label="ErsterVersuch" headerKey="none" headerValue="Bitte wählen..." list="notenList" listKey="id" listValue="note" 
+				name="selectedNoteEins" value="selectedNoteEins"/>
+			<div class="clear"></div>
+		</div>	
+		<div class="field">
+			<span class="label"><s:text name="txtLabelPLZweiterVersuch" /></span>
+			<s:select label="ZweiterVersuch" headerKey="none" headerValue="Bitte wählen..." list="notenList" listKey="id" listValue="note" 
+				name="selectedNoteZweiter" value="selectedNoteZweiter"/>
+			<div class="clear"></div>
+		</div>
+		<div class="field">
+			<span class="label"><s:text name="txtLabelPLDritterVersuch" /></span>
+			<s:select label="DritterVersuch" headerKey="none" headerValue="Bitte wählen..." list="notenList" listKey="id" listValue="note" 
+				name="selectedNoteDritter" value="selectedNoteDritter"/>
+			<div class="clear"></div>
+		</div>
+	</div>
 	<div class="buttons">
 		<div class="button">
 			<s:submit key="btnCreatePruefungsleistung" action="savePruefungsleistung" />

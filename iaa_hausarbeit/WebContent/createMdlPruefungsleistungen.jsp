@@ -9,24 +9,39 @@
 </div>
 <s:form>
 	<s:hidden name="selectedPruefungsfachId" value="%{selectedPruefungsfachId}" />
-	<table cellpadding="0">
-		<caption>Liste aller Studenten, die für eine mündliche Prüfungsleistung im gewählten Prüfungsfach in Frage kommen</caption>
-		<thead>
-			<tr>
-				<th>&nbsp;</th>
-				<th>Matrikelnummer</th>
-				<th>Name</th>
-				<th>Vorname</th>
-				<th>Titel</th>
-				<th>Datum</th>
-				<th>Dozent</th>
-				<th>Note</th>
-			</tr>
-		</thead>
-		<tbody>
-		</tbody>
-	</table>
-
+	<div class="form">
+		<div class="field">
+			<span class="label"><s:text name="txtLabelMdlPLMatrikelnummer" /></span>
+			<s:textfield name="pruefungsleistung.student.matrikelnummer" label="Matrikelnummer"/>
+			<div class="clear"></div>
+		</div>
+		<div class="field">
+			<span class="label"><s:text name="txtLabelMdlPLName" /></span>
+			<s:textfield name="pruefungsleistung.student.person.name" label="Studentenname"/>
+			<div class="clear"></div>
+		</div>
+		<div class="field">
+			<span class="label"><s:text name="txtLabelMdlPLVorname" /></span>
+			<s:textfield name="pruefungsleistung.student.person.vorname" label="Studentenvorname"/>
+			<div class="clear"></div>
+		</div>
+		<div class="field">
+			<span class="label"><s:text name="txtLabelMdlPLLetzterVersuch" /></span>
+			<s:textfield name="pruefungsleistung.versuch" label="PruefungsVersuch"/>
+			<div class="clear"></div>
+		</div>
+		<div class="field">
+			<span class="label"><s:text name="txtLabelMdlPLAktuelleNote" /></span>
+			<s:textfield name="pruefungsleistung.note" label="Pruefungsnote"/>
+			<div class="clear"></div>
+		</div>
+		<div class="field">
+			<span class="label"><s:text name="txtLabelMdlPLNeueNote" /></span>
+			<s:select label="NeueNote" headerKey="none" headerValue="Bitte wählen..." list="notenList" listKey="id" listValue="note" 
+				name="selectedNote" value="selectedNote"/>
+			<div class="clear"></div>
+		</div>	
+	</div>
 	<div class="buttons">
 		<div class="button">
 			<s:submit key="btnCreatePruefungsleistung" action="saveMdlPruefungsleistung" />
