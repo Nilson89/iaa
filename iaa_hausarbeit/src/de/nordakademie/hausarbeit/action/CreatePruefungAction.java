@@ -70,12 +70,10 @@ public class CreatePruefungAction extends ActionSupport {
 		//	addFieldError("inputDatum", getText("error.no.datum.entered"));
 		//}
 		
-		//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 		// If the Datum is in past
 		//if (getInputDatum().){
 		//	addFieldError("inputDatum", getText("error.datum.in.past"));
 		//}
-
 	}
 	
 	/**
