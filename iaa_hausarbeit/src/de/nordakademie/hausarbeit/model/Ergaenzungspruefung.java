@@ -10,6 +10,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import org.hibernate.annotations.Type;
+
 /**
  * 
  * @author Niels Maseberg
@@ -55,6 +57,7 @@ public class Ergaenzungspruefung {
 	 * @return the datum
 	 */
 	@Column(nullable = false)
+	@Type(type="date")
 	public Date getDatum() {
 		return datum;
 	}
@@ -69,6 +72,7 @@ public class Ergaenzungspruefung {
 	 * @return the erfassungsdatum
 	 */
 	@Column(nullable = false)
+	@Type(type="date")
 	public Date getErfassungsdatum() {
 		return erfassungsdatum;
 	}

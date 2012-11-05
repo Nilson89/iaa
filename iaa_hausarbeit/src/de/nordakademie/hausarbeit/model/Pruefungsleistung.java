@@ -34,6 +34,7 @@ public class Pruefungsleistung {
 	private Student student;
 	private User erfasser;
 	private Ergaenzungspruefung ergaenzungspruefung;
+	private boolean aenderungseintrag;
 	
 	/**
 	 * @return the id
@@ -181,5 +182,19 @@ public class Pruefungsleistung {
 	 */
 	public void setErgaenzungspruefung(Ergaenzungspruefung ergaenzungspruefung) {
 		this.ergaenzungspruefung = ergaenzungspruefung;
+	}
+	
+	/**
+	 * @return the aenderungseintrag
+	 */
+	@Column(nullable = false)
+	public boolean isAenderungseintrag() {
+		return aenderungseintrag;
+	}
+	/**
+	 * @param aenderungseintrag the aenderungseintrag to set
+	 */
+	public void setAenderungseintrag(boolean aenderungseintrag) {
+		this.aenderungseintrag = aenderungseintrag;
 	}
 }

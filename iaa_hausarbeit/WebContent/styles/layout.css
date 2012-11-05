@@ -88,6 +88,12 @@ h2 {
     padding-left: 6px;
 }
 
+/* Texte */
+#Content div.textBox {
+	width: 95%;
+	margin: 10px auto;
+}
+
 /* Formulare */
 #Content .form {
     width: 95%;

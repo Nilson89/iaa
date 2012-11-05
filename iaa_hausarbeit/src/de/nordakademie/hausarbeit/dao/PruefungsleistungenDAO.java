@@ -61,6 +61,7 @@ public class PruefungsleistungenDAO extends HibernateDaoSupport {
 				.createCriteria("pruefung", "pr")
 				.add( Property.forName("pr.pruefungsfach").eq(pruefungsfach) )
 				.addOrder( Property.forName("pr.datum").asc() )
+				.addOrder( Property.forName("pl.erfassungsdatum").asc() )
 				.list();
 		
 		return pruefungsleistungen;
