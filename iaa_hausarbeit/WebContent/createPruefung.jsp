@@ -3,7 +3,7 @@
 
 <%-- Sabrina Schramm --%>
 
-<h2>Anlage einer neuen Prüfung</h2>
+<h2>Anlage einer neuen Prüfung im Fach "<s:property value="pruefungsfach.getTitel()" />"</h2>
 <s:form>
 	<div class="form">
 		<div class="field">
@@ -20,7 +20,7 @@
 	</div>
 	<div class="buttons">
 		<div class="button">
-			<s:submit value="Prüfung anlegen" action="pruefungslist" />
+			<s:submit value="Prüfung anlegen" action="savePruefung" />
 			<s:submit value="Abbrechen" action="pruefungslist" />
 		</div>
 		<div class="clear"></div>

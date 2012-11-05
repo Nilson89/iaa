@@ -10,7 +10,7 @@
 	<!-- dataSource -->
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
 		<property name="driverClassName" value="org.h2.Driver"/>
-		<property name="url" value="jdbc:h2:E:/Tomcat/webapps/iaa_hausarbeit/db/nak"/>
+		<property name="url" value="jdbc:h2:C:/Program Files (x86)/Apache Software Foundation/Tomcat 6.0/webapps/iaa_hausarbeit/db/nak"/>
 		<property name="username" value="sa"/>
 		<property name="password" value=""/>
 	</bean>
@@ -55,7 +55,8 @@
 		<property name="sessionFactory" ref="sessionFactory"/>
 	</bean>
 	
-	<bean id="pruefungsfaecherService" class="de.nordakademie.hausarbeit.service.PruefungsfaecherServiceImpl">
+	<bean id="pruefungsfaecherService" 
+		class="de.nordakademie.hausarbeit.service.PruefungsfaecherServiceImpl">
 		<property name="pruefungsfaecherDAO" ref="pruefungsfaecherDAO"/>
 	</bean>
 	
@@ -85,7 +86,7 @@
 	<bean id="pruefungsleistungenService" class="de.nordakademie.hausarbeit.service.PruefungsleistungenServiceImpl">
 		<property name="pruefungsleistungenDAO" ref="pruefungsleistungenDAO" />
 	</bean>
-	
+
 	<!-- Dozenten -->
 	<bean id="dozentenDAO" class="de.nordakademie.hausarbeit.dao.DozentenDAO">
 		<property name="sessionFactory" ref="sessionFactory" />
@@ -95,7 +96,7 @@
 		<property name="dozentenDAO" ref="dozentenDAO" />
 	</bean>
 	
-	<!-- Studenten -->
+	<!-- Student -->
 	<bean id="studentDAO" class="de.nordakademie.hausarbeit.dao.StudentDAO">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
@@ -103,5 +104,5 @@
 	<bean id="studentService" class="de.nordakademie.hausarbeit.service.StudentServiceImpl">
 		<property name="studentDAO" ref="studentDAO" />
 	</bean>
-	
 </beans>
+

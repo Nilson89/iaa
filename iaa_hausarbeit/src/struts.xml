@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- AUTHOR: Niels Maseberg -->
+<!-- AUTHOR: Niels Maseberg, Sabrina Schramm -->
 
 <!DOCTYPE struts PUBLIC
 		"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
@@ -47,6 +47,14 @@
 			<result name="input">createPruefung</result>
 			<result name="success">pruefungslist</result>
 			<result type="tiles">createPruefung</result>
+			<interceptor-ref name="validation">
+				<param name="validateAnnotatedMethodOnly">true</param>                
+  				<param name="excludeMethods">execute</param>
+			</interceptor-ref>
+		</action>
+		
+		<action name="savePruefung" class="de.nordakademie.hausarbeit.action.CreatePruefungAction" method="savePruefung">
+			<result type="chain">pruefungslist</result>	
 		</action>
 		
 		<action name="pruefungenHistorie" class="de.nordakademie.hausarbeit.action.PruefungenHistorieAction">

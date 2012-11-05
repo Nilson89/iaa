@@ -2,12 +2,15 @@ package de.nordakademie.hausarbeit.action;
 
 import java.util.List;
 
-import org.apache.log4j.Logger;
 
 import com.opensymphony.xwork2.ActionSupport;
 
 import de.nordakademie.hausarbeit.model.Dozent;
+import de.nordakademie.hausarbeit.model.Pruefung;
+import de.nordakademie.hausarbeit.model.Pruefungsfach;
 import de.nordakademie.hausarbeit.service.DozentenService;
+import de.nordakademie.hausarbeit.service.PruefungenService;
+import de.nordakademie.hausarbeit.service.PruefungsfaecherService;
 
 
 /**
@@ -17,9 +20,13 @@ import de.nordakademie.hausarbeit.service.DozentenService;
 
 public class CreatePruefungAction extends ActionSupport {
 	private DozentenService dozentenService;
+	private Pruefung pruefung;
+	private PruefungenService pruefungenService;
+	private PruefungsfaecherService pruefungsfaecherService;
 	
+	private Long selectedPruefungsfachId;
 	private String selectedDozent = "none";
-	
+	private Pruefungsfach pruefungsfach;
 	private List<Dozent> dozentenList;
 		
 	/**
@@ -28,11 +35,36 @@ public class CreatePruefungAction extends ActionSupport {
 	public String execute() throws Exception {
 		// Load the List of all Dozenten
 		loadDozentenList();
+		
+		// Load gewähltes Prüfungsfach
+		pruefungsfach = pruefungsfaecherService.getPruefungsfach(selectedPruefungsfachId);
 				
 		return SUCCESS;
 	}
 	
+	
+	/**
+	 * savePruefung
+	 */
+	public String savePruefung() throws Exception {
+		pruefungenService.savePruefung(pruefung);
+		return SUCCESS;
+	}
+	
+	/**
+	 * @return the selectedPruefungsfachId
+	 */
+	public Long getSelectedPruefungsfachId() {
+		return selectedPruefungsfachId;
+	}
 
+	/**
+	 * @param selectedPruefungsfachId the selectedPruefungsfachId to set
+	 */
+	public void setSelectedPruefungsfachId(Long selectedPruefungsfachId) {
+		this.selectedPruefungsfachId = selectedPruefungsfachId;
+	}
+	
 	/**
 	 * validate
 	 */
@@ -47,7 +79,7 @@ public class CreatePruefungAction extends ActionSupport {
 			addFieldError("selectedDozent", getText("error.no.dozent.selected"));
 		}
 	}
-
+	
 	/**
 	 * @param dozentenService the dozentenService to set
 	 */
@@ -81,6 +113,25 @@ public class CreatePruefungAction extends ActionSupport {
 	 */
 	private void loadDozentenList() {
 		dozentenList = dozentenService.getDozentenList();
+	}
+
+
+	public void setPruefungenService(PruefungenService pruefungenService) {
+		this.pruefungenService = pruefungenService;
+	}
+
+	/**
+	 * @param pruefungsfaecherService the pruefungsfaecherService to set
+	 */
+	public void setPruefungsfaecherService(PruefungsfaecherService pruefungsfaecherService) {
+		this.pruefungsfaecherService = pruefungsfaecherService;
+	}
+
+	/**
+	 * @return the pruefungsfach
+	 */
+	public Pruefungsfach getPruefungsfach() {
+		return pruefungsfach;
 	}
 	
 }

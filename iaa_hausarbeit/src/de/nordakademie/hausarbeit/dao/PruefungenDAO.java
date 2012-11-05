@@ -10,7 +10,7 @@ import de.nordakademie.hausarbeit.model.Pruefung;
 
 /**
  * 
- * @author Niels Maseberg
+ * @author Niels Maseberg, Sabrina Schramm
  */
 public class PruefungenDAO extends HibernateDaoSupport {
 	/**
@@ -22,5 +22,17 @@ public class PruefungenDAO extends HibernateDaoSupport {
 	public List<Pruefung> loadPruefungen(Long pruefungsfachId) {
 		Session session = this.getSessionFactory().getCurrentSession();
 		return session.createQuery("from Pruefung as pruefung WHERE pruefung.pruefungsfach.id = :pruefungsfachId").setLong("pruefungsfachId", pruefungsfachId).list();
+	}
+	
+	/**
+	 * saveOrUpdatePruefung
+	 * create/update -> saveOrUpdate
+	 * 
+	 * @param pruefung
+	 * @return pruefung
+	 */
+	public Pruefung saveOrUpdatePruefung(Pruefung pruefung) {
+		getHibernateTemplate().saveOrUpdate(pruefung);
+		return pruefung;
 	}
 }

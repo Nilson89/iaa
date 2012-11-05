@@ -10,7 +10,7 @@ import de.nordakademie.hausarbeit.model.Student;
 
 /**
  * 
- * @author Niels Maseberg
+ * @author Niels Maseberg, Sabrina Schramm
  */
 public class PruefungenServiceImpl implements PruefungenService {
 	private PruefungenDAO pruefungenDAO;
@@ -60,6 +60,17 @@ public class PruefungenServiceImpl implements PruefungenService {
 	public boolean checkPruefungExists(Long pruefungsfachId, Date datum, Long dozentId) {
 		// TODO Auto-generated method stub
 		return false;
+	}
+	
+	/**
+	 * savePruefung
+	 * 
+	 * @param pruefung
+	 * @return pruefung
+	 */
+	@Override
+	public Pruefung savePruefung(Pruefung pruefung) {
+		return pruefungenDAO.saveOrUpdatePruefung(pruefung);
 	}
 
 	/**
