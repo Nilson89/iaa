@@ -7,7 +7,9 @@ import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.Property;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
+import de.nordakademie.hausarbeit.model.Pruefungsfach;
 import de.nordakademie.hausarbeit.model.Pruefungsleistung;
+import de.nordakademie.hausarbeit.model.Student;
 import de.nordakademie.hausarbeit.model.Studienrichtung;
 
 /**
@@ -39,6 +41,27 @@ public class PruefungsleistungenDAO extends HibernateDaoSupport {
 				.add( Property.forName("s.manipel.pk.studienrichtung").eq(studienrichtung) )
 				.createCriteria("person", "p")
 				.addOrder( Property.forName("p.name").asc() )
+				.list();
+		
+		return pruefungsleistungen;
+	}
+	
+	/**
+	 * loadPruefungsleistungenForStudentAndPruefungsfach
+	 * 
+	 * @param Student the student
+	 * @param Pruefungsfach the pruefungsfach
+	 * @return List<Pruefungsleistung>
+	 */
+	public List<Pruefungsleistung> loadPruefungsleistungenForStudentAndPruefungsfach(Student student, Pruefungsfach pruefungsfach) {
+		Session session = getSessionFactory().getCurrentSession();
+		
+		List<Pruefungsleistung> pruefungsleistungen = session.createCriteria(Pruefungsleistung.class, "pl")
+				.add( Property.forName("student").eq(student) )
+				.createCriteria("pruefung", "pr")
+				.add( Property.forName("pr.pruefungsfach").eq(pruefungsfach) )
+				.addOrder( Property.forName("pr.datum").asc() )
+				.addOrder( Property.forName("pl.erfassungsdatum").asc() )
 				.list();
 		
 		return pruefungsleistungen;

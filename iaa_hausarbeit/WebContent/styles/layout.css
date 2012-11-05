@@ -88,6 +88,12 @@ h2 {
     padding-left: 6px;
 }
 
+/* Texte */
+#Content div.textBox {
+	width: 95%;
+	margin: 10px auto;
+}
+
 /* Formulare */
 #Content .form {
     width: 95%;
@@ -157,6 +163,7 @@ h2 {
 
 #Content div.buttons div.button {
     float: left;
+    margin-right: 10px;
 }
 
 #Content div.buttons div.button input, #Content div.buttons div.button a {

@@ -26,7 +26,7 @@ INSERT INTO Pruefungsfach (id, manipelstudienrichtung, manipeljahrgang, titel, b
 INSERT INTO Pruefungsfach (id, manipelstudienrichtung, manipeljahrgang, titel, beschreibung) VALUES (8, 'I', 2007, 'Marketing', 'Prüfungsfach für das Modul Marketing');
 INSERT INTO Pruefungsfach (id, manipelstudienrichtung, manipeljahrgang, titel, beschreibung) VALUES (9, 'I', 2007, 'Allg. Betriebswirtschaftslehre', 'Prüfungsfach für das Modul Allg. Betriebswirtschaftslehre');
 INSERT INTO Pruefungsfach (id, manipelstudienrichtung, manipeljahrgang, titel, beschreibung) VALUES (10, 'I', 2007, 'Vollkswirtschaftslehre', 'Prüfungsfach für das Modul Vollkswirtschaftslehre');
-INSERT INTO Pruefungsfach (id, manipelstudienrichtung, manipeljahrgang, titel, beschreibung) VALUES (11, 'I', 2007, 'Gesch�ftsprozessmodellierung und Qualit�tsmanagement', 'Prüfungsfach für das Modul Gesch�ftsprozessmodellierung und Qualit�tsmanagement');
+INSERT INTO Pruefungsfach (id, manipelstudienrichtung, manipeljahrgang, titel, beschreibung) VALUES (11, 'I', 2007, 'Geschäftsprozessmodellierung und Qualitätsmanagement', 'Prüfungsfach für das Modul Geschäftsprozessmodellierung und Qualitätsmanagement');
 
 INSERT INTO Pruefungsfach (id, manipelstudienrichtung, manipeljahrgang, titel, beschreibung) VALUES (12, 'I', 2008, 'Mathematik 2', 'Prüfungsfach für das Modul Mathematik 2');
 INSERT INTO Pruefungsfach (id, manipelstudienrichtung, manipeljahrgang, titel, beschreibung) VALUES (13, 'I', 2008, 'Softwareproduktion', 'Prüfungsfach für das Modul Softwareproduktion');
@@ -38,7 +38,7 @@ INSERT INTO Pruefungsfach (id, manipelstudienrichtung, manipeljahrgang, titel, b
 INSERT INTO Pruefungsfach (id, manipelstudienrichtung, manipeljahrgang, titel, beschreibung) VALUES (19, 'I', 2008, 'Marketing', 'Prüfungsfach für das Modul Marketing');
 INSERT INTO Pruefungsfach (id, manipelstudienrichtung, manipeljahrgang, titel, beschreibung) VALUES (20, 'I', 2008, 'Allg. Betriebswirtschaftslehre', 'Prüfungsfach für das Modul Allg. Betriebswirtschaftslehre');
 INSERT INTO Pruefungsfach (id, manipelstudienrichtung, manipeljahrgang, titel, beschreibung) VALUES (21, 'I', 2008, 'Vollkswirtschaftslehre', 'Prüfungsfach für das Modul Vollkswirtschaftslehre');
-INSERT INTO Pruefungsfach (id, manipelstudienrichtung, manipeljahrgang, titel, beschreibung) VALUES (22, 'I', 2008, 'Gesch�ftsprozessmodellierung und Qualit�tsmanagement', 'Prüfungsfach für das Modul Gesch�ftsprozessmodellierung und Qualit�tsmanagement');
+INSERT INTO Pruefungsfach (id, manipelstudienrichtung, manipeljahrgang, titel, beschreibung) VALUES (22, 'I', 2008, 'Geschäftsprozessmodellierung und Qualitätsmanagement', 'Prüfungsfach für das Modul Geschäftsprozessmodellierung und Qualitätsmanagement');
 
 INSERT INTO Pruefungsfach (id, manipelstudienrichtung, manipeljahrgang, titel, beschreibung) VALUES (23, 'I', 2009, 'Mathematik 2', 'Prüfungsfach für das Modul Mathematik 2');
 INSERT INTO Pruefungsfach (id, manipelstudienrichtung, manipeljahrgang, titel, beschreibung) VALUES (24, 'I', 2009, 'Softwareproduktion', 'Prüfungsfach für das Modul Softwareproduktion');
@@ -50,7 +50,7 @@ INSERT INTO Pruefungsfach (id, manipelstudienrichtung, manipeljahrgang, titel, b
 INSERT INTO Pruefungsfach (id, manipelstudienrichtung, manipeljahrgang, titel, beschreibung) VALUES (30, 'I', 2009, 'Marketing', 'Prüfungsfach für das Modul Marketing');
 INSERT INTO Pruefungsfach (id, manipelstudienrichtung, manipeljahrgang, titel, beschreibung) VALUES (31, 'I', 2009, 'Allg. Betriebswirtschaftslehre', 'Prüfungsfach für das Modul Allg. Betriebswirtschaftslehre');
 INSERT INTO Pruefungsfach (id, manipelstudienrichtung, manipeljahrgang, titel, beschreibung) VALUES (32, 'I', 2009, 'Vollkswirtschaftslehre', 'Prüfungsfach für das Modul Vollkswirtschaftslehre');
-INSERT INTO Pruefungsfach (id, manipelstudienrichtung, manipeljahrgang, titel, beschreibung) VALUES (33, 'I', 2009, 'Gesch�ftsprozessmodellierung und Qualit�tsmanagement', 'Prüfungsfach für das Modul Gesch�ftsprozessmodellierung und Qualit�tsmanagement');
+INSERT INTO Pruefungsfach (id, manipelstudienrichtung, manipeljahrgang, titel, beschreibung) VALUES (33, 'I', 2009, 'Geschäftsprozessmodellierung und Qualitätsmanagement', 'Prüfungsfach für das Modul Geschäftsprozessmodellierung und Qualitätsmanagement');
 
 INSERT INTO Pruefungsfach (id, manipelstudienrichtung, manipeljahrgang, titel, beschreibung) VALUES (34, 'I', 2010, 'Mathematik 2', 'Prüfungsfach für das Modul Mathematik 2');
 INSERT INTO Pruefungsfach (id, manipelstudienrichtung, manipeljahrgang, titel, beschreibung) VALUES (35, 'I', 2010, 'Softwareproduktion', 'Prüfungsfach für das Modul Softwareproduktion');
@@ -62,7 +62,7 @@ INSERT INTO Pruefungsfach (id, manipelstudienrichtung, manipeljahrgang, titel, b
 INSERT INTO Pruefungsfach (id, manipelstudienrichtung, manipeljahrgang, titel, beschreibung) VALUES (41, 'I', 2010, 'Marketing', 'Prüfungsfach für das Modul Marketing');
 INSERT INTO Pruefungsfach (id, manipelstudienrichtung, manipeljahrgang, titel, beschreibung) VALUES (42, 'I', 2010, 'Allg. Betriebswirtschaftslehre', 'Prüfungsfach für das Modul Allg. Betriebswirtschaftslehre');
 INSERT INTO Pruefungsfach (id, manipelstudienrichtung, manipeljahrgang, titel, beschreibung) VALUES (43, 'I', 2010, 'Vollkswirtschaftslehre', 'Prüfungsfach für das Modul Vollkswirtschaftslehre');
-INSERT INTO Pruefungsfach (id, manipelstudienrichtung, manipeljahrgang, titel, beschreibung) VALUES (44, 'I', 2010, 'Gesch�ftsprozessmodellierung und Qualit�tsmanagement', 'Prüfungsfach für das Modul Gesch�ftsprozessmodellierung und Qualit�tsmanagement');
+INSERT INTO Pruefungsfach (id, manipelstudienrichtung, manipeljahrgang, titel, beschreibung) VALUES (44, 'I', 2010, 'Geschäftsprozessmodellierung und Qualitätsmanagement', 'Prüfungsfach für das Modul Geschäftsprozessmodellierung und Qualitätsmanagement');
 
 INSERT INTO Pruefungsfach (id, manipelstudienrichtung, manipeljahrgang, titel, beschreibung) VALUES (45, 'I', 2011, 'Mathematik 2', 'Prüfungsfach für das Modul Mathematik 2');
 INSERT INTO Pruefungsfach (id, manipelstudienrichtung, manipeljahrgang, titel, beschreibung) VALUES (46, 'I', 2011, 'Softwareproduktion', 'Prüfungsfach für das Modul Softwareproduktion');
@@ -74,7 +74,7 @@ INSERT INTO Pruefungsfach (id, manipelstudienrichtung, manipeljahrgang, titel, b
 INSERT INTO Pruefungsfach (id, manipelstudienrichtung, manipeljahrgang, titel, beschreibung) VALUES (52, 'I', 2011, 'Marketing', 'Prüfungsfach für das Modul Marketing');
 INSERT INTO Pruefungsfach (id, manipelstudienrichtung, manipeljahrgang, titel, beschreibung) VALUES (53, 'I', 2011, 'Allg. Betriebswirtschaftslehre', 'Prüfungsfach für das Modul Allg. Betriebswirtschaftslehre');
 INSERT INTO Pruefungsfach (id, manipelstudienrichtung, manipeljahrgang, titel, beschreibung) VALUES (54, 'I', 2011, 'Vollkswirtschaftslehre', 'Prüfungsfach für das Modul Vollkswirtschaftslehre');
-INSERT INTO Pruefungsfach (id, manipelstudienrichtung, manipeljahrgang, titel, beschreibung) VALUES (55, 'I', 2011, 'Gesch�ftsprozessmodellierung und Qualit�tsmanagement', 'Prüfungsfach für das Modul Gesch�ftsprozessmodellierung und Qualit�tsmanagement');
+INSERT INTO Pruefungsfach (id, manipelstudienrichtung, manipeljahrgang, titel, beschreibung) VALUES (55, 'I', 2011, 'Geschäftsprozessmodellierung und Qualitätsmanagement', 'Prüfungsfach für das Modul Geschäftsprozessmodellierung und Qualitätsmanagement');
 
 
 /* Person */
@@ -150,7 +150,7 @@ INSERT INTO Student (matrikelnummer, manipelstudienrichtung, manipeljahrgang, pe
 INSERT INTO Student (matrikelnummer, manipelstudienrichtung, manipeljahrgang, personid) VALUES (4020, 'I', 2007, 33);
 
 /* User */
-INSERT INTO User (id, personid) VALUES (1, 10);
+INSERT INTO User (id, personid) VALUES (1, 7); /* Ulrike Heinrich */
 
 /* Prüfung */
 INSERT INTO Pruefung (id, dozentid, pruefungsfachid, datum) VALUES (1, 1, 1, '2012-06-20');
@@ -162,7 +162,7 @@ INSERT INTO Pruefung (id, dozentid, pruefungsfachid, datum) VALUES (6, 1, 13, '2
 INSERT INTO Pruefung (id, dozentid, pruefungsfachid, datum) VALUES (7, 2, 14, '2011-06-01');
 INSERT INTO Pruefung (id, dozentid, pruefungsfachid, datum) VALUES (8, 2, 15, '2011-09-18');
 INSERT INTO Pruefung (id, dozentid, pruefungsfachid, datum) VALUES (9, 3, 26, '2011-10-20');
-INSERT INTO Pruefung (id, dozentid, pruefungsfachid, datum) VALUES (10, 2, 27, '2011-03-26');
+INSERT INTO Pruefung (id, dozentid, pruefungsfachid, datum) VALUES (10, 3, 26, '2012-03-26');
 INSERT INTO Pruefung (id, dozentid, pruefungsfachid, datum) VALUES (11, 10, 28, '2011-05-21');
 INSERT INTO Pruefung (id, dozentid, pruefungsfachid, datum) VALUES (12, 8, 29, '2011-05-27');
 INSERT INTO Pruefung (id, dozentid, pruefungsfachid, datum) VALUES (13, 8, 40, '2012-05-20');
@@ -181,20 +181,19 @@ INSERT INTO Ergaenzungspruefung (id, note, datum, erfassungsdatum) VALUES (7, 'E
 INSERT INTO Ergaenzungspruefung (id, note, datum, erfassungsdatum) VALUES (8, 'ZWEI', '2012-01-15', '2012-01-20');
 INSERT INTO Ergaenzungspruefung (id, note, datum, erfassungsdatum) VALUES (9, 'ZWEI', '2012-03-28', '2012-04-10');
 INSERT INTO Ergaenzungspruefung (id, note, datum, erfassungsdatum) VALUES (10, 'ZWEI', '2012-06-16', '2012-06-24');
+INSERT INTO Ergaenzungspruefung (id, note, datum, erfassungsdatum) VALUES (11, 'EINSDREI', '2012-01-10', '2012-01-21');
 
 
 /* Prüfungsleistungen */
-INSERT INTO Pruefungsleistung (id, studentmatrikelnummer, pruefungid, userid, versuch, note, mdl_moeglich, gueltig, erfassungsdatum, ergaenzungspruefungid) VALUES (1, 4016, 1, 1, 1, 'FUENF', 1, 1, '2012-07-25', 2);
-INSERT INTO Pruefungsleistung (id, studentmatrikelnummer, pruefungid, userid, versuch, note, mdl_moeglich, gueltig, erfassungsdatum) VALUES (2, 4017, 1, 1, 1, 'SECHS', 1, 1, '2012-07-25');
-INSERT INTO Pruefungsleistung (id, studentmatrikelnummer, pruefungid, userid, versuch, note, mdl_moeglich, gueltig, erfassungsdatum) VALUES (3, 4018, 1, 1, 1, 'EINSSIEBEN', 1, 1, '2012-07-25');
-INSERT INTO Pruefungsleistung (id, studentmatrikelnummer, pruefungid, userid, versuch, note, mdl_moeglich, gueltig, erfassungsdatum) VALUES (4, 4016, 2, 1, 2, 'EINSSIEBEN', 1, 1, '2012-10-30');
-INSERT INTO Pruefungsleistung (id, studentmatrikelnummer, pruefungid, userid, versuch, note, mdl_moeglich, gueltig, erfassungsdatum, ergaenzungspruefungid) VALUES (5, 4017, 2, 1, 2, 'FUENF', 1, 1, '2012-10-30', 1);
-INSERT INTO Pruefungsleistung (id, studentmatrikelnummer, pruefungid, userid, versuch, note, mdl_moeglich, gueltig, erfassungsdatum, ergaenzungspruefungid) VALUES (6, 4030, 1, 1, 1, 'ZWEI', 1, 1, '2011-06-27', 3);
-INSERT INTO Pruefungsleistung (id, studentmatrikelnummer, pruefungid, userid, versuch, note, mdl_moeglich, gueltig, erfassungsdatum) VALUES (7, 4031, 4, 2, 1, 'DREI', 1, 1, '2012-10-05');
-INSERT INTO Pruefungsleistung (id, studentmatrikelnummer, pruefungid, userid, versuch, note, mdl_moeglich, gueltig, erfassungsdatum) VALUES (8, 4032, 6, 1, 1, 'FUENF', 2, 1, '2011-10-25');
-INSERT INTO Pruefungsleistung (id, studentmatrikelnummer, pruefungid, userid, versuch, note, mdl_moeglich, gueltig, erfassungsdatum) VALUES (9, 3810, 8, 2, 2, 'FUENF', 2, 1, '2011-10-30');
-INSERT INTO Pruefungsleistung (id, studentmatrikelnummer, pruefungid, userid, versuch, note, mdl_moeglich, gueltig, erfassungsdatum, ergaenzungspruefungid) VALUES (10, 3811, 8, 2, 2, 'FUENF', 1, 1, '2011-10-03', 6);
-INSERT INTO Pruefungsleistung (id, studentmatrikelnummer, pruefungid, userid, versuch, note, mdl_moeglich, gueltig, erfassungsdatum, ergaenzungspruefungid) VALUES (11, 3812, 6, 1, 1, 'FUENF', 1, 1, '2012-02-10', 8);
-INSERT INTO Pruefungsleistung (id, studentmatrikelnummer, pruefungid, userid, versuch, note, mdl_moeglich, gueltig, erfassungsdatum) VALUES (12, 4050, 10, 12, 1, 'SECHS', 1, 1, '2011-04-25');
-INSERT INTO Pruefungsleistung (id, studentmatrikelnummer, pruefungid, userid, versuch, note, mdl_moeglich, gueltig, erfassungsdatum) VALUES (13, 4051, 12, 8, 1, 'EINSSIEBEN', 1, 1, '2011-07-02');
+INSERT INTO Pruefungsleistung (id, studentmatrikelnummer, pruefungid, userid, versuch, note, mdl_moeglich, gueltig, erfassungsdatum, aenderungseintrag, ergaenzungspruefungid) VALUES (1, 4016, 9, 1, 1, 'FUENF', 1, 1, '2011-11-10', 0, 2);
+INSERT INTO Pruefungsleistung (id, studentmatrikelnummer, pruefungid, userid, versuch, note, mdl_moeglich, gueltig, erfassungsdatum, aenderungseintrag) VALUES (2, 4017, 9, 1, 1, 'SECHS', 1, 1, '2012-07-25', 0);
+INSERT INTO Pruefungsleistung (id, studentmatrikelnummer, pruefungid, userid, versuch, note, mdl_moeglich, gueltig, erfassungsdatum, aenderungseintrag) VALUES (3, 4018, 9, 1, 1, 'EINSSIEBEN', 1, 1, '2012-07-25', 0);
+INSERT INTO Pruefungsleistung (id, studentmatrikelnummer, pruefungid, userid, versuch, note, mdl_moeglich, gueltig, erfassungsdatum, aenderungseintrag) VALUES (4, 4016, 10, 1, 2, 'EINSSIEBEN', 1, 1, '2012-04-30', 0);
+INSERT INTO Pruefungsleistung (id, studentmatrikelnummer, pruefungid, userid, versuch, note, mdl_moeglich, gueltig, erfassungsdatum, aenderungseintrag, ergaenzungspruefungid) VALUES (5, 4017, 10, 1, 2, 'FUENF', 1, 1, '2012-10-30', 0, 1);
+INSERT INTO Pruefungsleistung (id, studentmatrikelnummer, pruefungid, userid, versuch, note, mdl_moeglich, gueltig, erfassungsdatum, aenderungseintrag, ergaenzungspruefungid) VALUES (6, 4030, 13, 1, 1, 'ZWEI', 1, 1, '2011-06-27', 0, 3);
+INSERT INTO Pruefungsleistung (id, studentmatrikelnummer, pruefungid, userid, versuch, note, mdl_moeglich, gueltig, erfassungsdatum, aenderungseintrag) VALUES (7, 4031, 13, 1, 1, 'DREI', 1, 1, '2012-10-05', 0);
+INSERT INTO Pruefungsleistung (id, studentmatrikelnummer, pruefungid, userid, versuch, note, mdl_moeglich, gueltig, erfassungsdatum, aenderungseintrag) VALUES (8, 4032, 13, 1, 1, 'FUENF', 1, 1, '2011-10-25', 0);
+INSERT INTO Pruefungsleistung (id, studentmatrikelnummer, pruefungid, userid, versuch, note, mdl_moeglich, gueltig, erfassungsdatum, aenderungseintrag) VALUES (9, 3810, 1, 1, 1, 'SECHS', 0, 1, '2011-10-30', 0);
+INSERT INTO Pruefungsleistung (id, studentmatrikelnummer, pruefungid, userid, versuch, note, mdl_moeglich, gueltig, erfassungsdatum, aenderungseintrag) VALUES (10, 4020, 1, 1, 1, 'FUENF', 1, 1, '2011-07-02', 0);
+INSERT INTO Pruefungsleistung (id, studentmatrikelnummer, pruefungid, userid, versuch, note, mdl_moeglich, gueltig, erfassungsdatum, aenderungseintrag) VALUES (11, 4020, 1, 1, 2, 'FUENF', 1, 1, '2011-12-12', 0, 11);
 
