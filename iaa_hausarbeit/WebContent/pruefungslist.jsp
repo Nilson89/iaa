@@ -3,12 +3,13 @@
 
 <%-- Niels Maseberg, Sabrina Schramm --%>
 
-<h2>Übersicht Prüfungen aus Prüfungsfach "<s:property value="pruefungsfach.getTitel()" />"</h2>
+<h2><s:text name="txtHeadingPruefungslist" /> "<s:property value="pruefungsfach.getTitel()" />"</h2>
 <s:form>
 	<div class="buttons">
 		<div class="button">
 			<s:hidden name="selectedPruefungsfachId" value="%{pruefungsfach.id}" />
 			<s:submit key="btnCreatePruefung" action="createPruefung" />
+			<s:submit key="btnAnzeigePruefungsleistungen" action="showPruefungsleistungen" />
 			<s:submit key="btnPruefungenHistorie" action="pruefungenHistorie" />
 		</div>
 		<div class="clear"></div>
@@ -21,8 +22,8 @@
 		<thead>
 			<tr>
 				<th>&nbsp;</th>
-				<th>Datum</th>
-				<th>Dozent</th>
+				<th><s:text name="txtPruefungslistDatum" /></th>
+				<th><s:text name="txtPruefungslistDozent" /></th>
 			</tr>
 		</thead>
 		<tbody>
@@ -41,4 +42,11 @@
 		</tbody>
 	</table>
 	
+	<div class="buttons">
+		<div class="button">
+			<s:submit key="btnCreatePl" action="createPruefungsleistungen" />
+			<s:submit key="btnCreateMdlPl" action="createMdlPruefungsleistungen" />
+		</div>
+		<div class="clear"></div>
+	</div>
 </s:form>

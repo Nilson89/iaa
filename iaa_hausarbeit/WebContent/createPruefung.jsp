@@ -3,8 +3,10 @@
 
 <%-- Sabrina Schramm --%>
 
-<h2><s:text name="txtHeadingPruefungsanlage" />" <s:property value="pruefungsfach.getTitel()" />"</h2>
-<h5><s:text name="txtAnweisungPruefungsanlage" /></h5>
+<h2><s:text name="txtHeadingPruefungsanlage" /> "<s:property value="pruefungsfach.getTitel()" />"</h2>
+<div class="textBox">
+	<p><s:text name="txtAnweisungPruefungsanlage" /></p>
+</div>
 <s:form>
 	<s:hidden name="selectedPruefungsfachId" value="%{selectedPruefungsfachId}" />
 	<div class="form">

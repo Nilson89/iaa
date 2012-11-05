@@ -48,4 +48,19 @@
 		<put-attribute name="content" value="/pruefungenHistorieDetail.jsp" />
 	</definition>
 	
+	<!-- ShowPruefungsleistungen -->
+	<definition name="showPruefungsleistungen" extends="mainLayout">
+		<put-attribute name="content" value="/showPruefungsleistungen.jsp" />
+	</definition>
+	
+	<!-- CreatePruefungsleistungen -->
+	<definition name="createPruefungsleistungen" extends="mainLayout">
+		<put-attribute name="content" value="/createPruefungsleistungen.jsp" />
+	</definition>
+	
+	<!-- CreateMdlPruefungsleistungen -->
+	<definition name="createMdlPruefungsleistungen" extends="mainLayout">
+		<put-attribute name="content" value="/createMdlPruefungsleistungen.jsp" />
+	</definition>
+	
 </tiles-definitions>

@@ -3,17 +3,17 @@
 
 <%-- Niels Maseberg --%>
 
-<h2>Übersicht Prüfungsfächer</h2>
+<h2><s:text name="txtHeadingIndex" /></h2>
 <s:form>
 	<table cellpadding="0">
 		<caption>Liste aller Prüfungsfächer inklusive Studienrichtung und Jahrgang</caption>
 		<thead>
 			<tr>
 				<th>&nbsp;</th>
-				<th>Studienrichtung</th>
-				<th>Titel</th>
-				<th>Jahrgang</th>
-				<th>Beschreibung</th>
+				<th><s:text name="txtIndexStudienrichtung" /></th>
+				<th><s:text name="txtIndexTitel" /></th>
+				<th><s:text name="txtIndexJahrgang" /></th>
+				<th><s:text name="txtIndexBeschreibung" /></th>
 			</tr>
 		</thead>
 		<tbody>

@@ -56,6 +56,10 @@
 			<result name="input">createPruefung</result>
 		</action>
 		
+		<action name="showPruefungsleistungen" class="de.nordakademie.hausarbeit.action.ShowPruefungsleistungenAction">
+			<result type="tiles">showPruefungsleistungen</result>
+		</action>
+		
 		<action name="pruefungenHistorie" class="de.nordakademie.hausarbeit.action.PruefungenHistorieAction">
 			<result type="tiles">pruefungenHistorie</result>
 			<interceptor-ref name="defaultStack">
@@ -67,6 +71,14 @@
 		<action name="pruefungenHistorieDetail" class="de.nordakademie.hausarbeit.action.PruefungenHistorieAction" method="showDetail">
 			<result name="input">pruefungenHistorie</result>
 			<result name="success">pruefungenHistorieDetail</result>
+		</action>
+		
+		<action name="createPruefungsleistungen" class="de.nordakademie.hausarbeit.action.CreatePruefungsleistungenAction">
+			<result type="tiles">createPruefungsleistungen</result>
+		</action>
+		
+		<action name="createMdlPruefungsleistungen" class="de.nordakademie.hausarbeit.action.CreateMdlPruefungsleistungenAction">
+			<result type="tiles">createMdlPruefungsleistungen</result>
 		</action>
 		
 	</package>
