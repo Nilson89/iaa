@@ -157,6 +157,7 @@ h2 {
 
 #Content div.buttons div.button {
     float: left;
+    margin-right: 10px;
 }
 
 #Content div.buttons div.button input, #Content div.buttons div.button a {

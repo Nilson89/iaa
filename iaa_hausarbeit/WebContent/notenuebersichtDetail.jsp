@@ -46,7 +46,9 @@
 					<td><s:property value="student.getPerson().getVorname()"/></td>
 					<td><s:property value="pruefung.getPruefungsfach().getTitel()"/></td>
 					<td><s:property value="versuch"/></td>
-					<td><s:property value="note" /></td>
+					<td>
+						<s:property value="note" />
+					</td>
 				</tr>
 			</s:iterator>
 		</tbody>

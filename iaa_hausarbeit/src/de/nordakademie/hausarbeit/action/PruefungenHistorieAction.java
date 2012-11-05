@@ -80,7 +80,7 @@ public class PruefungenHistorieAction extends ActionSupport {
 			logger.debug("PruefungenHistorieAction: Loading Pruefungsfach with ID '" + selectedPruefungsfachId + "'...");
 		}
 		
-		Pruefungsfach pruefungsfach = pruefungsfaecherService.getPruefungsfach(selectedPruefungsfachId);		
+		pruefungsfach = pruefungsfaecherService.getPruefungsfach(selectedPruefungsfachId);		
 		matrikelnummern = studentService.getMatrikelnummerListByManipel(pruefungsfach.getManipel());
 	}
 
@@ -154,5 +154,12 @@ public class PruefungenHistorieAction extends ActionSupport {
 	 */
 	public Pruefungsfach getPruefungsfach() {
 		return pruefungsfach;
+	}
+
+	/**
+	 * @return the student
+	 */
+	public Student getStudent() {
+		return student;
 	}
 }

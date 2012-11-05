@@ -38,8 +38,7 @@ public class PruefungsleistungenServiceImpl implements PruefungsleistungenServic
 	 * getHistoriePruefungen
 	 */
 	public List<Pruefungsleistung> getHistoriePruefungen(Student student, Pruefungsfach pruefungsfach) {
-		// TODO
-		return null;
+		return pruefungsleistungenDAO.loadPruefungsleistungenForStudentAndPruefungsfach(student, pruefungsfach);
 	}
 
 }
