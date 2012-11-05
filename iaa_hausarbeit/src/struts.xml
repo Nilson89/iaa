@@ -52,7 +52,8 @@
 		</action>
 		
 		<action name="savePruefung" class="de.nordakademie.hausarbeit.action.CreatePruefungAction" method="savePruefung">
-			<result type="chain">pruefungslist</result>	
+			<result type="chain">pruefungslist</result>
+			<result name="input">createPruefung</result>
 		</action>
 		
 		<action name="pruefungenHistorie" class="de.nordakademie.hausarbeit.action.PruefungenHistorieAction">
