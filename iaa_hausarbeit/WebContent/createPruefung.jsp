@@ -7,12 +7,14 @@
 <s:form>
 	<div class="form">
 		<div class="field">
-			<span class="label">Datum:</span>
+			<span class="label"><s:text name="txtLabelDatum" /></span>
+			<s:hidden name="selectedPruefungsfachId" value="%{selectedPruefungsfachId}" />
 			<s:textfield name="pruefung.datum" label="Pruefungsdatum"/>
 			<div class="clear"></div>
 		</div>
 		<div class="field">
-			<span class="label">Dozent:</span>
+			<span class="label"><s:text name="txtLabelDozent" /></span>
+			<s:hidden name="selectedPruefungsfachId" value="%{selectedPruefungsfachId}" />
 			<s:select label="Dozent" headerKey="none" headerValue="Bitte wählen..." list="dozentenList" listKey="id" listValue="person.getFullName()" 
 				name="selectedDozent" value="selectedDozent"/>
 			<div class="clear"></div>
@@ -20,8 +22,8 @@
 	</div>
 	<div class="buttons">
 		<div class="button">
-			<s:submit value="Prüfung anlegen" action="savePruefung" />
-			<s:submit value="Abbrechen" action="pruefungslist" />
+			<s:submit key="btnCreatePruefung" action="savePruefung" />
+			<s:submit key="btnAbbrechen" action="pruefungslist" />
 		</div>
 		<div class="clear"></div>
 	</div>

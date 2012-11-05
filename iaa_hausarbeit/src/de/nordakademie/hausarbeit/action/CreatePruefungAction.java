@@ -1,7 +1,7 @@
 package de.nordakademie.hausarbeit.action;
 
+import java.util.Date;
 import java.util.List;
-
 
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -25,6 +25,7 @@ public class CreatePruefungAction extends ActionSupport {
 	private PruefungsfaecherService pruefungsfaecherService;
 	
 	private Long selectedPruefungsfachId;
+	//private Date inputDatum = null;
 	private String selectedDozent = "none";
 	private Pruefungsfach pruefungsfach;
 	private List<Dozent> dozentenList;
@@ -42,13 +43,39 @@ public class CreatePruefungAction extends ActionSupport {
 		return SUCCESS;
 	}
 	
-	
 	/**
 	 * savePruefung
 	 */
 	public String savePruefung() throws Exception {
 		pruefungenService.savePruefung(pruefung);
 		return SUCCESS;
+	}
+	
+	/**
+	 * validate
+	 */
+	public void validate() {
+		super.validate();
+		
+		// Load the List of all Dozenten
+		loadDozentenList();
+		
+		// If no Dozent is selected, then show Error
+		if (getSelectedDozent().equals("none")) {
+			addFieldError("selectedDozent", getText("error.no.dozent.selected"));
+		}
+		
+		// If no Datum was entered
+		//if (getInputDatum().equals(null)){
+		//	addFieldError("inputDatum", getText("error.no.datum.entered"));
+		//}
+		
+		//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+		// If the Datum is in past
+		//if (getInputDatum().){
+		//	addFieldError("inputDatum", getText("error.datum.in.past"));
+		//}
+
 	}
 	
 	/**
@@ -65,20 +92,6 @@ public class CreatePruefungAction extends ActionSupport {
 		this.selectedPruefungsfachId = selectedPruefungsfachId;
 	}
 	
-	/**
-	 * validate
-	 */
-	public void validate() {
-		super.validate();
-		
-		// Load the List of all Dozenten
-		loadDozentenList();
-		
-		// If no Dozent is selected, then show Error
-		if (getSelectedDozent().equals("none")) {
-			addFieldError("selectedDozent", getText("error.no.dozent.selected"));
-		}
-	}
 	
 	/**
 	 * @param dozentenService the dozentenService to set
@@ -133,5 +146,5 @@ public class CreatePruefungAction extends ActionSupport {
 	public Pruefungsfach getPruefungsfach() {
 		return pruefungsfach;
 	}
-	
+
 }

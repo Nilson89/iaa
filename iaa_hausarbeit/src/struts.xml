@@ -44,12 +44,10 @@
 		</action>
 		
 		<action name="createPruefung" class="de.nordakademie.hausarbeit.action.CreatePruefungAction">
-			<result name="input">createPruefung</result>
-			<result name="success">pruefungslist</result>
 			<result type="tiles">createPruefung</result>
-			<interceptor-ref name="validation">
-				<param name="validateAnnotatedMethodOnly">true</param>                
-  				<param name="excludeMethods">execute</param>
+			<interceptor-ref name="defaultStack">
+				<param name="validation.validateAnnotatedMethodOnly">true</param>                
+  				<param name="validation.excludeMethods">execute</param>
 			</interceptor-ref>
 		</action>
 		
