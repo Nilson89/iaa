@@ -75,7 +75,7 @@
 					<td>
 						<s:property value="note"/>
 						<s:if test="ergaenzungspruefung != null">
-							 (<s:property value="ergaenzungspruefung.getNote()" />)
+							 (<s:property value="ergaenzungspruefung.getNote()" />) Endnote: <s:property value="getEndNote()"/>
 						</s:if>
 						<!-- TODO Endnote anzeigen -->
 					</td>

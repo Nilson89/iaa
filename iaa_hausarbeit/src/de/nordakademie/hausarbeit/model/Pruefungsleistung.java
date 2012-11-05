@@ -13,6 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
+import javax.persistence.Transient;
 
 import org.hibernate.annotations.NotFound;
 import org.hibernate.annotations.NotFoundAction;
@@ -196,5 +197,29 @@ public class Pruefungsleistung {
 	 */
 	public void setAenderungseintrag(boolean aenderungseintrag) {
 		this.aenderungseintrag = aenderungseintrag;
+	}
+	
+	/**
+	 * getEndNote
+	 * 
+	 * @return the final note
+	 */
+	@Transient
+	public Note getEndNote() {
+		if (ergaenzungspruefung != null) {
+			// Get final grade
+			switch (ergaenzungspruefung.getNote()) {
+			case EINS:
+			case EINSDREI:
+				return Note.DREISIEBEN;
+			case EINSSIEBEN:
+			case ZWEI:
+				return Note.VIER;
+			default:
+				return Note.FUENF;
+			}
+		} else {
+			return note;
+		}
 	}
 }

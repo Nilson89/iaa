@@ -47,7 +47,7 @@
 					<td><s:property value="pruefung.getPruefungsfach().getTitel()"/></td>
 					<td><s:property value="versuch"/></td>
 					<td>
-						<s:property value="note" />
+						<s:property value="getEndNote()" />
 					</td>
 				</tr>
 			</s:iterator>
