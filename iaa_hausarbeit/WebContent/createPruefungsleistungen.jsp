@@ -5,44 +5,47 @@
 
 <h2><s:text name="txtHeadingPruefungsleistungsanlage" /> "<s:property value="pruefungsfach.getTitel()" />"</h2>
 <div class="textBox">
-	<p><s:text name="txtAnweisungPruefungsleistungsanlage" /></p>
+	<p><s:text name="txtAnweisungPruefungsleistungsanlageOben" /></p>
 </div>
 <s:form>
 	<s:hidden name="selectedPruefungsfachId" value="%{selectedPruefungsfachId}" />
-	<div class="form">
-		<div class="field">
-			<span class="label"><s:text name="txtLabelPLMatrikelnummer" /></span>
-			<s:textfield name="pruefungsleistung.student.matrikelnummer" label="Matrikelnummer"/>
-			<div class="clear"></div>
-		</div>
-		<div class="field">
-			<span class="label"><s:text name="txtLabelPLName" /></span>
-			<s:textfield name="pruefungsleistung.student.person.name" label="Studentenname"/>
-			<div class="clear"></div>
-		</div>
-		<div class="field">
-			<span class="label"><s:text name="txtLabelPLVorname" /></span>
-			<s:textfield name="pruefungsleistung.student.person.vorname" label="Studentenvorname"/>
-			<div class="clear"></div>
-		</div>
-		<div class="field">
-			<span class="label"><s:text name="txtLabelPLErsterVersuch" /></span>
-			<s:select label="ErsterVersuch" headerKey="none" headerValue="Bitte wählen..." list="notenList" listKey="id" listValue="note" 
-				name="selectedNoteEins" value="selectedNoteEins"/>
-			<div class="clear"></div>
-		</div>	
-		<div class="field">
-			<span class="label"><s:text name="txtLabelPLZweiterVersuch" /></span>
-			<s:select label="ZweiterVersuch" headerKey="none" headerValue="Bitte wählen..." list="notenList" listKey="id" listValue="note" 
-				name="selectedNoteZweiter" value="selectedNoteZweiter"/>
-			<div class="clear"></div>
-		</div>
-		<div class="field">
-			<span class="label"><s:text name="txtLabelPLDritterVersuch" /></span>
-			<s:select label="DritterVersuch" headerKey="none" headerValue="Bitte wählen..." list="notenList" listKey="id" listValue="note" 
-				name="selectedNoteDritter" value="selectedNoteDritter"/>
-			<div class="clear"></div>
-		</div>
+	<table cellpadding="0">
+		<caption>Anlage neuer Prüfungsleistungen im Prüfungsfach "<s:property value="pruefungsfach.getTitel()" />"</caption>
+		<thead>
+			<tr>
+				<th>&nbsp;</th>
+				<th><s:text name="txtPLMatrikelnummer" /></th>
+				<th><s:text name="txtPLName" /></th>
+				<th><s:text name="txtPLVorname" /></th>
+				<th><s:text name="txtPLManipel" /></th>
+				<th><s:text name="txtPLVersuch" /></th>
+				<th><s:text name="txtPLNote" /></th>
+			</tr>
+		</thead>
+		<tbody>
+			<s:iterator value="pruefungsleistung" status="rowstatus">
+				<s:if test="#rowstatus.odd == true">
+					<tr class="odd">
+				</s:if>
+				<s:else>
+					<tr class="even">
+				</s:else>
+					<td class="cell_radio"><s:radio name="selectedPruefungId" list="#{id:''}" theme="simple"/></td>
+					<td><s:property value="student.getMatrikelnummer()"/></td>
+					<td><s:property value="student.getPerson().getName()"/> <s:property value="dozent.getPerson().getName()"/></td>
+					<td><s:property value="student.getPerson().getVorname()"/></td>
+					<td><s:property value="student.getManipel()"/> <s:property value="dozent.getPerson().getName()"/></td>
+					<td><s:property value="versuch"/></td>
+					<td><s:select label="Note" headerKey="none" headerValue="Bitte wählen..." list="notenList" listKey="id" listValue="note.getNote()" 
+				name="selectedNote" value="selectedNote"/></td>
+				</tr>
+			</s:iterator>
+		</tbody>
+	</table>
+	<div class="textBox">
+		<p><s:text name="txtAnweisungPruefungsleistungsanlageUntenA" /></p>
+		<p><s:text name="txtAnweisungPruefungsleistungsanlageUntenB" /></p>
+		<p><s:text name="txtAnweisungPruefungsleistungsanlageUntenC" /></p>
 	</div>
 	<div class="buttons">
 		<div class="button">
