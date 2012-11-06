@@ -35,7 +35,7 @@
 	</table>
 	<div class="buttons">
 		<div class="button">
-			<s:submit value="Prüfungen anzeigen" action="pruefungslist" />
+			<s:submit value="Prüfungen anzeigen" action="pruefungslist" cssClass="listTable" />
 		</div>
 		<div class="clear"></div>
 	</div>

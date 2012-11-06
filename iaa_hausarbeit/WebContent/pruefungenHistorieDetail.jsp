@@ -16,7 +16,7 @@
 	</div>
 	<div class="buttons">
 		<div class="button">
-			<s:submit key="txtSubmitPruefungenHistorie" action="pruefungenHistorieDetail" />
+			<s:submit key="txtSubmitPruefungenHistorie" action="pruefungenHistorieDetail" cssClass="history" />
 		</div>
 		<div class="clear"></div>
 	</div>

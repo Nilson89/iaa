@@ -188,6 +188,34 @@ h2 {
 	padding-left: 20px;
 }
 
+#Content div.buttons div.button .add {
+	background-image: url('/iaa_hausarbeit/images/application_form_add.png');
+	background-position: left;
+	background-repeat: no-repeat;
+	padding-left: 20px;
+}
+
+#Content div.buttons div.button .history {
+	background-image: url('/iaa_hausarbeit/images/application_form_magnify.png');
+	background-position: left;
+	background-repeat: no-repeat;
+	padding-left: 20px;
+}
+
+#Content div.buttons div.button .save {
+	background-image: url('/iaa_hausarbeit/images/disk.png');
+	background-position: left;
+	background-repeat: no-repeat;
+	padding-left: 20px;
+}
+
+#Content div.buttons div.button .cancel {
+	background-image: url('/iaa_hausarbeit/images/cancel.png');
+	background-position: left;
+	background-repeat: no-repeat;
+	padding-left: 20px;
+}
+
 /* Sonstiges */
 div.clear {
 	clear: both;

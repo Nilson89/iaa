@@ -21,22 +21,22 @@
 			</tr>
 		</thead>
 		<tbody>
-			<!--<s:iterator value="pruefungsleistungen" status="rowstatus">
+			<s:iterator value="studenten" status="rowstatus">
 				<s:if test="#rowstatus.odd == true">
 					<tr class="odd">
 				</s:if>
 				<s:else>
 					<tr class="even">
 				</s:else>
-					<td class="cell_radio"><s:radio name="selectedPruefungsleistung" list="#{id:''}" theme="simple"/></td>
-					<td><s:property value="student.getMatrikelnummer()"/></td>
-					<td><s:property value="student.person.getName()"/></td>
-					<td><s:property value="student.person.getVorname()"/></td>
-					<td><s:property value="titel"/></td>
-					<td><s:property value="datum"/></td>
-					<td><s:property value="erfasser"/></td>
+					<td><s:property value="person.getName()"/></td>
+					<td><s:property value="person.getVorname()"/></td>
+					<td><s:property value="matrikelnummer"/></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
 				</tr>
-			</s:iterator>-->
+			</s:iterator>
 		</tbody>
 	</table>
 	

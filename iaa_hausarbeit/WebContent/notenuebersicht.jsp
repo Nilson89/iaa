@@ -14,7 +14,7 @@
 	</div>
 	<div class="buttons">
 		<div class="button">
-			<s:submit value="Noten anzeigen" action="notenuebersichtDetail" />
+			<s:submit value="Noten anzeigen" action="notenuebersichtDetail" cssClass="listTable" />
 		</div>
 		<div class="clear"></div>
 	</div>

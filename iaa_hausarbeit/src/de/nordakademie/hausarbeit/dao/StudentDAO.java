@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.hibernate.ObjectNotFoundException;
 import org.hibernate.Session;
+import org.hibernate.criterion.Property;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 import de.nordakademie.hausarbeit.model.Manipel;
@@ -41,5 +42,23 @@ public class StudentDAO extends HibernateDaoSupport {
 			// TODO: get Logger and log this!!!
 		}
 		return null;
+	}
+	
+	/**
+	 * loadStudentenByManipel
+	 * 
+	 * @param Manipel manipel
+	 * @return List<Student>
+	 */
+	public List<Student> loadStudentenByManipel(Manipel manipel) {
+		Session session = this.getSessionFactory().getCurrentSession();
+		
+		List<Student> studenten = session.createCriteria(Student.class, "s")
+				.add( Property.forName("manipel").eq(manipel) )
+				.createCriteria("person", "p")
+				.addOrder( Property.forName("p.name").asc() )
+				.list();
+		
+		return studenten;
 	}
 }

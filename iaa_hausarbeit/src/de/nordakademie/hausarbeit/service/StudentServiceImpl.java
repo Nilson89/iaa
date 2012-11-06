@@ -34,6 +34,16 @@ public class StudentServiceImpl implements StudentService {
 	}
 
 	/**
+	 * getStudentenByManipel
+	 * 
+	 * @param Manipel the manipel
+	 * @return List<Student>
+	 */
+	public List<Student> getStudentenByManipel(Manipel manipel) {
+		return studentDAO.loadStudentenByManipel(manipel);
+	}
+
+	/**
 	 * @param studentDAO the studentDAO to set
 	 */
 	public void setStudentDAO(StudentDAO studentDAO) {
