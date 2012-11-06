@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
+<%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ taglib prefix="sj" uri="/struts-jquery-tags"%>
 
 <%-- Niels Maseberg --%>
@@ -14,6 +15,16 @@
 		<sj:head/>
 	</head>
 	<body>
+		<%--NoScript --%>
+		<noscript>
+			<div class="noscript">
+				<h1><s:text name="txtNoScriptHeading" /></h1>
+				<p>
+					<s:text name="txtNoScriptText" />
+				</p>
+			</div>
+		</noscript>
+	
 		<%--Head --%>
 		<tiles:insertAttribute name="header" />
 		<%--Navi --%>

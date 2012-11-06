@@ -63,29 +63,14 @@ h2 {
 	background-color: #7fa8d1;
 }
 
-/* Breadcrumb */
-#Content div.breadcrumb {
-    padding: 8px 10px 10px 10px;
-}
-
-#Content div.breadcrumb ul {
-    list-style-type: none;
-}
-
-#Content div.breadcrumb ul li {
-    float: left;
-}
-
-#Content div.breadcrumb ul li a {
-    padding: 2px 5px 2px 22px;
-    background-image: url('/iaa_hausarbeit/images/arrow_right.png');
-    background-position: left;
-    background-repeat: no-repeat;
-}
-
-#Content div.breadcrumb ul li:first-child a {
-    background-image: none;
-    padding-left: 6px;
+/* NoScript */
+div.noscript {
+	width: 95%;
+	margin: 10px auto;
+	border: 1px dashed Red;
+	color: Red;
+	background-color: #FFE47A;
+	padding: 5px;
 }
 
 /* Texte */
