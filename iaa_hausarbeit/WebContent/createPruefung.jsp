@@ -13,8 +13,7 @@
 	<div class="form">
 		<div class="field">
 			<span class="label"><s:text name="txtLabelDatum" /></span>
-			<sj:datepicker id="datum" name="selectedDatum"  value="selectedDatum" timepicker="false" displayFormat="dd.mm.yy" theme="xhtml"
-				readonly="true" />
+			<sj:datepicker id="datum" name="selectedDatum"  value="selectedDatum" timepicker="false" displayFormat="dd.mm.yy" readonly="true" />
 			<div class="clear"></div>
 		</div>
 		<div class="field">

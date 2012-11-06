@@ -70,19 +70,22 @@ public class CreatePruefungAction extends ActionSupport {
 		}
 		
 		if (getSelectedDatum() == null) {
+			selectedDatum = new Date();
 			addFieldError("selectedDatum", getText("error.no.datum.entered"));
 		}
 		
 		// Create Pruefung-Object
-		Long dozentId = Long.valueOf(selectedDozent).longValue();
-		pruefung = new Pruefung();
-		pruefung.setDatum(selectedDatum);
-		pruefung.setDozent(dozentenService.getById(dozentId));
-		pruefung.setPruefungsfach(pruefungsfach);
-		
-		//If Pruefung already exists
-		if (pruefungenService.checkPruefungExists(selectedPruefungsfachId, selectedDatum, dozentId)) {
-			addFieldError("selectedDozent", getText("error.pruefung.already.exists"));
+		if (!getSelectedDozent().equals("none")) {
+			Long dozentId = Long.valueOf(selectedDozent).longValue();
+			pruefung = new Pruefung();
+			pruefung.setDatum(selectedDatum);
+			pruefung.setDozent(dozentenService.getById(dozentId));
+			pruefung.setPruefungsfach(pruefungsfach);
+			
+			//If Pruefung already exists
+			if (pruefungenService.checkPruefungExists(selectedPruefungsfachId, selectedDatum, dozentId)) {
+				addFieldError("selectedDozent", getText("error.pruefung.already.exists"));
+			}
 		}
 	}
 	
