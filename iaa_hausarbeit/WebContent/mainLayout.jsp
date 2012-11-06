@@ -18,7 +18,6 @@
 		<tiles:insertAttribute name="navigation" />
 		<%--Content --%>
 		<div id="Content">
-			<tiles:insertAttribute name="breadcrumb" />
 			<tiles:insertAttribute name="content" />
 		</div>
 		<%--Foot --%>

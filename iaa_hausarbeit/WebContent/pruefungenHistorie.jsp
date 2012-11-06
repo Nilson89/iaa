@@ -19,7 +19,7 @@
 			<s:submit key="txtSubmitPruefungenHistorie" action="pruefungenHistorieDetail" />
 		</div>
 		<div class="button">
-			<s:submit key="btnBack" action="pruefungslist" />
+			<s:submit key="btnBack" action="pruefungslist" cssClass="btnBack" />
 		</div>
 		<div class="clear"></div>
 	</div>

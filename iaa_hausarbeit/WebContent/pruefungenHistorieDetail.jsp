@@ -94,7 +94,7 @@
 	<div class="buttons">
 		<div class="button">
 			<s:hidden name="selectedPruefungsfachId" value="%{selectedPruefungsfachId}" />
-			<s:submit key="btnBack" action="pruefungslist" />
+			<s:submit key="btnBack" action="pruefungslist" cssClass="btnBack" />
 		</div>
 		<div class="clear"></div>
 	</div>

@@ -9,7 +9,7 @@
 		<div class="button">
 			<s:hidden name="selectedPruefungsfachId" value="%{pruefungsfach.id}" />
 			<s:submit key="btnCreatePruefung" action="createPruefung" />
-			<s:submit key="btnAnzeigePruefungsleistungen" action="showPruefungsleistungen" />
+			<s:submit key="btnAnzeigePruefungsleistungen" action="showPruefungsleistungen" cssClass="listTable" />
 			<s:submit key="btnPruefungenHistorie" action="pruefungenHistorie" />
 		</div>
 		<div class="clear"></div>
@@ -46,6 +46,13 @@
 		<div class="button">
 			<s:submit key="btnCreatePl" action="createPruefungsleistungen" />
 			<s:submit key="btnCreateMdlPl" action="createMdlPruefungsleistungen" />
+		</div>
+		<div class="clear"></div>
+	</div>
+	
+	<div class="buttons">
+		<div class="button">
+			<s:submit key="btnBack" action="index" cssClass="btnBack" />
 		</div>
 		<div class="clear"></div>
 	</div>

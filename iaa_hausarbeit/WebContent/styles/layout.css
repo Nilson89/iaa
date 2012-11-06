@@ -174,6 +174,20 @@ h2 {
     text-decoration: none;
 }
 
+#Content div.buttons div.button .btnBack {
+	background-image: url('/iaa_hausarbeit/images/door_out.png');
+	background-position: left;
+	background-repeat: no-repeat;
+	padding-left: 20px;
+}
+
+#Content div.buttons div.button .listTable {
+	background-image: url('/iaa_hausarbeit/images/application_view_detail.png');
+	background-position: left;
+	background-repeat: no-repeat;
+	padding-left: 20px;
+}
+
 /* Sonstiges */
 div.clear {
 	clear: both;
