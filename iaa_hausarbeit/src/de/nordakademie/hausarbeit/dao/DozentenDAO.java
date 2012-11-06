@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.hibernate.ObjectNotFoundException;
 import org.hibernate.Session;
+import org.hibernate.criterion.Property;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 import de.nordakademie.hausarbeit.model.Dozent;
@@ -21,7 +22,14 @@ public class DozentenDAO extends HibernateDaoSupport{
 	 */
 	@SuppressWarnings("unchecked")
 	public List<Dozent> loadDozenten() {
-		return getHibernateTemplate().loadAll(Dozent.class);
+		Session session = this.getSessionFactory().getCurrentSession();
+		
+		List<Dozent> dozenten = session.createCriteria(Dozent.class)
+				.createCriteria("person", "p")
+				.addOrder( Property.forName("p.name").asc() )
+				.list();
+		
+		return dozenten;
 	}
 	
 	/**
