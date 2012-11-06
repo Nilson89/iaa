@@ -28,7 +28,7 @@
   
    <!-- for all other loggers log only debug and above log messages -->
      <root>
-        <priority value="ALL"/> 
+        <priority value="DEBUG"/> 
         <appender-ref ref="STDOUT" />
         <appender-ref ref="FILE" />
      </root> 

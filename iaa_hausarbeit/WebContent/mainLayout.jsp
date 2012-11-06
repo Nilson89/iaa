@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
+<%@ taglib prefix="sj" uri="/struts-jquery-tags"%>
 
 <%-- Niels Maseberg --%>
 
@@ -10,6 +11,7 @@
 		<title><tiles:insertAttribute name="title" ignore="true" /></title>
 		<link rel="stylesheet" type="text/css" href="/iaa_hausarbeit/styles/reset.css" />
 		<link rel="stylesheet" type="text/css" href="/iaa_hausarbeit/styles/layout.css" />
+		<sj:head/>
 	</head>
 	<body>
 		<%--Head --%>

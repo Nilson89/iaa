@@ -7,11 +7,11 @@ import de.nordakademie.hausarbeit.model.Dozent;
 
 /**
  * 
- * @author Sabrina Schramm
+ * @author Sabrina Schramm und Niels Maseberg
  */
 
 public class DozentenServiceImpl implements DozentenService {
-private DozentenDAO dozentenDAO;
+	private DozentenDAO dozentenDAO;
 	
 	/**
 	 * getDozentenList
@@ -20,6 +20,16 @@ private DozentenDAO dozentenDAO;
 	 */
 	public List<Dozent> getDozentenList() {
 		return dozentenDAO.loadDozenten();
+	}
+
+	/**
+	 * getById
+	 * 
+	 * @param Long id
+	 * @return Dozent
+	 */
+	public Dozent getById(Long id) {
+		return dozentenDAO.loadById(id);
 	}
 
 	/**
