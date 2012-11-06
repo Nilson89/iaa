@@ -10,7 +10,7 @@
     </appender>
     
     <appender name="FILE" class="org.apache.log4j.RollingFileAppender">
-    	<param name="File" value="C:/Program Files (x86)/Apache Software Foundation/Tomcat 6.0/webapps/iaa_hausarbeit/log/debug.log" />
+    	<param name="File" value="E:/Tomcat/webapps/iaa_hausarbeit/log/debug.log" />
     	<param name="MaxFileSize" value="10MB" />
     	<layout class="org.apache.log4j.PatternLayout">
     		<param name="ConversionPattern" value="%d{ABSOLUTE} %5p %c{1}:%L - %m%n" />
@@ -28,7 +28,7 @@
   
    <!-- for all other loggers log only debug and above log messages -->
      <root>
-        <priority value="ALL"/> 
+        <priority value="DEBUG"/> 
         <appender-ref ref="STDOUT" />
         <appender-ref ref="FILE" />
      </root> 

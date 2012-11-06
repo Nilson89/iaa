@@ -12,4 +12,5 @@ import de.nordakademie.hausarbeit.model.Student;
 public interface StudentService {
 	public List<Integer> getMatrikelnummerListByManipel(Manipel manipel);
 	public Student getStudentByMatrikelnummer(Integer matrikelnummer);
+	public List<Student> getStudentenByManipel(Manipel manipel);
 }

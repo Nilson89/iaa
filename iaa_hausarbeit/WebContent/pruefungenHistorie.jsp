@@ -16,10 +16,10 @@
 	</div>
 	<div class="buttons">
 		<div class="button">
-			<s:submit key="txtSubmitPruefungenHistorie" action="pruefungenHistorieDetail" />
+			<s:submit key="txtSubmitPruefungenHistorie" action="pruefungenHistorieDetail" cssClass="history" />
 		</div>
 		<div class="button">
-			<s:submit key="btnBack" action="pruefungslist" />
+			<s:submit key="btnBack" action="pruefungslist" cssClass="btnBack" />
 		</div>
 		<div class="clear"></div>
 	</div>

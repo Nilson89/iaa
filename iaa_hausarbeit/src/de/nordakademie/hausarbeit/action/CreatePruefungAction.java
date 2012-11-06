@@ -25,7 +25,7 @@ public class CreatePruefungAction extends ActionSupport {
 	private PruefungsfaecherService pruefungsfaecherService;
 	
 	private Long selectedPruefungsfachId;
-	//private Date inputDatum = null;
+	private Date selectedDatum = new Date();
 	private String selectedDozent = "none";
 	private Pruefungsfach pruefungsfach;
 	private List<Dozent> dozentenList;
@@ -47,6 +47,7 @@ public class CreatePruefungAction extends ActionSupport {
 	 * savePruefung
 	 */
 	public String savePruefung() throws Exception {
+		// Store Pruefung in Database
 		pruefungenService.savePruefung(pruefung);
 		return SUCCESS;
 	}
@@ -60,20 +61,32 @@ public class CreatePruefungAction extends ActionSupport {
 		// Load the List of all Dozenten
 		loadDozentenList();
 		
+		// Load gewähltes Prüfungsfach
+		pruefungsfach = pruefungsfaecherService.getPruefungsfach(selectedPruefungsfachId);
+		
 		// If no Dozent is selected, then show Error
 		if (getSelectedDozent().equals("none")) {
 			addFieldError("selectedDozent", getText("error.no.dozent.selected"));
 		}
 		
-		// If no Datum was entered
-		//if (getInputDatum().equals(null)){
-		//	addFieldError("inputDatum", getText("error.no.datum.entered"));
-		//}
+		if (getSelectedDatum() == null) {
+			selectedDatum = new Date();
+			addFieldError("selectedDatum", getText("error.no.datum.entered"));
+		}
 		
-		// If the Datum is in past
-		//if (getInputDatum().){
-		//	addFieldError("inputDatum", getText("error.datum.in.past"));
-		//}
+		// Create Pruefung-Object
+		if (!getSelectedDozent().equals("none")) {
+			Long dozentId = Long.valueOf(selectedDozent).longValue();
+			pruefung = new Pruefung();
+			pruefung.setDatum(selectedDatum);
+			pruefung.setDozent(dozentenService.getById(dozentId));
+			pruefung.setPruefungsfach(pruefungsfach);
+			
+			//If Pruefung already exists
+			if (pruefungenService.checkPruefungExists(selectedPruefungsfachId, selectedDatum, dozentId)) {
+				addFieldError("selectedDozent", getText("error.pruefung.already.exists"));
+			}
+		}
 	}
 	
 	/**
@@ -143,6 +156,20 @@ public class CreatePruefungAction extends ActionSupport {
 	 */
 	public Pruefungsfach getPruefungsfach() {
 		return pruefungsfach;
+	}
+
+	/**
+	 * @return the selectedDatum
+	 */
+	public Date getSelectedDatum() {
+		return selectedDatum;
+	}
+
+	/**
+	 * @param selectedDatum the selectedDatum to set
+	 */
+	public void setSelectedDatum(Date selectedDatum) {
+		this.selectedDatum = selectedDatum;
 	}
 
 }

@@ -12,7 +12,6 @@
 		<put-attribute name="title" value="NORDAKADEMIE - Notendatenbank" />
 		<put-attribute name="header" value="/layout/header.jsp" />
 		<put-attribute name="navigation" value="/layout/navigation.jsp" />
-		<put-attribute name="breadcrumb" value="/layout/breadcrumb.jsp" />
 		<put-attribute name="footer" value="/layout/footer.jsp" />
 		<put-attribute name="content" value="" />
 	</definition>

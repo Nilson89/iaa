@@ -63,29 +63,14 @@ h2 {
 	background-color: #7fa8d1;
 }
 
-/* Breadcrumb */
-#Content div.breadcrumb {
-    padding: 8px 10px 10px 10px;
-}
-
-#Content div.breadcrumb ul {
-    list-style-type: none;
-}
-
-#Content div.breadcrumb ul li {
-    float: left;
-}
-
-#Content div.breadcrumb ul li a {
-    padding: 2px 5px 2px 22px;
-    background-image: url('/iaa_hausarbeit/images/arrow_right.png');
-    background-position: left;
-    background-repeat: no-repeat;
-}
-
-#Content div.breadcrumb ul li:first-child a {
-    background-image: none;
-    padding-left: 6px;
+/* NoScript */
+div.noscript {
+	width: 95%;
+	margin: 10px auto;
+	border: 1px dashed Red;
+	color: Red;
+	background-color: #FFE47A;
+	padding: 5px;
 }
 
 /* Texte */
@@ -172,6 +157,48 @@ h2 {
     padding: 2px 4px 2px 4px;
     color: #000000;
     text-decoration: none;
+}
+
+#Content div.buttons div.button .btnBack {
+	background-image: url('/iaa_hausarbeit/images/door_out.png');
+	background-position: left;
+	background-repeat: no-repeat;
+	padding-left: 20px;
+}
+
+#Content div.buttons div.button .listTable {
+	background-image: url('/iaa_hausarbeit/images/application_view_detail.png');
+	background-position: left;
+	background-repeat: no-repeat;
+	padding-left: 20px;
+}
+
+#Content div.buttons div.button .add {
+	background-image: url('/iaa_hausarbeit/images/application_form_add.png');
+	background-position: left;
+	background-repeat: no-repeat;
+	padding-left: 20px;
+}
+
+#Content div.buttons div.button .history {
+	background-image: url('/iaa_hausarbeit/images/application_form_magnify.png');
+	background-position: left;
+	background-repeat: no-repeat;
+	padding-left: 20px;
+}
+
+#Content div.buttons div.button .save {
+	background-image: url('/iaa_hausarbeit/images/disk.png');
+	background-position: left;
+	background-repeat: no-repeat;
+	padding-left: 20px;
+}
+
+#Content div.buttons div.button .cancel {
+	background-image: url('/iaa_hausarbeit/images/cancel.png');
+	background-position: left;
+	background-repeat: no-repeat;
+	padding-left: 20px;
 }
 
 /* Sonstiges */

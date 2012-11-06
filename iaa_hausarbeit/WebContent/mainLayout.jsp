@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
+<%@ taglib prefix="s" uri="/struts-tags"%>
+<%@ taglib prefix="sj" uri="/struts-jquery-tags"%>
 
 <%-- Niels Maseberg --%>
 
@@ -10,15 +12,25 @@
 		<title><tiles:insertAttribute name="title" ignore="true" /></title>
 		<link rel="stylesheet" type="text/css" href="/iaa_hausarbeit/styles/reset.css" />
 		<link rel="stylesheet" type="text/css" href="/iaa_hausarbeit/styles/layout.css" />
+		<sj:head/>
 	</head>
 	<body>
+		<%--NoScript --%>
+		<noscript>
+			<div class="noscript">
+				<h1><s:text name="txtNoScriptHeading" /></h1>
+				<p>
+					<s:text name="txtNoScriptText" />
+				</p>
+			</div>
+		</noscript>
+	
 		<%--Head --%>
 		<tiles:insertAttribute name="header" />
 		<%--Navi --%>
 		<tiles:insertAttribute name="navigation" />
 		<%--Content --%>
 		<div id="Content">
-			<tiles:insertAttribute name="breadcrumb" />
 			<tiles:insertAttribute name="content" />
 		</div>
 		<%--Foot --%>

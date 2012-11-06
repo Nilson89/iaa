@@ -1,5 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
+<%@ taglib prefix="sj" uri="/struts-jquery-tags"%>
 
 <%-- Sabrina Schramm --%>
 
@@ -12,7 +13,7 @@
 	<div class="form">
 		<div class="field">
 			<span class="label"><s:text name="txtLabelDatum" /></span>
-			<s:textfield name="pruefung.datum" label="Pruefungsdatum"/>
+			<sj:datepicker id="datum" name="selectedDatum"  value="selectedDatum" timepicker="false" displayFormat="dd.mm.yy" readonly="true" />
 			<div class="clear"></div>
 		</div>
 		<div class="field">
@@ -25,8 +26,8 @@
 	</div>
 	<div class="buttons">
 		<div class="button">
-			<s:submit key="btnCreatePruefung" action="savePruefung" />
-			<s:submit key="btnAbbrechen" action="pruefungslist" />
+			<s:submit key="btnCreatePruefung" action="savePruefung" cssClass="save" />
+			<s:submit key="btnAbbrechen" action="pruefungslist" cssClass="cancel" />
 		</div>
 		<div class="clear"></div>
 	</div>
