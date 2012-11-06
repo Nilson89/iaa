@@ -14,17 +14,6 @@ import de.nordakademie.hausarbeit.model.Student;
  */
 public class PruefungenServiceImpl implements PruefungenService {
 	private PruefungenDAO pruefungenDAO;
-	
-	/**
-	 * getHistoriePruefungen
-	 * 
-	 * @param student the student to get the history for
-	 * @return List<Pruefungsleistung>
-	 */
-	public List<Pruefungsleistung> getHistoriePruefungen(Student student) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	/**
 	 * listPruefungen
@@ -37,19 +26,6 @@ public class PruefungenServiceImpl implements PruefungenService {
 	}
 
 	/**
-	 * createPruefung
-	 * 
-	 * @param pruefungsfachId the Id of the pruefungsfach
-	 * @param datum the date of the pruefung
-	 * @param dozentId the dozent of the pruefung
-	 * @return Boolean
-	 */
-	public boolean createPruefung(Long pruefungsfachId, Date datum, Long dozentId) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	/**
 	 * checkPruefungExists
 	 * 
 	 * @param pruefungsfachId the Id of the pruefungsfach
@@ -58,8 +34,7 @@ public class PruefungenServiceImpl implements PruefungenService {
 	 * @return Boolean
 	 */
 	public boolean checkPruefungExists(Long pruefungsfachId, Date datum, Long dozentId) {
-		// TODO Auto-generated method stub
-		return false;
+		return pruefungenDAO.checkPruefungByPruefungsfachAndDateAndDozent(pruefungsfachId, datum, dozentId);
 	}
 	
 	/**
@@ -68,7 +43,6 @@ public class PruefungenServiceImpl implements PruefungenService {
 	 * @param pruefung
 	 * @return pruefung
 	 */
-	@Override
 	public Pruefung savePruefung(Pruefung pruefung) {
 		return pruefungenDAO.saveOrUpdatePruefung(pruefung);
 	}

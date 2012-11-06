@@ -1,5 +1,6 @@
 package de.nordakademie.hausarbeit.dao;
 
+import java.util.Date;
 import java.util.List;
 
 import org.hibernate.Session;
@@ -34,5 +35,31 @@ public class PruefungenDAO extends HibernateDaoSupport {
 	public Pruefung saveOrUpdatePruefung(Pruefung pruefung) {
 		getHibernateTemplate().saveOrUpdate(pruefung);
 		return pruefung;
+	}
+	
+	/**
+	 * checkPruefungByPruefungsfachAndDateAndDozent
+	 * 
+	 * Returns
+	 * 	true if the pruefung already exists
+	 *  false otherwise
+	 * 
+	 * @param Long the id of the pruefungsfach
+	 * @param Date the date
+	 * @param Long the id of the dozent
+	 * @return Pruefung
+	 */
+	public boolean checkPruefungByPruefungsfachAndDateAndDozent(Long pruefungsfachId, Date datum, Long dozentId) {
+		Session session = this.getSessionFactory().getCurrentSession();
+		
+		Long resultCount = (Long) session.createQuery("select count(*) from Pruefung as pruefung where pruefung.datum = :datum and pruefung.pruefungsfach.id = :pruefungsfachId and pruefung.dozent.id = :dozentId")
+				.setDate("datum", datum)
+				.setLong("pruefungsfachId", pruefungsfachId)
+				.setLong("dozentId", dozentId)
+				.uniqueResult();
+		if (resultCount > 0) {
+			return true;
+		}
+		return false;
 	}
 }

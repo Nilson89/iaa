@@ -47,14 +47,6 @@ public class CreatePruefungAction extends ActionSupport {
 	 * savePruefung
 	 */
 	public String savePruefung() throws Exception {
-		// Create Pruefung-Object
-		Long dozentId = Long.valueOf(selectedDozent).longValue();
-		
-		pruefung = new Pruefung();
-		pruefung.setDatum(selectedDatum);
-		pruefung.setDozent(dozentenService.getById(dozentId));
-		pruefung.setPruefungsfach(pruefungsfach);
-		
 		// Store Pruefung in Database
 		pruefungenService.savePruefung(pruefung);
 		return SUCCESS;
@@ -81,8 +73,17 @@ public class CreatePruefungAction extends ActionSupport {
 			addFieldError("selectedDatum", getText("error.no.datum.entered"));
 		}
 		
-		// If Pruefung already exists
-		// TODO
+		// Create Pruefung-Object
+		Long dozentId = Long.valueOf(selectedDozent).longValue();
+		pruefung = new Pruefung();
+		pruefung.setDatum(selectedDatum);
+		pruefung.setDozent(dozentenService.getById(dozentId));
+		pruefung.setPruefungsfach(pruefungsfach);
+		
+		//If Pruefung already exists
+		if (pruefungenService.checkPruefungExists(selectedPruefungsfachId, selectedDatum, dozentId)) {
+			addFieldError("selectedDozent", getText("error.pruefung.already.exists"));
+		}
 	}
 	
 	/**
