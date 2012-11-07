@@ -2,9 +2,15 @@ package de.nordakademie.hausarbeit.model;
 
 /**
  * 
- * @author Niels Maseberg
+ * @author Niels Maseberg, Sabrina Schramm
  */
 public enum Note {
+	KeineTeilnahme {
+		public String toString() {
+			return "nicht teilgenommen";
+		}
+	}, 
+	
 	EINS {
 		public String toString() {
 			return "1.0";

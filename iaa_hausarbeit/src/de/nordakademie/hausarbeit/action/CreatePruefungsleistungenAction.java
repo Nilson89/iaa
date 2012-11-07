@@ -6,7 +6,9 @@ import com.opensymphony.xwork2.ActionSupport;
 
 import de.nordakademie.hausarbeit.model.Note;
 import de.nordakademie.hausarbeit.model.Pruefungsfach;
+import de.nordakademie.hausarbeit.model.Student;
 import de.nordakademie.hausarbeit.service.PruefungsfaecherService;
+import de.nordakademie.hausarbeit.service.StudentService;
 
 
 /**
@@ -15,42 +17,28 @@ import de.nordakademie.hausarbeit.service.PruefungsfaecherService;
  */
 
 public class CreatePruefungsleistungenAction extends ActionSupport {
-
-	private PruefungsfaecherService pruefungsfaecherService;
+private Long selectedPruefungsfachId;
 	
-	private Long selectedPruefungsfachId;
-	private String selectedNote = "none";
+	private PruefungsfaecherService pruefungsfaecherService;
+	private StudentService studentService;
+	
 	private Pruefungsfach pruefungsfach;
-	private List<Note> notenList;
-		
+	private List<Student> studenten;
+	private Note[] noten = Note.values();
+	
+	
 	/**
 	 * execute
 	 */
 	public String execute() throws Exception {
-		
-		// Load gewähltes Prüfungsfach
+		// Load Pruefungsfach
 		pruefungsfach = pruefungsfaecherService.getPruefungsfach(selectedPruefungsfachId);
-				
-		return SUCCESS;
-	}
-	
-	/**
-	 * validate
-	 */
-	public void validate() {
-		super.validate();
 		
-		// If no Note is selected, then show Error
-		if (getSelectedNote().equals("none")) {
-			addFieldError("selectedNote", getText("error.no.note.selected"));
-		}
-	}
-	
-	/**
-	 * @return the selectedPruefungsfachId
-	 */
-	public Long getSelectedPruefungsfachId() {
-		return selectedPruefungsfachId;
+		// Load Students of Manipel and it´s grades
+		studenten = studentService.getStudentenByManipelAndPruefungsleistungenByPruefungsfach(pruefungsfach);
+		
+		
+		return SUCCESS;
 	}
 
 	/**
@@ -59,35 +47,12 @@ public class CreatePruefungsleistungenAction extends ActionSupport {
 	public void setSelectedPruefungsfachId(Long selectedPruefungsfachId) {
 		this.selectedPruefungsfachId = selectedPruefungsfachId;
 	}
-	
-
-	/**
-	 * @return the notenList
-	 */
-	public List<Note> getNotenList() {
-		return notenList;
-	}
-
-	/**
-	 * @param selectedNote the selectedNote to set
-	 */
-	public void setSelectedNote(String selectedNote) {
-		this.selectedNote = selectedNote;
-	}
-
-	/**
-	 * @return the selectedNote
-	 */
-	public String getSelectedNote() {
-		return selectedNote;
-	}
-	
-	
 
 	/**
 	 * @param pruefungsfaecherService the pruefungsfaecherService to set
 	 */
-	public void setPruefungsfaecherService(PruefungsfaecherService pruefungsfaecherService) {
+	public void setPruefungsfaecherService(
+			PruefungsfaecherService pruefungsfaecherService) {
 		this.pruefungsfaecherService = pruefungsfaecherService;
 	}
 
@@ -97,6 +62,31 @@ public class CreatePruefungsleistungenAction extends ActionSupport {
 	public Pruefungsfach getPruefungsfach() {
 		return pruefungsfach;
 	}
+
+	/**
+	 * @param studentService the studentService to set
+	 */
+	public void setStudentService(StudentService studentService) {
+		this.studentService = studentService;
+	}
+
+	/**
+	 * @return the studenten
+	 */
+	public List<Student> getStudenten() {
+		return studenten;
+	}
 	
+	/**
+	 * @return the selectedPruefungsfachId
+	 */
+	public Long getSelectedPruefungsfachId() {
+		return selectedPruefungsfachId;
+	}
+
+
+	public Note[] getNoten() {
+		return noten;
+	}	
 
 }

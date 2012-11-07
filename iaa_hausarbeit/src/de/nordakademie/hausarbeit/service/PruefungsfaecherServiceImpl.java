@@ -5,6 +5,10 @@ import java.util.List;
 import de.nordakademie.hausarbeit.dao.PruefungsfaecherDAO;
 import de.nordakademie.hausarbeit.model.Pruefungsfach;
 
+/**
+ * 
+ * @author Niels Maseberg
+ */
 public class PruefungsfaecherServiceImpl implements PruefungsfaecherService {
 	private PruefungsfaecherDAO pruefungsfaecherDAO;
 	

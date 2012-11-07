@@ -1,7 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
 
-<%-- Niels Maseberg --%>
+<%-- Niels Maseberg, Sabrina Schramm --%>
 
 <h2><s:text name="txtHeadingIndex" /></h2>
 <s:form>
