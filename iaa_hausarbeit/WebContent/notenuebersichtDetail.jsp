@@ -53,6 +53,11 @@
 			</s:iterator>
 		</tbody>
 	</table>
+	
+	<div class="tableDescription">
+		<p><s:text name="txtNoteFuenfDescription"/></p>
+		<p><s:text name="txtNoteSechsDescription"/></p>
+	</div>
 </s:if>
 <s:else>
 	<div class="errorMessage">
