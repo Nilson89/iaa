@@ -79,6 +79,11 @@ div.noscript {
 	margin: 10px auto;
 }
 
+#Content div.tableDescription {
+	width: 95%;
+	margin: 0 auto 10px auto;
+}
+
 /* Formulare */
 #Content .form {
     width: 95%;

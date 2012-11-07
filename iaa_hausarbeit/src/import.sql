@@ -109,8 +109,8 @@ INSERT INTO Person (id, name, vorname) VALUES (28, 'Werfel', 'Annegret');
 INSERT INTO Person (id, name, vorname) VALUES (29, 'Kowalk', 'Andre');
 INSERT INTO Person (id, name, vorname) VALUES (30, 'Rehder', 'Heiko');
 INSERT INTO Person (id, name, vorname) VALUES (31, 'Brauer', 'Johannes');
-INSERT INTO Person (id, name, vorname) VALUES (32, 'Peter', 'Pan');
-INSERT INTO Person (id, name, vorname) VALUES (33, 'Biene', 'Maya');
+INSERT INTO Person (id, name, vorname) VALUES (32, 'Pan', 'Peter');
+INSERT INTO Person (id, name, vorname) VALUES (33, 'Maya', 'Biene');
 
 
 /* Dozent */

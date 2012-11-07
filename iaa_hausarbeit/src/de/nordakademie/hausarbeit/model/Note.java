@@ -57,12 +57,12 @@ public enum Note {
 	},
 	FUENF {
 		public String toString() {
-			return "5.0";
+			return "5.0*";
 		}
 	},
 	SECHS {
 		public String toString() {
-			return "6.0";
+			return "5.0**";
 		}
 	};
 }

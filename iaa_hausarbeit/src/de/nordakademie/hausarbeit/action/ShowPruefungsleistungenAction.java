@@ -33,7 +33,7 @@ public class ShowPruefungsleistungenAction extends ActionSupport {
 		pruefungsfach = pruefungsfaecherService.getPruefungsfach(selectedPruefungsfachId);
 		
 		// Load Students of Manipel and it´s grades
-		studenten = studentService.getStudentenByManipel(pruefungsfach.getManipel());
+		studenten = studentService.getStudentenByManipelAndPruefungsleistungenByPruefungsfach(pruefungsfach);
 		
 		
 		return SUCCESS;

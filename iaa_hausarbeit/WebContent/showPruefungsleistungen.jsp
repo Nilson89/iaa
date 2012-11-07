@@ -31,14 +31,51 @@
 					<td><s:property value="person.getName()"/></td>
 					<td><s:property value="person.getVorname()"/></td>
 					<td><s:property value="matrikelnummer"/></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
+					<td>
+						<!-- 1. Versuch -->
+						<s:if test="pruefungsleistungen.size >= 1">
+							<s:property value="pruefungsleistungen.get(0).getNote()"/>
+							
+							<s:if test="pruefungsleistungen.get(0).getErgaenzungspruefung() != null">
+								(<s:property value="pruefungsleistungen.get(0).getErgaenzungspruefung().getNote()"/>)
+							</s:if>
+						</s:if>
+					</td>
+					<td>
+						<!-- 2. Versuch -->
+						<s:if test="pruefungsleistungen.size >= 2">
+							<s:property value="pruefungsleistungen.get(1).getNote()"/>
+							
+							<s:if test="pruefungsleistungen.get(1).getErgaenzungspruefung() != null">
+								(<s:property value="pruefungsleistungen.get(1).getErgaenzungspruefung().getNote()"/>)
+							</s:if>
+						</s:if>
+					</td>
+					<td>
+						<!-- 3. Versuch -->
+						<s:if test="pruefungsleistungen.size >= 3">
+							<s:property value="pruefungsleistungen.get(2).getNote()"/>
+							
+							<s:if test="pruefungsleistungen.get(2).getErgaenzungspruefung() != null">
+								(<s:property value="pruefungsleistungen.get(2).getErgaenzungspruefung().getNote()"/>)
+							</s:if>
+						</s:if>
+					</td>
+					<td>
+						<s:if test="pruefungsleistungen.size >= 1">
+							<s:property value="pruefungsleistungen.get(pruefungsleistungen.size - 1).getEndNote()"/>
+						</s:if>
+					</td>
 				</tr>
 			</s:iterator>
 		</tbody>
 	</table>
+	
+	<div class="tableDescription">
+		<p><s:text name="txtNoteFuenfDescription"/></p>
+		<p><s:text name="txtNoteSechsDescription"/></p>
+	</div>
+	
 	
 	<div class="buttons">
 		<div class="button">

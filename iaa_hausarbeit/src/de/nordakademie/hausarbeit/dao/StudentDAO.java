@@ -2,12 +2,15 @@ package de.nordakademie.hausarbeit.dao;
 
 import java.util.List;
 
+import org.hibernate.Criteria;
 import org.hibernate.ObjectNotFoundException;
 import org.hibernate.Session;
 import org.hibernate.criterion.Property;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 import de.nordakademie.hausarbeit.model.Manipel;
+import de.nordakademie.hausarbeit.model.Pruefungsfach;
 import de.nordakademie.hausarbeit.model.Student;
 
 /**
@@ -45,19 +48,34 @@ public class StudentDAO extends HibernateDaoSupport {
 	}
 	
 	/**
-	 * loadStudentenByManipel
+	 * getStudentenByManipelAndPruefungsleistungenByPruefungsfach
 	 * 
-	 * @param Manipel manipel
+	 * @param Pruefungsfach the pruefungsfach
 	 * @return List<Student>
 	 */
-	public List<Student> loadStudentenByManipel(Manipel manipel) {
+	public List<Student> getStudentenByManipelAndPruefungsleistungenByPruefungsfach(Pruefungsfach pruefungsfach) {
 		Session session = this.getSessionFactory().getCurrentSession();
+		//session.enableFetchProfile("student-with-pruefungsleistungen"); // Enable fetchProfile to deactivate lazyLoading
 		
 		List<Student> studenten = session.createCriteria(Student.class, "s")
-				.add( Property.forName("manipel").eq(manipel) )
-				.createCriteria("person", "p")
+				.add( Property.forName("manipel").eq(pruefungsfach.getManipel()) )
+				.setResultTransformer( Criteria.DISTINCT_ROOT_ENTITY )
+				.createAlias("person", "p")
 				.addOrder( Property.forName("p.name").asc() )
+				.createCriteria("pruefungsleistungen", "pl", Criteria.LEFT_JOIN)
+				.add( Restrictions.or(
+						Restrictions.eq("gueltig", true),
+						Restrictions.isNull("gueltig")
+				) )
+				.addOrder( Property.forName("pl.versuch").asc() )
+				.createCriteria("pruefung", "pr", Criteria.LEFT_JOIN)
+				.add( Restrictions.or(
+						Restrictions.eq("pr.pruefungsfach", pruefungsfach),
+						Restrictions.isNull("pr.pruefungsfach")
+				) )
 				.list();
+		
+		//session.disableFetchProfile("student-with-pruefungsleistungen");
 		
 		return studenten;
 	}

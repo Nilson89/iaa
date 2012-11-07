@@ -4,6 +4,7 @@ import java.util.List;
 
 import de.nordakademie.hausarbeit.dao.StudentDAO;
 import de.nordakademie.hausarbeit.model.Manipel;
+import de.nordakademie.hausarbeit.model.Pruefungsfach;
 import de.nordakademie.hausarbeit.model.Student;
 
 /**
@@ -34,13 +35,13 @@ public class StudentServiceImpl implements StudentService {
 	}
 
 	/**
-	 * getStudentenByManipel
+	 * getStudentenByManipelAndPruefungsleistungenByPruefungsfach
 	 * 
-	 * @param Manipel the manipel
+	 * @param Pruefungsfach the pruefungsfach
 	 * @return List<Student>
 	 */
-	public List<Student> getStudentenByManipel(Manipel manipel) {
-		return studentDAO.loadStudentenByManipel(manipel);
+	public List<Student> getStudentenByManipelAndPruefungsleistungenByPruefungsfach(Pruefungsfach pruefungsfach) {
+		return studentDAO.getStudentenByManipelAndPruefungsleistungenByPruefungsfach(pruefungsfach);
 	}
 
 	/**

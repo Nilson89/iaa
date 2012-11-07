@@ -143,7 +143,7 @@ public class Pruefungsleistung {
 	 * @return the student
 	 */
 	@ManyToOne
-	@JoinColumn(name="studentmatrikelnummer", referencedColumnName="matrikelnummer")
+	@JoinColumn(name="studentmatrikelnummer")
 	public Student getStudent() {
 		return student;
 	}
