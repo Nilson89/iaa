@@ -2,6 +2,7 @@ package de.nordakademie.hausarbeit.dao;
 
 import java.util.List;
 
+import org.hibernate.Criteria;
 import org.hibernate.ObjectNotFoundException;
 import org.hibernate.Session;
 import org.hibernate.criterion.DetachedCriteria;
@@ -37,6 +38,7 @@ public class PruefungsleistungenDAO extends HibernateDaoSupport {
 		
 		List<Pruefungsleistung> pruefungsleistungen = session.createCriteria(Pruefungsleistung.class, "pl")
 				.add( Property.forName("versuch").eq(letzterVersuch) )
+				.setResultTransformer( Criteria.DISTINCT_ROOT_ENTITY )
 				.createAlias("pruefung", "pr")
 				.createCriteria("student", "s")
 				.add( Property.forName("s.manipel.pk.jahrgang").eq(jahrgang) )
