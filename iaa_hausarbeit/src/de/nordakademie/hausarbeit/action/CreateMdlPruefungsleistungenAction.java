@@ -1,11 +1,18 @@
 package de.nordakademie.hausarbeit.action;
 
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 import com.opensymphony.xwork2.ActionSupport;
 
+import de.nordakademie.hausarbeit.model.Ergaenzungspruefung;
 import de.nordakademie.hausarbeit.model.Pruefung;
 import de.nordakademie.hausarbeit.model.Pruefungsfach;
+import de.nordakademie.hausarbeit.model.Pruefungsleistung;
 import de.nordakademie.hausarbeit.model.Student;
 import de.nordakademie.hausarbeit.service.PruefungenService;
 import de.nordakademie.hausarbeit.service.PruefungsfaecherService;
@@ -24,15 +31,27 @@ public class CreateMdlPruefungsleistungenAction extends ActionSupport {
 	private List<Student> studenten;
 	private StudentService studentService;
 	
+	private List<Ergaenzungspruefung> ergaenzungspruefungenList = new ArrayList();
+	
 	/**
 	 * execute
 	 */
 	public String execute() throws Exception {
-		// Load Pruefung
-		pruefung = pruefungenService.getPruefungById(selectedPruefungId);
+		loadPruefungAndStudents();
 		
-		// Load Studenten and its grades
-		studenten = studentService.getStudentenByManipelAndPruefungsleistungenByPruefung(pruefung);
+		return SUCCESS;
+	}
+	
+	/**
+	 * save
+	 */
+	public String save() throws Exception {
+		for (Ergaenzungspruefung ergaenzungspruefung : ergaenzungspruefungenList) {
+			System.out.println("Da is was drinne!!!");
+			System.out.println("PruefungsleistungId: " + ergaenzungspruefung.getPruefungsleistungId());
+			System.out.println("Datum: " + ergaenzungspruefung.getDatum());
+			System.out.println("Note: " + ergaenzungspruefung.getNote());
+		}
 		
 		return SUCCESS;
 	}
@@ -42,6 +61,29 @@ public class CreateMdlPruefungsleistungenAction extends ActionSupport {
 	 */
 	public void validate() {
 		super.validate();
+		
+		// Load Data
+		loadPruefungAndStudents();
+	}
+	
+	/**
+	 * loadPruefungAndStudents
+	 */
+	private void loadPruefungAndStudents() {
+		// Load Pruefung
+		pruefung = pruefungenService.getPruefungById(selectedPruefungId);
+		
+		// Load Studenten and its grades
+		studenten = studentService.getStudentenByManipelAndPruefungsleistungenByPruefung(pruefung);
+		
+		/*for (Student student : studenten) {
+			Pruefungsleistung pruefungsleistung = student.getPruefungsleistungen().get(student.getPruefungsleistungen().size() - 1);
+			
+			Ergaenzungspruefung ergaenzungspruefung = new Ergaenzungspruefung();
+			ergaenzungspruefung.setPruefungsleistungId(pruefungsleistung.getId());
+			
+			ergaenzungspruefungenList.add(ergaenzungspruefung);
+		}*/
 	}
 
 	/**
@@ -77,5 +119,20 @@ public class CreateMdlPruefungsleistungenAction extends ActionSupport {
 	 */
 	public void setStudentService(StudentService studentService) {
 		this.studentService = studentService;
+	}
+
+	/**
+	 * @return the ergaenzungspruefungenList
+	 */
+	public List<Ergaenzungspruefung> getErgaenzungspruefungenList() {
+		return ergaenzungspruefungenList;
+	}
+
+	/**
+	 * @param ergaenzungspruefungenList the ergaenzungspruefungenList to set
+	 */
+	public void setErgaenzungspruefungenList(
+			List<Ergaenzungspruefung> ergaenzungspruefungenList) {
+		this.ergaenzungspruefungenList = ergaenzungspruefungenList;
 	}
 }
