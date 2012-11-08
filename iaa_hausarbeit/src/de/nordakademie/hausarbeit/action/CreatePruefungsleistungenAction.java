@@ -1,10 +1,12 @@
 package de.nordakademie.hausarbeit.action;
 
+import java.util.Date;
 import java.util.List;
 
 import com.opensymphony.xwork2.ActionSupport;
 
 import de.nordakademie.hausarbeit.model.Note;
+import de.nordakademie.hausarbeit.model.Pruefung;
 import de.nordakademie.hausarbeit.model.Pruefungsfach;
 import de.nordakademie.hausarbeit.model.Pruefungsleistung;
 import de.nordakademie.hausarbeit.model.Student;
@@ -19,7 +21,8 @@ import de.nordakademie.hausarbeit.service.StudentService;
  */
 
 public class CreatePruefungsleistungenAction extends ActionSupport {
-private Long selectedPruefungsfachId;
+	private Long selectedPruefungsfachId;
+	private Long selectedPruefungId = null;
 	
 	private PruefungsfaecherService pruefungsfaecherService;
 	private StudentService studentService;
@@ -53,6 +56,33 @@ private Long selectedPruefungsfachId;
 //		pruefungsleistungenService.savePruefungsleistungen(pruefungsleistungen);
 //		return SUCCESS;
 //	}
+	
+	/**
+	 * validate
+	 */
+	public void validate() {
+		super.validate();
+		
+		// If no Pruefung is selected, then show Error
+		if (getSelectedPruefungId().equals(null)) {
+			addFieldError("selectedPruefung", getText("error.no.pruefung.selected"));
+		}
+		
+//		
+//		// Create Pruefungsleistungen-Objkt/Liste
+//		if (!getSelectedDozent().equals("none")) {
+//			Long dozentId = Long.valueOf(selectedDozent).longValue();
+//			pruefung = new Pruefung();
+//			pruefung.setDatum(selectedDatum);
+//			pruefung.setDozent(dozentenService.getById(dozentId));
+//			pruefung.setPruefungsfach(pruefungsfach);
+//			
+//			//If Pruefung already exists
+//			if (pruefungenService.checkPruefungExists(selectedPruefungsfachId, selectedDatum, dozentId)) {
+//				addFieldError("selectedDozent", getText("error.pruefung.already.exists"));
+//			}
+//		}
+	}
 
 	/**
 	 * @param selectedPruefungsfachId the selectedPruefungsfachId to set
@@ -97,6 +127,14 @@ private Long selectedPruefungsfachId;
 		return selectedPruefungsfachId;
 	}
 
+
+	public Long getSelectedPruefungId() {
+		return selectedPruefungId;
+	}
+
+	public void setSelectedPruefungId(Long selectedPruefungId) {
+		this.selectedPruefungId = selectedPruefungId;
+	}
 
 	public Note[] getNoten() {
 		return noten;

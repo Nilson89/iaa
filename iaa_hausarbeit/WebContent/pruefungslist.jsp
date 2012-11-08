@@ -41,7 +41,9 @@
 			</s:iterator>
 		</tbody>
 	</table>
-	
+	<div class="textBox">
+		<p><s:text name="txtPruefungslistAnweisungPruefungsleistungsanlage" /></p>
+	</div>
 	<div class="buttons">
 		<div class="button">
 			<s:submit key="btnCreatePl" action="createPruefungsleistungen" cssClass="add" />

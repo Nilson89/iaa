@@ -6,6 +6,7 @@
 <h2><s:text name="txtHeadingPruefungsleistungsanlage" /> "<s:property value="pruefungsfach.getTitel()" />"</h2>
 <div class="textBox">
 	<p><s:text name="txtAnweisungPruefungsleistungsanlageOben" /></p>
+	<p><s:text name="txtAnweisungPruefungsleistungsanlageObenTest" /> "<s:property value="selectedPruefungId" />"</p>
 </div>
 <s:form>
 	<s:hidden name="selectedPruefungsfachId" value="%{selectedPruefungsfachId}" />
@@ -45,8 +46,8 @@
 	</div>
 	<div class="buttons">
 		<div class="button">
-			<s:submit key="btnCreatePruefungsleistung" action="savePruefungsleistung" />
-			<s:submit key="btnAbbrechen" action="showPruefungsleistungen" />
+			<s:submit key="btnCreatePruefungsleistung" action="savePruefungsleistung" cssClass="save" />
+			<s:submit key="btnAbbrechen" action="showPruefungsleistungen" cssClass="cancel"  />
 		</div>
 		<div class="clear"></div>
 	</div>
