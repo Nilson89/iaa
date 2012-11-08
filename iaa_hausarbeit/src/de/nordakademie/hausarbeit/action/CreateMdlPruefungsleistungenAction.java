@@ -35,6 +35,7 @@ public class CreateMdlPruefungsleistungenAction extends ActionSupport {
 	private PruefungsleistungenService pruefungsleistungenService;
 	
 	private List<Ergaenzungspruefung> ergaenzungspruefungenList = new ArrayList();
+	private List<Pruefungsleistung> newPruefungsleistungenList = new ArrayList();
 	
 	/**
 	 * execute
@@ -50,11 +51,12 @@ public class CreateMdlPruefungsleistungenAction extends ActionSupport {
 	 */
 	public String save() throws Exception {
 		for (Ergaenzungspruefung ergaenzungspruefung : ergaenzungspruefungenList) {
+			// Get Pruefungsleistung
+			Pruefungsleistung pruefungsleistung = pruefungsleistungenService.getPruefungsleistungById(ergaenzungspruefung.getPruefungsleistungId());
+			pruefungsleistung.setErgaenzungspruefung(ergaenzungspruefung);
+			
 			// Save Ergaenzungspruefung
 			if (!ergaenzungspruefung.getNote().equals(Note.KeineTeilnahme)) {
-				// Get Pruefungsleistung
-				Pruefungsleistung pruefungsleistung = pruefungsleistungenService.getPruefungsleistungById(ergaenzungspruefung.getPruefungsleistungId());
-				
 				// Create Ergaenzungspruefung
 				ergaenzungspruefung.setErfassungsdatum(new Date());
 				ergaenzungspruefung = pruefungsleistungenService.createErgaenzungspruefung(ergaenzungspruefung);
@@ -63,6 +65,9 @@ public class CreateMdlPruefungsleistungenAction extends ActionSupport {
 				pruefungsleistung.setErgaenzungspruefung(ergaenzungspruefung);
 				pruefungsleistungenService.createPruefungsleistung(pruefungsleistung);
 			}
+			
+			// Add Ergaenzungspruefung to List of new Ergaenzungspruefungen
+			newPruefungsleistungenList.add(pruefungsleistung);
 		}
 		
 		return SUCCESS;
@@ -87,15 +92,6 @@ public class CreateMdlPruefungsleistungenAction extends ActionSupport {
 		
 		// Load Studenten and its grades
 		studenten = studentService.getStudentenByManipelAndPruefungsleistungenByPruefung(pruefung);
-		
-		/*for (Student student : studenten) {
-			Pruefungsleistung pruefungsleistung = student.getPruefungsleistungen().get(student.getPruefungsleistungen().size() - 1);
-			
-			Ergaenzungspruefung ergaenzungspruefung = new Ergaenzungspruefung();
-			ergaenzungspruefung.setPruefungsleistungId(pruefungsleistung.getId());
-			
-			ergaenzungspruefungenList.add(ergaenzungspruefung);
-		}*/
 	}
 
 	/**
@@ -154,5 +150,12 @@ public class CreateMdlPruefungsleistungenAction extends ActionSupport {
 	public void setPruefungsleistungenService(
 			PruefungsleistungenService pruefungsleistungenService) {
 		this.pruefungsleistungenService = pruefungsleistungenService;
+	}
+
+	/**
+	 * @return the newPruefungsleistungenList
+	 */
+	public List<Pruefungsleistung> getNewPruefungsleistungenList() {
+		return newPruefungsleistungenList;
 	}
 }
