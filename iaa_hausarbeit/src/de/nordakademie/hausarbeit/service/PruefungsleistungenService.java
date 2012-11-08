@@ -16,4 +16,6 @@ public interface PruefungsleistungenService {
 	public List<Pruefungsleistung> listNoten(Integer jahrgang, Studienrichtung studienrichtung);
 	public List<Pruefungsleistung> getHistoriePruefungen(Student student, Pruefungsfach pruefungsfach);
 	public Pruefungsleistung getPruefungsleistungById(Long pruefungsleistungId);
+	public void markPruefungsleistungAsInvalid(Pruefungsleistung pruefungsleistung);
+	public void createPruefungsleistung(Pruefungsleistung pruefungsleistung);
 }

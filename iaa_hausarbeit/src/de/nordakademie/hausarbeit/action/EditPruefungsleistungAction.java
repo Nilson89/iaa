@@ -1,6 +1,7 @@
 package de.nordakademie.hausarbeit.action;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.apache.log4j.Logger;
@@ -38,7 +39,25 @@ public class EditPruefungsleistungAction extends ActionSupport {
 	 * save
 	 */
 	public String save() throws Exception {
-		// TODO
+		// Mark pruefungsleistung as "ungueltig"
+		pruefungsleistungenService.markPruefungsleistungAsInvalid(pruefungsleistung);
+		
+		// Create new Pruefungsleistung and save it
+		Pruefungsleistung newPruefungsleistung = new Pruefungsleistung();
+		newPruefungsleistung.setVersuch(pruefungsleistung.getVersuch());
+		newPruefungsleistung.setNote(Note.getEnum(selectedNote));
+		if (newPruefungsleistung.getNote().equals(Note.FUENF)) {
+			newPruefungsleistung.setMdl_moeglich(true);
+		} else {
+			newPruefungsleistung.setMdl_moeglich(false);
+		}
+		newPruefungsleistung.setErfassungsdatum(new Date());
+		newPruefungsleistung.setPruefung(pruefungsleistung.getPruefung());
+		newPruefungsleistung.setStudent(pruefungsleistung.getStudent());
+		newPruefungsleistung.setErfasser(pruefungsleistung.getErfasser());
+		newPruefungsleistung.setAenderungseintrag(true);
+		pruefungsleistungenService.createPruefungsleistung(newPruefungsleistung);
+		
 		return SUCCESS;
 	}
 	
@@ -141,14 +160,14 @@ public class EditPruefungsleistungAction extends ActionSupport {
 	/**
 	 * getNoteList
 	 * 
-	 * @return Note[]
+	 * @return List<Note>
 	 */
-	public List<String> getNoteList() {
-		List<String> values = new ArrayList<String>();
+	public List<Note> getNoteList() {
+		List<Note> values = new ArrayList<Note>();
 		
 		for (Note note : Note.values()) {
 			if (!note.toString().equals("nicht teilgenommen")) {
-				values.add(note.toString());
+				values.add(note);
 			}
 		}
 		
