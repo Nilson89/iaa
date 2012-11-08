@@ -3,8 +3,8 @@ package de.nordakademie.hausarbeit.dao;
 import java.util.Date;
 import java.util.List;
 
+import org.hibernate.ObjectNotFoundException;
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 import de.nordakademie.hausarbeit.model.Pruefung;
@@ -20,6 +20,7 @@ public class PruefungenDAO extends HibernateDaoSupport {
 	 * @param pruefungsfachId the Id of the pruefungsfach
 	 * @return List<Pruefung>
 	 */
+	@SuppressWarnings("unchecked")
 	public List<Pruefung> loadPruefungen(Long pruefungsfachId) {
 		Session session = this.getSessionFactory().getCurrentSession();
 		return session.createQuery("from Pruefung as pruefung WHERE pruefung.pruefungsfach.id = :pruefungsfachId").setLong("pruefungsfachId", pruefungsfachId).list();
@@ -61,5 +62,23 @@ public class PruefungenDAO extends HibernateDaoSupport {
 			return true;
 		}
 		return false;
+	}
+	
+	/**
+	 * loadPruefungById
+	 * 
+	 * @param Long pruefungId
+	 * @return Pruefung
+	 */
+	public Pruefung loadPruefungById(Long pruefungId) {
+		Session session = this.getSessionFactory().getCurrentSession();
+		
+		try {
+			return (Pruefung) session.get(Pruefung.class, pruefungId);
+		} catch (ObjectNotFoundException e) {
+			// TODO: handle exception
+			// TODO: get Logger and log this!!!
+		}
+		return null;
 	}
 }

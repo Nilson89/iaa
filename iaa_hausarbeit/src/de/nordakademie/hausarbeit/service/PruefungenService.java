@@ -15,4 +15,5 @@ public interface PruefungenService {
 	public Pruefung savePruefung(Pruefung pruefung);
 	public List<Pruefung> listPruefungen(Long pruefungsfachId);
 	public boolean checkPruefungExists(Long pruefungsfachId, Date datum, Long dozentId);
+	public Pruefung getPruefungById(Long pruefungId);
 }
