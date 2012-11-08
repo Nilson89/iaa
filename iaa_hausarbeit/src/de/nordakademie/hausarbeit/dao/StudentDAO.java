@@ -5,6 +5,8 @@ import java.util.List;
 import org.hibernate.Criteria;
 import org.hibernate.ObjectNotFoundException;
 import org.hibernate.Session;
+import org.hibernate.criterion.DetachedCriteria;
+import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Property;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
@@ -13,6 +15,7 @@ import de.nordakademie.hausarbeit.model.Manipel;
 import de.nordakademie.hausarbeit.model.Note;
 import de.nordakademie.hausarbeit.model.Pruefung;
 import de.nordakademie.hausarbeit.model.Pruefungsfach;
+import de.nordakademie.hausarbeit.model.Pruefungsleistung;
 import de.nordakademie.hausarbeit.model.Student;
 
 /**
@@ -94,21 +97,36 @@ public class StudentDAO extends HibernateDaoSupport {
 	public List<Student> getStudentenByManipelAndPruefungsleistungenByPruefung(Pruefung pruefung) {
 		Session session = this.getSessionFactory().getCurrentSession();
 		
+		// Last Try of Student in Pruefungsfach that is valid
+		DetachedCriteria lastTry = DetachedCriteria.forClass(Pruefungsleistung.class, "plLast")
+				.setProjection( Property.forName("versuch").max() )
+				.add( Property.forName("gueltig").eq(true) )
+				.add( Property.forName("plLast.student").eqProperty("pl.student"))
+				.createCriteria("pruefung", "plLastPruefung")
+				.add( Property.forName("pruefungsfach").eq(pruefung.getPruefungsfach()) );
+		
+		// Count of Additional Grades of a Student in a Pruefungsfach
+		DetachedCriteria addGradeCount = DetachedCriteria.forClass(Pruefungsleistung.class, "plAddGradeCount")
+				.setProjection( Projections.rowCount() )
+				.add( Property.forName("gueltig").eq(true) )
+				.add( Property.forName("plAddGradeCount.student").eqProperty("pl.student"))
+				.add( Restrictions.isNotNull("ergaenzungspruefung") )
+				.createCriteria("pruefung", "plLastPruefung")
+				.add( Property.forName("pruefungsfach").eq(pruefung.getPruefungsfach()) );		
+		
 		List<Student> studenten = session.createCriteria(Student.class, "s")
 				.add( Property.forName("manipel").eq(pruefung.getPruefungsfach().getManipel()) )
 				.setResultTransformer( Criteria.DISTINCT_ROOT_ENTITY )
 				.createAlias("person", "p")
 				.addOrder( Property.forName("p.name").asc() )
-				.createCriteria("pruefungsleistungen", "pl", Criteria.LEFT_JOIN)
+				.createCriteria("pruefungsleistungen", "pl")
 				.add( Restrictions.eq("gueltig", true) ) // Only Grades that are valid
-				//.add( Restrictions.isNull("ergaenzungspruefung") )
-				.addOrder( Property.forName("pl.versuch").asc() )
-				.createCriteria("pruefung", "pr", Criteria.LEFT_JOIN)
-				.add( Restrictions.eq("pr.pruefungsfach", pruefung.getPruefungsfach()) ) // Check all Grades of "Pruefungsfach"
+				.add( Property.forName("versuch").eq(lastTry) ) // Only the last try of the Pruefungsfach and student
+				.add( Restrictions.isNull("ergaenzungspruefung") ) // Only if there is no additional grade
+				.add( Property.forName("note").eq(Note.FUENF) ) // Only if the last try is a 5.0
+				.add( Property.forName("pruefung").eq(pruefung) ) // Only if the last try was in the selected Pruefung
 				.list();
-		// TODO: Studenten, bei denen der letzte Versuch im gewählten prüfungsfach schon eine Ergaenzungsprüfung hat, auslassen
 		// TODO: Studenten, die schon 2 Ergaenzungspruefungen durchgeführt haben nicht mit aufführen!!!!
-		// TODO: Letzter Versuch muss eine 5.0 sein!!! und dieser muss im gewählten Prüfungsfach liegen
 		
 		return studenten;
 	}
