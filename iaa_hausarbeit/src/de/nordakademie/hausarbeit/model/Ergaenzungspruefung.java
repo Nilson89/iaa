@@ -9,6 +9,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Transient;
 
 import org.hibernate.annotations.Type;
 
@@ -22,6 +23,7 @@ public class Ergaenzungspruefung {
 	private Note note;
 	private Date datum;
 	private Date erfassungsdatum;
+	private Long pruefungsleistungId;
 	
 	/**
 	 * @return the id
@@ -81,5 +83,19 @@ public class Ergaenzungspruefung {
 	 */
 	public void setErfassungsdatum(Date erfassungsdatum) {
 		this.erfassungsdatum = erfassungsdatum;
+	}
+	
+	/**
+	 * @return the pruefungsleistungId
+	 */
+	@Transient
+	public Long getPruefungsleistungId() {
+		return pruefungsleistungId;
+	}
+	/**
+	 * @param pruefungsleistungId the pruefungsleistungId to set
+	 */
+	public void setPruefungsleistungId(Long pruefungsleistungId) {
+		this.pruefungsleistungId = pruefungsleistungId;
 	}
 }
