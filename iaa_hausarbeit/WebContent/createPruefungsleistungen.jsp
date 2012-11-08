@@ -6,7 +6,7 @@
 <h2><s:text name="txtHeadingPruefungsleistungsanlage" /> "<s:property value="pruefungsfach.getTitel()" />"</h2>
 <div class="textBox">
 	<p><s:text name="txtAnweisungPruefungsleistungsanlageOben" /></p>
-	<p><s:text name="txtAnweisungPruefungsleistungsanlageObenTest" /> "<s:property value="selectedPruefungId" />"</p>
+	<p><s:text name="txtAnweisungPruefungsleistungsanlagePID" /> "<s:property value="selectedPruefungId" />"</p>
 </div>
 <s:form>
 	<s:hidden name="selectedPruefungsfachId" value="%{selectedPruefungsfachId}" />

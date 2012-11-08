@@ -48,9 +48,9 @@ public class CreatePruefungsleistungenAction extends ActionSupport {
 		return SUCCESS;
 	}
 	
-//	/**
-//	 * savePruefungsleistungen
-//	 */
+	/**
+	 * savePruefungsleistungen
+	 */
 //	public String savePruefungsleistungen() throws Exception {
 //		// Store Pruefungsleistungen in Database
 //		pruefungsleistungenService.savePruefungsleistungen(pruefungsleistungen);
@@ -67,21 +67,6 @@ public class CreatePruefungsleistungenAction extends ActionSupport {
 		if (getSelectedPruefungId().equals(null)) {
 			addFieldError("selectedPruefung", getText("error.no.pruefung.selected"));
 		}
-		
-//		
-//		// Create Pruefungsleistungen-Objkt/Liste
-//		if (!getSelectedDozent().equals("none")) {
-//			Long dozentId = Long.valueOf(selectedDozent).longValue();
-//			pruefung = new Pruefung();
-//			pruefung.setDatum(selectedDatum);
-//			pruefung.setDozent(dozentenService.getById(dozentId));
-//			pruefung.setPruefungsfach(pruefungsfach);
-//			
-//			//If Pruefung already exists
-//			if (pruefungenService.checkPruefungExists(selectedPruefungsfachId, selectedDatum, dozentId)) {
-//				addFieldError("selectedDozent", getText("error.pruefung.already.exists"));
-//			}
-//		}
 	}
 
 	/**
