@@ -11,6 +11,7 @@
 		<caption>Liste aller Prüfungsleistungen in dem gewählten Prüfungsfach</caption>
 		<thead>
 			<tr>
+				<th>&nbsp;</th>
 				<th><s:text name="txtPLAnzeigeName" /></th>
 				<th><s:text name="txtPLAnzeigeVorname" /></th>
 				<th><s:text name="txtPLAnzeigeMatrikelnummer" /></th>
@@ -28,6 +29,11 @@
 				<s:else>
 					<tr class="even">
 				</s:else>
+					<td class="cell_radio">
+						<s:if test="pruefungsleistungen.size >= 1">
+							<s:radio name="selectedPruefungsleistungId" list="#{pruefungsleistungen.get(pruefungsleistungen.size - 1).getId():''}"/>
+						</s:if>
+					</td>
 					<td><s:property value="person.getName()"/></td>
 					<td><s:property value="person.getVorname()"/></td>
 					<td><s:property value="matrikelnummer"/></td>
@@ -78,6 +84,9 @@
 	
 	
 	<div class="buttons">
+		<div class="button">
+			<s:submit key="btnEditPruefungsleistung" action="editPruefungsleistung" cssClass="edit" />
+		</div>
 		<div class="button">
 			<s:submit key="btnBack" action="pruefungslist" cssClass="btnBack" />
 		</div>

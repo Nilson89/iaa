@@ -85,6 +85,12 @@
 			<result type="tiles">createMdlPruefungsleistungen</result>
 		</action>
 		
+		<action name="editPruefungsleistung" class="de.nordakademie.hausarbeit.action.EditPruefungsleistungAction">
+			<result type="tiles">editPruefungsleistung</result>
+			<result name="input">editPruefungsleistungErrorNoPruefungsleistung</result>
+			<interceptor-ref name="defaultStack" />
+		</action>
+		
 	</package>
 
 </struts>

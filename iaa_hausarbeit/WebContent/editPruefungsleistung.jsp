@@ -6,7 +6,8 @@
 <h2><s:text name="txtHeadingEditPruefungsleistung" /> "ToDo"</h2>
 
 <s:form>
-	<s:hidden name="selectedPruefungsleistungId" value="selectedPruefungsleistungId" />
+	<s:hidden name="selectedPruefungsleistungId" value="%{selectedPruefungsleistungId}" />
+	<s:hidden name="selectedPruefungsfachId" value="%{selectedPruefungsfachId}" />
 	
 	<div class="buttons">
 		<div class="button">

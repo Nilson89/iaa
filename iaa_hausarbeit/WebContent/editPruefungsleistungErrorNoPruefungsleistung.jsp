@@ -6,7 +6,7 @@
 <h2><s:text name="txtHeadingEditPruefungsleistung" /> "ToDo"</h2>
 
 <s:form>
-	<s:hidden name="selectedPruefungsfachId" value="selectedPruefungsfachId" />
+	<s:hidden name="selectedPruefungsfachId" value="%{selectedPruefungsfachId}" />
 
 	<div class="errorMessage">
 		<s:text name="txtErrorNoPruefungsleistungSelected" />

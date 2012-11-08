@@ -62,4 +62,12 @@
 		<put-attribute name="content" value="/createMdlPruefungsleistungen.jsp" />
 	</definition>
 	
+	<!-- EditPruefungsleistung -->
+	<definition name="editPruefungsleistung" extends="mainLayout">
+		<put-attribute name="content" value="/editPruefungsleistung.jsp" />
+	</definition>
+	<definition name="editPruefungsleistungErrorNoPruefungsleistung" extends="mainLayout">
+		<put-attribute name="content" value="/editPruefungsleistungErrorNoPruefungsleistung.jsp" />
+	</definition>
+	
 </tiles-definitions>
