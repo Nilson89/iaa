@@ -206,6 +206,20 @@ div.noscript {
 	padding-left: 20px;
 }
 
+#Content div.buttons div.button .edit {
+	background-image: url('/iaa_hausarbeit/images/application_edit.png');
+	background-position: left;
+	background-repeat: no-repeat;
+	padding-left: 20px;
+}
+
+#Content div.buttons div.button .reverse {
+	background-image: url('/iaa_hausarbeit/images/delete.png');
+	background-position: left;
+	background-repeat: no-repeat;
+	padding-left: 20px;
+}
+
 /* Sonstiges */
 div.clear {
 	clear: both;

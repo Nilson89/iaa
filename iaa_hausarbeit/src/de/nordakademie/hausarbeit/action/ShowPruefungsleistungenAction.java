@@ -5,10 +5,8 @@ import java.util.List;
 import com.opensymphony.xwork2.ActionSupport;
 
 import de.nordakademie.hausarbeit.model.Pruefungsfach;
-import de.nordakademie.hausarbeit.model.Pruefungsleistung;
 import de.nordakademie.hausarbeit.model.Student;
 import de.nordakademie.hausarbeit.service.PruefungsfaecherService;
-import de.nordakademie.hausarbeit.service.PruefungsleistungenService;
 import de.nordakademie.hausarbeit.service.StudentService;
 
 
@@ -73,6 +71,13 @@ public class ShowPruefungsleistungenAction extends ActionSupport {
 	 */
 	public List<Student> getStudenten() {
 		return studenten;
+	}
+
+	/**
+	 * @return the selectedPruefungsfachId
+	 */
+	public Long getSelectedPruefungsfachId() {
+		return selectedPruefungsfachId;
 	}
 	
 }

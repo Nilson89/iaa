@@ -27,6 +27,35 @@ public class PruefungsleistungenServiceImpl implements PruefungsleistungenServic
 	}
 
 	/**
+	 * getPruefungsleistungById
+	 * 
+	 * @param Long the pruefungsleistungId
+	 * @return the Pruefungsleistung
+	 */
+	public Pruefungsleistung getPruefungsleistungById(Long pruefungsleistungId) {
+		return pruefungsleistungenDAO.loadPruefungsleistungById(pruefungsleistungId);
+	}
+
+	/**
+	 * markPruefungsleistungAsInvalid
+	 * 
+	 * @param Pruefungsleistung the pruefungsleistung
+	 */
+	public void markPruefungsleistungAsInvalid(Pruefungsleistung pruefungsleistung) {
+		pruefungsleistung.setGueltig(false);
+		pruefungsleistungenDAO.savePruefungsleistung(pruefungsleistung);
+	}
+
+	/**
+	 * createPruefungsleistung
+	 * 
+	 * @param pruefungsleistung the pruefungsleistung
+	 */
+	public void createPruefungsleistung(Pruefungsleistung pruefungsleistung) {
+		pruefungsleistungenDAO.savePruefungsleistung(pruefungsleistung);
+	}
+
+	/**
 	 * @param pruefungsleistungenDAO the pruefungsleistungenDAO to set
 	 */
 	public void setPruefungsleistungenDAO(

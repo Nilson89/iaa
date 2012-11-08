@@ -2,8 +2,6 @@ package de.nordakademie.hausarbeit.action;
 
 import java.util.List;
 
-import org.apache.log4j.Logger;
-
 import com.opensymphony.xwork2.ActionSupport;
 
 import de.nordakademie.hausarbeit.model.Manipel;
@@ -19,8 +17,6 @@ import de.nordakademie.hausarbeit.service.PruefungsleistungenService;
 public class NotenuebersichtAction extends ActionSupport {
 	private ManipelService manipelService;
 	private PruefungsleistungenService pruefungsleistungenService;
-	private static final Logger logger = Logger.getLogger(PruefungslistAction.class);
-	
 	private String selectedManipel = "none";
 	
 	private List<Manipel> manipelList;

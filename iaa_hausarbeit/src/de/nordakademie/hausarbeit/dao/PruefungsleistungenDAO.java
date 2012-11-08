@@ -2,6 +2,7 @@ package de.nordakademie.hausarbeit.dao;
 
 import java.util.List;
 
+import org.hibernate.ObjectNotFoundException;
 import org.hibernate.Session;
 import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.Property;
@@ -65,5 +66,32 @@ public class PruefungsleistungenDAO extends HibernateDaoSupport {
 				.list();
 		
 		return pruefungsleistungen;
+	}
+	
+	/**
+	 * loadPruefungsleistungById
+	 * 
+	 * @param Long the pruefungsleistungId
+	 * @return the Pruefungsleistung
+	 */
+	public Pruefungsleistung loadPruefungsleistungById(Long pruefungsleistungId) {
+		Session session = this.getSessionFactory().getCurrentSession();
+		
+		try {
+			return (Pruefungsleistung) session.get(Pruefungsleistung.class, pruefungsleistungId);
+		} catch (ObjectNotFoundException e) {
+			// TODO: handle exception
+			// TODO: get Logger and log this!!!
+		}
+		return null;
+	}
+
+	/**
+	 * savePruefungsleistung
+	 * 
+	 * @param pruefungsleistung the pruefungsleistung to save
+	 */
+	public void savePruefungsleistung(Pruefungsleistung pruefungsleistung) {
+		getHibernateTemplate().saveOrUpdate(pruefungsleistung);
 	}
 }
