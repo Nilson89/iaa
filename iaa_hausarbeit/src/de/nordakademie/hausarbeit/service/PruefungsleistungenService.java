@@ -3,6 +3,7 @@ package de.nordakademie.hausarbeit.service;
 import java.util.List;
 
 import de.nordakademie.hausarbeit.model.Dozent;
+import de.nordakademie.hausarbeit.model.Ergaenzungspruefung;
 import de.nordakademie.hausarbeit.model.Pruefungsfach;
 import de.nordakademie.hausarbeit.model.Pruefungsleistung;
 import de.nordakademie.hausarbeit.model.Student;
@@ -18,4 +19,5 @@ public interface PruefungsleistungenService {
 	public Pruefungsleistung getPruefungsleistungById(Long pruefungsleistungId);
 	public void markPruefungsleistungAsInvalid(Pruefungsleistung pruefungsleistung);
 	public void createPruefungsleistung(Pruefungsleistung pruefungsleistung);
+	public Ergaenzungspruefung createErgaenzungspruefung(Ergaenzungspruefung ergaenzungspruefung);
 }

@@ -10,12 +10,14 @@ import java.util.Map;
 import com.opensymphony.xwork2.ActionSupport;
 
 import de.nordakademie.hausarbeit.model.Ergaenzungspruefung;
+import de.nordakademie.hausarbeit.model.Note;
 import de.nordakademie.hausarbeit.model.Pruefung;
 import de.nordakademie.hausarbeit.model.Pruefungsfach;
 import de.nordakademie.hausarbeit.model.Pruefungsleistung;
 import de.nordakademie.hausarbeit.model.Student;
 import de.nordakademie.hausarbeit.service.PruefungenService;
 import de.nordakademie.hausarbeit.service.PruefungsfaecherService;
+import de.nordakademie.hausarbeit.service.PruefungsleistungenService;
 import de.nordakademie.hausarbeit.service.StudentService;
 
 
@@ -30,6 +32,7 @@ public class CreateMdlPruefungsleistungenAction extends ActionSupport {
 	private Pruefung pruefung;
 	private List<Student> studenten;
 	private StudentService studentService;
+	private PruefungsleistungenService pruefungsleistungenService;
 	
 	private List<Ergaenzungspruefung> ergaenzungspruefungenList = new ArrayList();
 	
@@ -47,10 +50,19 @@ public class CreateMdlPruefungsleistungenAction extends ActionSupport {
 	 */
 	public String save() throws Exception {
 		for (Ergaenzungspruefung ergaenzungspruefung : ergaenzungspruefungenList) {
-			System.out.println("Da is was drinne!!!");
-			System.out.println("PruefungsleistungId: " + ergaenzungspruefung.getPruefungsleistungId());
-			System.out.println("Datum: " + ergaenzungspruefung.getDatum());
-			System.out.println("Note: " + ergaenzungspruefung.getNote());
+			// Save Ergaenzungspruefung
+			if (!ergaenzungspruefung.getNote().equals(Note.KeineTeilnahme)) {
+				// Get Pruefungsleistung
+				Pruefungsleistung pruefungsleistung = pruefungsleistungenService.getPruefungsleistungById(ergaenzungspruefung.getPruefungsleistungId());
+				
+				// Create Ergaenzungspruefung
+				ergaenzungspruefung.setErfassungsdatum(new Date());
+				ergaenzungspruefung = pruefungsleistungenService.createErgaenzungspruefung(ergaenzungspruefung);
+				
+				// Update Pruefungsleistung
+				pruefungsleistung.setErgaenzungspruefung(ergaenzungspruefung);
+				pruefungsleistungenService.createPruefungsleistung(pruefungsleistung);
+			}
 		}
 		
 		return SUCCESS;
@@ -134,5 +146,13 @@ public class CreateMdlPruefungsleistungenAction extends ActionSupport {
 	public void setErgaenzungspruefungenList(
 			List<Ergaenzungspruefung> ergaenzungspruefungenList) {
 		this.ergaenzungspruefungenList = ergaenzungspruefungenList;
+	}
+
+	/**
+	 * @param pruefungsleistungenService the pruefungsleistungenService to set
+	 */
+	public void setPruefungsleistungenService(
+			PruefungsleistungenService pruefungsleistungenService) {
+		this.pruefungsleistungenService = pruefungsleistungenService;
 	}
 }

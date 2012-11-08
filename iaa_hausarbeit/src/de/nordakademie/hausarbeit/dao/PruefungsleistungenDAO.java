@@ -8,6 +8,7 @@ import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.Property;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
+import de.nordakademie.hausarbeit.model.Ergaenzungspruefung;
 import de.nordakademie.hausarbeit.model.Pruefungsfach;
 import de.nordakademie.hausarbeit.model.Pruefungsleistung;
 import de.nordakademie.hausarbeit.model.Student;
@@ -93,5 +94,16 @@ public class PruefungsleistungenDAO extends HibernateDaoSupport {
 	 */
 	public void savePruefungsleistung(Pruefungsleistung pruefungsleistung) {
 		getHibernateTemplate().saveOrUpdate(pruefungsleistung);
+	}
+	
+	/**
+	 * saveErgaenzungspruefung
+	 * 
+	 * @param Ergaenzungspruefung the ergaenzungspruefung to save
+	 * @return Ergaenzungspruefung
+	 */
+	public Ergaenzungspruefung saveErgaenzungspruefung(Ergaenzungspruefung ergaenzungspruefung) {
+		getHibernateTemplate().saveOrUpdate(ergaenzungspruefung);
+		return ergaenzungspruefung;
 	}
 }

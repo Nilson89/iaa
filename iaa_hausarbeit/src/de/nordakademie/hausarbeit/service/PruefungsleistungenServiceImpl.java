@@ -3,6 +3,7 @@ package de.nordakademie.hausarbeit.service;
 import java.util.List;
 
 import de.nordakademie.hausarbeit.dao.PruefungsleistungenDAO;
+import de.nordakademie.hausarbeit.model.Ergaenzungspruefung;
 import de.nordakademie.hausarbeit.model.Pruefungsfach;
 import de.nordakademie.hausarbeit.model.Pruefungsleistung;
 import de.nordakademie.hausarbeit.model.Student;
@@ -68,6 +69,16 @@ public class PruefungsleistungenServiceImpl implements PruefungsleistungenServic
 	 */
 	public List<Pruefungsleistung> getHistoriePruefungen(Student student, Pruefungsfach pruefungsfach) {
 		return pruefungsleistungenDAO.loadPruefungsleistungenForStudentAndPruefungsfach(student, pruefungsfach);
+	}
+
+	/**
+	 * createErgaenzungspruefung
+	 * 
+	 * @param Ergaenzungspruefung the ergaenzungspruefung to store
+	 * @return Ergaenzungspruefung
+	 */
+	public Ergaenzungspruefung createErgaenzungspruefung(Ergaenzungspruefung ergaenzungspruefung) {
+		return pruefungsleistungenDAO.saveErgaenzungspruefung(ergaenzungspruefung);
 	}
 	
 
