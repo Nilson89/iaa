@@ -3,7 +3,7 @@
 
 <%-- Niels Maseberg --%>
 
-<h2><s:text name="txtHeadingEditPruefungsleistung" /> "ToDo"</h2>
+<h2><s:text name="txtHeadingEditPruefungsleistung" /> "<s:property value="%{pruefungsfach.titel}" /></h2>
 
 <s:form>
 	<s:hidden name="selectedPruefungsfachId" value="%{selectedPruefungsfachId}" />

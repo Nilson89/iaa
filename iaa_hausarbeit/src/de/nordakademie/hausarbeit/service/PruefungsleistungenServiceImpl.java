@@ -27,6 +27,16 @@ public class PruefungsleistungenServiceImpl implements PruefungsleistungenServic
 	}
 
 	/**
+	 * getPruefungsleistungById
+	 * 
+	 * @param Long the pruefungsleistungId
+	 * @return the Pruefungsleistung
+	 */
+	public Pruefungsleistung getPruefungsleistungById(Long pruefungsleistungId) {
+		return pruefungsleistungenDAO.loadPruefungsleistungById(pruefungsleistungId);
+	}
+
+	/**
 	 * @param pruefungsleistungenDAO the pruefungsleistungenDAO to set
 	 */
 	public void setPruefungsleistungenDAO(

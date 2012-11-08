@@ -91,6 +91,21 @@
 			<interceptor-ref name="defaultStack" />
 		</action>
 		
+		<action name="editPruefungsleistungSave" class="de.nordakademie.hausarbeit.action.EditPruefungsleistungAction" method="save">
+			<result type="chain">showPruefungsleistungen</result>
+			<result name="input">editPruefungsleistung</result>
+			<interceptor-ref name="defaultStack" />
+		</action>
+		
+		<action name="editPruefungsleistungReverse" class="de.nordakademie.hausarbeit.action.EditPruefungsleistungAction" method="reverse">
+			<result type="chain">showPruefungsleistungen</result>
+			<result name="input">editPruefungsleistung</result>
+			<interceptor-ref name="defaultStack">
+				<param name="validation.validateAnnotatedMethodOnly">true</param>                
+  				<param name="validation.excludeMethods">reverse</param>
+			</interceptor-ref>
+		</action>
+		
 	</package>
 
 </struts>
