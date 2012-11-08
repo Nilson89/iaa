@@ -8,6 +8,24 @@
 	<s:hidden name="selectedPruefungId" value="%{pruefung.getId()}" />
 	<s:hidden name="selectedPruefungsfachId" value="%{pruefung.getPruefungsfach().getId()}" />
 	
+	<div class="textBox">
+		<p>
+			<s:text name="txtMdlProtocollPruefungsfach"></s:text>: <s:property value="%{pruefung.getPruefungsfach().getTitel()}" />
+		</p>
+		<p>
+			<s:text name="txtMdlProtocollPruefungsdatum"></s:text>: <s:property value="%{pruefung.getDatum()}" />
+		</p>
+		<p>
+			<s:text name="txtMdlProtocollDozent"></s:text>: <s:property value="%{pruefung.getDozent().getPerson().getFullName()}" />
+		</p>
+		<p>
+			<s:text name="txtMdlProtocollErfassungsdatum"></s:text>: <s:property value="%{newPruefungsleistungenList.get(newPruefungsleistungenList.size() - 1).getErgaenzungspruefung().getErfassungsdatum()}" />
+		</p>
+		<p>
+			<s:text name="txtMdlProtocollErfasser"></s:text>: <s:property value="%{newPruefungsleistungenList.get(newPruefungsleistungenList.size() - 1).getErfasser().getPerson().getFullName()}" />
+		</p>		
+	</div>
+	
 	<table cellpadding="0">
 		<caption><s:text name="txtCaptionProtocollMdlPruefungsleistungsanlage" /></caption>
 		<thead>
@@ -45,6 +63,11 @@
 	<div class="buttons">
 		<div class="button">
 			<s:submit key="btnBackToPruefungslist" action="pruefungslist" cssClass="btnBack" />
+		</div>
+		<div class="button">
+			<s:a href="javascript:window.print();" cssClass="print">
+				<s:text name="btnPrint" />
+			</s:a>
 		</div>
 		<div class="clear"></div>
 	</div>
