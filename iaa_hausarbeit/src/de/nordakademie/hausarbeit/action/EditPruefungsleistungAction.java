@@ -65,7 +65,11 @@ public class EditPruefungsleistungAction extends ActionSupport {
 	 * reverse
 	 */
 	public String reverse() throws Exception {
-		// TODO
+		// Load Pruefungsleistung
+		pruefungsleistung = pruefungsleistungenService.getPruefungsleistungById(selectedPruefungsleistungId);
+		
+		// Mark pruefungsleistung as "ungueltig"
+		pruefungsleistungenService.markPruefungsleistungAsInvalid(pruefungsleistung);
 		return SUCCESS;
 	}
 	
