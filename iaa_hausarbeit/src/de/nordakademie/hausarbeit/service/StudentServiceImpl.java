@@ -4,6 +4,7 @@ import java.util.List;
 
 import de.nordakademie.hausarbeit.dao.StudentDAO;
 import de.nordakademie.hausarbeit.model.Manipel;
+import de.nordakademie.hausarbeit.model.Pruefung;
 import de.nordakademie.hausarbeit.model.Pruefungsfach;
 import de.nordakademie.hausarbeit.model.Student;
 
@@ -49,6 +50,15 @@ public class StudentServiceImpl implements StudentService {
 	 */
 	public void setStudentDAO(StudentDAO studentDAO) {
 		this.studentDAO = studentDAO;
+	}
+
+	/**
+	 * getStudentenByManipelAndPruefungsleistungenByPruefung
+	 * 
+	 * @param Pruefung the pruefung
+	 */
+	public List<Student> getStudentenByManipelAndPruefungsleistungenByPruefung(Pruefung pruefung) {
+		return studentDAO.getStudentenByManipelAndPruefungsleistungenByPruefung(pruefung);
 	}
 
 }
