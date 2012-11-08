@@ -48,6 +48,16 @@ public class PruefungenServiceImpl implements PruefungenService {
 	}
 
 	/**
+	 * getPruefungById
+	 * 
+	 * @param Long the pruefungId
+	 * @return Pruefung
+	 */
+	public Pruefung getPruefungById(Long pruefungId) {
+		return pruefungenDAO.loadPruefungById(pruefungId);
+	}
+
+	/**
 	 * @param pruefungenDAO the pruefungenDAO to set
 	 */
 	public void setPruefungenDAO(PruefungenDAO pruefungenDAO) {

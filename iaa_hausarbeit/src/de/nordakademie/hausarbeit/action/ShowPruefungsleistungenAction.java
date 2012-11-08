@@ -12,7 +12,7 @@ import de.nordakademie.hausarbeit.service.StudentService;
 
 /**
  * 
- * @author Sabrina Schramm und Niels Maseberg
+ * @author Niels Maseberg
  */
 public class ShowPruefungsleistungenAction extends ActionSupport {
 	private Long selectedPruefungsfachId;
