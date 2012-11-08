@@ -6,8 +6,10 @@ import com.opensymphony.xwork2.ActionSupport;
 
 import de.nordakademie.hausarbeit.model.Note;
 import de.nordakademie.hausarbeit.model.Pruefungsfach;
+import de.nordakademie.hausarbeit.model.Pruefungsleistung;
 import de.nordakademie.hausarbeit.model.Student;
 import de.nordakademie.hausarbeit.service.PruefungsfaecherService;
+import de.nordakademie.hausarbeit.service.PruefungsleistungenService;
 import de.nordakademie.hausarbeit.service.StudentService;
 
 
@@ -21,9 +23,11 @@ private Long selectedPruefungsfachId;
 	
 	private PruefungsfaecherService pruefungsfaecherService;
 	private StudentService studentService;
+	private PruefungsleistungenService pruefungsleistungenService;
 	
 	private Pruefungsfach pruefungsfach;
 	private List<Student> studenten;
+	private List<Pruefungsleistung> pruefungsleistungen;
 	private Note[] noten = Note.values();
 	
 	
@@ -34,12 +38,21 @@ private Long selectedPruefungsfachId;
 		// Load Pruefungsfach
 		pruefungsfach = pruefungsfaecherService.getPruefungsfach(selectedPruefungsfachId);
 		
-		// Load Students of Manipel and it´s grades
+		// Load Studenten of Manipel and it´s Noten
 		studenten = studentService.getStudentenByManipelAndPruefungsleistungenByPruefungsfach(pruefungsfach);
 		
 		
 		return SUCCESS;
 	}
+	
+//	/**
+//	 * savePruefungsleistungen
+//	 */
+//	public String savePruefungsleistungen() throws Exception {
+//		// Store Pruefungsleistungen in Database
+//		pruefungsleistungenService.savePruefungsleistungen(pruefungsleistungen);
+//		return SUCCESS;
+//	}
 
 	/**
 	 * @param selectedPruefungsfachId the selectedPruefungsfachId to set

@@ -75,10 +75,11 @@
 		
 		<action name="createPruefungsleistungen" class="de.nordakademie.hausarbeit.action.CreatePruefungsleistungenAction">
 			<result type="tiles">createPruefungsleistungen</result>
-			<interceptor-ref name="defaultStack">
-				<param name="validation.validateAnnotatedMethodOnly">true</param>                
-  				<param name="validation.excludeMethods">execute</param>
-			</interceptor-ref>
+		</action>
+		
+		<action name="savePruefungsleistungen" class="de.nordakademie.hausarbeit.action.CreatePruefungsleistungenAction" method="savePruefungsleistungen">
+			<result type="chain">pruefungslist</result>
+			<result name="input">createPruefungsleistungen</result>
 		</action>
 		
 		<action name="createMdlPruefungsleistungen" class="de.nordakademie.hausarbeit.action.CreateMdlPruefungsleistungenAction">

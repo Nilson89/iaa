@@ -9,6 +9,7 @@
 </div>
 <s:form>
 	<s:hidden name="selectedPruefungsfachId" value="%{selectedPruefungsfachId}" />
+	<s:hidden name="selectedPruefungId" value="%{selectedPruefungId}" />
 	<table cellpadding="0">
 		<caption>Anlage neuer Prüfungsleistungen im Prüfungsfach "<s:property value="pruefungsfach.getTitel()" />"</caption>
 		<thead>
