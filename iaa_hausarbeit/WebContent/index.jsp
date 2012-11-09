@@ -6,12 +6,12 @@
 <h2><s:text name="txtHeadingIndex" /></h2>
 <s:form>
 	<table cellpadding="0">
-		<caption>Liste aller Prüfungsfächer inklusive Studienrichtung und Jahrgang</caption>
+		<caption><s:text name="txtCaptionIndex" /></caption>
 		<thead>
 			<tr>
 				<th>&nbsp;</th>
 				<th><s:text name="txtIndexStudienrichtung" /></th>
-				<th><s:text name="txtIndexTitel" /></th>
+				<th><s:text name="txtTitel" /></th>
 				<th><s:text name="txtIndexJahrgang" /></th>
 				<th><s:text name="txtIndexBeschreibung" /></th>
 			</tr>
@@ -35,7 +35,7 @@
 	</table>
 	<div class="buttons">
 		<div class="button">
-			<s:submit value="Prüfungen anzeigen" action="pruefungslist" cssClass="listTable" />
+			<s:submit key="btnPrüfungenAnzeigen" action="pruefungslist" cssClass="listTable"  />
 		</div>
 		<div class="clear"></div>
 	</div>

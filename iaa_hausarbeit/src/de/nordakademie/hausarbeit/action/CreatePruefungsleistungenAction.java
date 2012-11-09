@@ -26,7 +26,7 @@ import de.nordakademie.hausarbeit.service.StudentService;
 
 public class CreatePruefungsleistungenAction extends ActionSupport {
 	private Long selectedPruefungsfachId;
-	private Long selectedPruefungId = null;
+	private Long selectedPruefungId;
 	
 	private PruefungenService pruefungenService;
 	private PruefungsleistungenService pruefungsleistungenService;
@@ -85,8 +85,12 @@ public class CreatePruefungsleistungenAction extends ActionSupport {
 	public void validate() {
 		super.validate();
 		
-		// Load Data
-		loadPruefungAndStudents();
+		if (getSelectedPruefungId() == null) {
+			addActionError(getText("error.no.pruefung.selected"));
+		} else {
+			// Load Data
+			loadPruefungAndStudents();
+		}
 	}
 	
 	/**

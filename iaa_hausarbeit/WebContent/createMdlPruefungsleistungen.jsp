@@ -15,16 +15,16 @@
 	
 	<s:if test="studenten.size != 0">
 		<table cellpadding="0">
-			<caption>Liste aller Prüfungsleistungen in dem gewählten Prüfungsfach</caption>
+			<caption><s:text name="txtCaptionMdlPruefungsleistungsanlage" /></caption>
 			<thead>
 				<tr>
-					<th><s:text name="txtLabelMdlPLName" /></th>
-					<th><s:text name="txtLabelMdlPLVorname" /></th>
-					<th><s:text name="txtLabelMdlPLMatrikelnummer" /></th>
-					<th><s:text name="txtLabelMdlPLVersuch" /></th>
-					<th><s:text name="txtLabelMdlPLAktuelleNote" /></th>
-					<th><s:text name="txtLabelMdlPruefungsdatum" /></th>
-					<th><s:text name="txtLabelMdlPLNote" /></th>
+					<th><s:text name="txtName" /></th>
+					<th><s:text name="txtVorname" /></th>
+					<th><s:text name="txtMatrikelnummer" /></th>
+					<th><s:text name="txtVersuch" /></th>
+					<th><s:text name="txtAktuelleNote" /></th>
+					<th><s:text name="txtPruefungsdatum" /></th>
+					<th><s:text name="txtNote" /></th>
 				</tr>
 			</thead>
 			<tbody>

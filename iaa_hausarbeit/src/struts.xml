@@ -76,6 +76,7 @@
 		
 		<action name="createPruefungsleistungen" class="de.nordakademie.hausarbeit.action.CreatePruefungsleistungenAction">
 			<result type="tiles">createPruefungsleistungen</result>
+			<result name="input">createPruefungsleistungenError</result>
 		</action>
 		
 		<action name="savePruefungsleistungen" class="de.nordakademie.hausarbeit.action.CreatePruefungsleistungenAction" method="savePruefungsleistungen">
