@@ -28,7 +28,7 @@ import de.nordakademie.hausarbeit.service.StudentService;
 
 public class CreatePruefungsleistungenAction extends ActionSupport {
 	private Long selectedPruefungsfachId;
-	private Long selectedPruefungId = null;
+	private Long selectedPruefungId;
 	
 	private PruefungenService pruefungenService;
 	private PruefungsleistungenService pruefungsleistungenService;

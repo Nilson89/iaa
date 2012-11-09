@@ -8,17 +8,17 @@
 	<s:hidden name="selectedPruefungsfachId" value="%{pruefungsfach.id}" />
 
 	<table cellpadding="0">
-		<caption>Liste aller Prüfungsleistungen in dem gewählten Prüfungsfach</caption>
+		<caption><s:text name="txtCaptionPruefungsleistungenanzeige" /></caption>
 		<thead>
 			<tr>
 				<th>&nbsp;</th>
-				<th><s:text name="txtPLAnzeigeName" /></th>
-				<th><s:text name="txtPLAnzeigeVorname" /></th>
-				<th><s:text name="txtPLAnzeigeMatrikelnummer" /></th>
-				<th><s:text name="txtPLAnzeigeNote" /> 1 (<s:text name="txtPLAnzeigeErgaenzungspruefung" />)</th>
-				<th><s:text name="txtPLAnzeigeNote" /> 2 (<s:text name="txtPLAnzeigeErgaenzungspruefung" />)</th>
-				<th><s:text name="txtPLAnzeigeNote" /> 3 (<s:text name="txtPLAnzeigeErgaenzungspruefung" />)</th>
-				<th><s:text name="txtPLAnzeigeNoteAktuell" /></th>
+				<th><s:text name="txtName" /></th>
+				<th><s:text name="txtVorname" /></th>
+				<th><s:text name="txtMatrikelnummer" /></th>
+				<th><s:text name="txtNote" /> 1 (<s:text name="txtErgaenzungspruefung" />)</th>
+				<th><s:text name="txtNote" /> 2 (<s:text name="txtErgaenzungspruefung" />)</th>
+				<th><s:text name="txtNote" /> 3 (<s:text name="txtErgaenzungspruefung" />)</th>
+				<th><s:text name="txtNoteAktuell" /></th>
 			</tr>
 		</thead>
 		<tbody>

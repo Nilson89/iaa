@@ -13,14 +13,14 @@
 	
 	<s:if test="studenten.size != 0">
 		<table cellpadding="0">
-			<caption>Anlage neuer Prüfungsleistungen im Prüfungsfach "<s:property value="%{pruefung.getPruefungsfach().getTitel()}" />"</caption>
+			<caption><s:text name="txtCaptionPruefungsleistungsanlage" /> "<s:property value="%{pruefung.getPruefungsfach().getTitel()}" />"</caption>
 			<thead>
 				<tr>
-					<th><s:text name="txtPLMatrikelnummer" /></th>
-					<th><s:text name="txtPLName" /></th>
-					<th><s:text name="txtPLVorname" /></th>
-					<th><s:text name="txtPLVersuch" /></th>
-					<th><s:text name="txtPLNote" /></th>
+					<th><s:text name="txtMatrikelnummer" /></th>
+					<th><s:text name="txtName" /></th>
+					<th><s:text name="txtVorname" /></th>
+					<th><s:text name="txtVersuch" /></th>
+					<th><s:text name="txtNote" /></th>
 				</tr>
 			</thead>
 			<tbody>
@@ -58,7 +58,7 @@
 	<div class="buttons">
 		<div class="button">
 			<s:submit key="btnCreatePruefungsleistung" action="createPruefungsleistungenSave" cssClass="save" />
-			<s:submit key="btnAbbrechen" action="pruefungslist" cssClass="cancel"  />
+			<s:submit key="btnCancel" action="pruefungslist" cssClass="cancel"  />
 		</div>
 		<div class="clear"></div>
 	</div>

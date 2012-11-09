@@ -1,7 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
 
-<%-- Sabrina Schramm und Niels Maseberg --%>
+<%-- Niels Maseberg, Sabrina Schramm --%>
 
 <h2><s:text name="txtHeadingProtocollMdlPruefungsleistungsanlage" /> "<s:property value="%{pruefung.getPruefungsfach().getTitel()}" />"</h2>
 <s:form>
@@ -10,19 +10,19 @@
 	
 	<div class="textBox">
 		<p>
-			<s:text name="txtMdlProtocollPruefungsfach"></s:text>: <s:property value="%{pruefung.getPruefungsfach().getTitel()}" />
+			<s:text name="txtPruefungsfach"></s:text>: <s:property value="%{pruefung.getPruefungsfach().getTitel()}" />
 		</p>
 		<p>
-			<s:text name="txtMdlProtocollPruefungsdatum"></s:text>: <s:property value="%{pruefung.getDatum()}" />
+			<s:text name="txtPruefungsdatum"></s:text>: <s:property value="%{pruefung.getDatum()}" />
 		</p>
 		<p>
-			<s:text name="txtMdlProtocollDozent"></s:text>: <s:property value="%{pruefung.getDozent().getPerson().getFullName()}" />
+			<s:text name="txtDozent"></s:text>: <s:property value="%{pruefung.getDozent().getPerson().getFullName()}" />
 		</p>
 		<p>
-			<s:text name="txtMdlProtocollErfassungsdatum"></s:text>: <s:property value="%{newPruefungsleistungenList.get(newPruefungsleistungenList.size() - 1).getErgaenzungspruefung().getErfassungsdatum()}" />
+			<s:text name="txtErfassungsdatum"></s:text>: <s:property value="%{newPruefungsleistungenList.get(newPruefungsleistungenList.size() - 1).getErgaenzungspruefung().getErfassungsdatum()}" />
 		</p>
 		<p>
-			<s:text name="txtMdlProtocollErfasser"></s:text>: <s:property value="%{newPruefungsleistungenList.get(newPruefungsleistungenList.size() - 1).getErfasser().getPerson().getFullName()}" />
+			<s:text name="txtErfasser"></s:text>: <s:property value="%{newPruefungsleistungenList.get(newPruefungsleistungenList.size() - 1).getErfasser().getPerson().getFullName()}" />
 		</p>		
 	</div>
 	
@@ -30,11 +30,11 @@
 		<caption><s:text name="txtCaptionProtocollMdlPruefungsleistungsanlage" /></caption>
 		<thead>
 			<tr>
-				<th><s:text name="txtLabelMdlPLName" /></th>
-				<th><s:text name="txtLabelMdlPLVorname" /></th>
-				<th><s:text name="txtLabelMdlPLMatrikelnummer" /></th>
-				<th><s:text name="txtLabelMdlPLVersuch" /></th>
-				<th><s:text name="txtLabelMdlPLNote" /></th>
+				<th><s:text name="txtName" /></th>
+				<th><s:text name="txtVorname" /></th>
+				<th><s:text name="txtMatrikelnummer" /></th>
+				<th><s:text name="txtVersuch" /></th>
+				<th><s:text name="txtNote" /></th>
 			</tr>
 		</thead>
 		<tbody>
