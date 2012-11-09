@@ -5,11 +5,13 @@ import java.util.List;
 
 import com.opensymphony.xwork2.ActionSupport;
 
+import de.nordakademie.hausarbeit.model.Ergaenzungspruefung;
 import de.nordakademie.hausarbeit.model.Note;
 import de.nordakademie.hausarbeit.model.Pruefung;
 import de.nordakademie.hausarbeit.model.Pruefungsfach;
 import de.nordakademie.hausarbeit.model.Pruefungsleistung;
 import de.nordakademie.hausarbeit.model.Student;
+import de.nordakademie.hausarbeit.service.PruefungenService;
 import de.nordakademie.hausarbeit.service.PruefungsfaecherService;
 import de.nordakademie.hausarbeit.service.PruefungsleistungenService;
 import de.nordakademie.hausarbeit.service.StudentService;
@@ -22,15 +24,14 @@ import de.nordakademie.hausarbeit.service.StudentService;
 
 public class CreatePruefungsleistungenAction extends ActionSupport {
 	private Long selectedPruefungsfachId;
-	private Long selectedPruefungId = null;
+	private Long selectedPruefungId;
 	
-	private PruefungsfaecherService pruefungsfaecherService;
+	private PruefungenService pruefungenService;
 	private StudentService studentService;
-	private PruefungsleistungenService pruefungsleistungenService;
-	
+	private Pruefung pruefung;
 	private Pruefungsfach pruefungsfach;
 	private List<Student> studenten;
-	private List<Pruefungsleistung> pruefungsleistungen;
+	private List<Pruefungsleistung> pruefungsleistungenList;
 	private Note[] noten = Note.values();
 	
 	
@@ -38,24 +39,24 @@ public class CreatePruefungsleistungenAction extends ActionSupport {
 	 * execute
 	 */
 	public String execute() throws Exception {
-		// Load Pruefungsfach
-		pruefungsfach = pruefungsfaecherService.getPruefungsfach(selectedPruefungsfachId);
 		
-		// Load Studenten of Manipel and it´s Noten
-		studenten = studentService.getStudentenByManipelAndPruefungsleistungenByPruefungsfach(pruefungsfach);
-		
+		// Load Prüfungunsfach and Studenten of Manipel and it´s Noten
+		loadPruefungAndStudents();
 		
 		return SUCCESS;
+
 	}
 	
 	/**
 	 * savePruefungsleistungen
 	 */
-//	public String savePruefungsleistungen() throws Exception {
-//		// Store Pruefungsleistungen in Database
-//		pruefungsleistungenService.savePruefungsleistungen(pruefungsleistungen);
-//		return SUCCESS;
-//	}
+	public String save() throws Exception {
+		for (Pruefungsleistung pruefungsleistung : pruefungsleistungenList) {
+			System.out.println("PruefungsleistungId: " + pruefungsleistung.getId());
+		}
+		
+		return SUCCESS;
+	}
 	
 	/**
 	 * validate
@@ -63,26 +64,25 @@ public class CreatePruefungsleistungenAction extends ActionSupport {
 	public void validate() {
 		super.validate();
 		
-		// If no Pruefung is selected, then show Error
-		if (getSelectedPruefungId().equals(null)) {
-			addFieldError("selectedPruefung", getText("error.no.pruefung.selected"));
-		}
+		// Load Data
+		loadPruefungAndStudents();
 	}
-
+	
 	/**
-	 * @param selectedPruefungsfachId the selectedPruefungsfachId to set
+	 * loadPruefungAndStudents
 	 */
-	public void setSelectedPruefungsfachId(Long selectedPruefungsfachId) {
-		this.selectedPruefungsfachId = selectedPruefungsfachId;
-	}
+	private void loadPruefungAndStudents() {
 
-	/**
-	 * @param pruefungsfaecherService the pruefungsfaecherService to set
-	 */
-	public void setPruefungsfaecherService(
-			PruefungsfaecherService pruefungsfaecherService) {
-		this.pruefungsfaecherService = pruefungsfaecherService;
+		// Load Pruefung
+		pruefung = pruefungenService.getPruefungById(selectedPruefungId);
+		System.out.println("Prüfung wurde geladen: " + pruefung.getId());
+		
+		// Load Studenten of Manipel and it´s Noten
+		studenten = studentService.getStudentenByManipelAndPruefungsleistungenByPruefungsfach(pruefung.getPruefungsfach());
+
 	}
+	
+	
 
 	/**
 	 * @return the pruefungsfach
@@ -111,6 +111,13 @@ public class CreatePruefungsleistungenAction extends ActionSupport {
 	public Long getSelectedPruefungsfachId() {
 		return selectedPruefungsfachId;
 	}
+	
+	/**
+	 * @param selectedPruefungsfachId the selectedPruefungsfachId to set
+	 */
+	public void setSelectedPruefungsfachId(Long selectedPruefungsfachId) {
+		this.selectedPruefungsfachId = selectedPruefungsfachId;
+	}
 
 
 	public Long getSelectedPruefungId() {
@@ -124,5 +131,34 @@ public class CreatePruefungsleistungenAction extends ActionSupport {
 	public Note[] getNoten() {
 		return noten;
 	}	
+	
+	/**
+	 * @return the pruefung
+	 */
+	public Pruefung getPruefung() {
+		return pruefung;
+	}
+
+	/**
+	 * @param pruefungenService the pruefungenService to set
+	 */
+	public void setPruefungenService(PruefungenService pruefungenService) {
+		this.pruefungenService = pruefungenService;
+	}
+
+	/**
+	 * @return the ergaenzungspruefungenList
+	 */
+	public List<Pruefungsleistung> getPruefungsleistungenListt() {
+		return pruefungsleistungenList;
+	}
+
+	/**
+	 * @param ergaenzungspruefungenList the ergaenzungspruefungenList to set
+	 */
+	public void setPruefungsleistungenList(
+			List<Pruefungsleistung> pruefungsleistungenList) {
+		this.pruefungsleistungenList = pruefungsleistungenList;
+	}
 
 }
