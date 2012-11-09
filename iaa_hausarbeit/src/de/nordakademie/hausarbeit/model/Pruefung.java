@@ -24,7 +24,7 @@ public class Pruefung {
 	private Dozent dozent;
 	
 	/**
-	 * @return the id
+	 * @return id
 	 */
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -32,14 +32,14 @@ public class Pruefung {
 		return id;
 	}
 	/**
-	 * @param id the id to set
+	 * @param id 
 	 */
 	public void setId(Long id) {
 		this.id = id;
 	}
 	
 	/**
-	 * @return the datum
+	 * @return datum
 	 */
 	@Column(nullable = false)
 	@Type(type="date")
@@ -47,14 +47,14 @@ public class Pruefung {
 		return datum;
 	}
 	/**
-	 * @param datum the datum to set
+	 * @param datum 
 	 */
 	public void setDatum(Date datum) {
 		this.datum = datum;
 	}
 	
 	/**
-	 * @return the pruefungsfach
+	 * @return pruefungsfach
 	 */
 	@ManyToOne
 	@JoinColumn(name="pruefungsfachid", referencedColumnName="id")
@@ -62,14 +62,14 @@ public class Pruefung {
 		return pruefungsfach;
 	}
 	/**
-	 * @param pruefungsfach the pruefungsfach to set
+	 * @param pruefungsfach 
 	 */
 	public void setPruefungsfach(Pruefungsfach pruefungsfach) {
 		this.pruefungsfach = pruefungsfach;
 	}
 	
 	/**
-	 * @return the dozent
+	 * @return dozent
 	 */
 	@ManyToOne
 	@JoinColumn(name="dozentid", referencedColumnName="id")
@@ -77,7 +77,7 @@ public class Pruefung {
 		return dozent;
 	}
 	/**
-	 * @param dozent the dozent to set
+	 * @param dozent 
 	 */
 	public void setDozent(Dozent dozent) {
 		this.dozent = dozent;

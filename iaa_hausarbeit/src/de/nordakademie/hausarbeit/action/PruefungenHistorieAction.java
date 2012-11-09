@@ -85,49 +85,49 @@ public class PruefungenHistorieAction extends ActionSupport {
 	}
 
 	/**
-	 * @param studentService the studentService to set
+	 * @param studentService 
 	 */
 	public void setStudentService(StudentService studentService) {
 		this.studentService = studentService;
 	}
 
 	/**
-	 * @return the selectedPruefungsfachId
+	 * @return selectedPruefungsfachId
 	 */
 	public Long getSelectedPruefungsfachId() {
 		return selectedPruefungsfachId;
 	}
 
 	/**
-	 * @param selectedPruefungsfachId the selectedPruefungsfachId to set
+	 * @param selectedPruefungsfachId 
 	 */
 	public void setSelectedPruefungsfachId(Long selectedPruefungsfachId) {
 		this.selectedPruefungsfachId = selectedPruefungsfachId;
 	}
 
 	/**
-	 * @return the matrikelnummern
+	 * @return matrikelnummern
 	 */
 	public List<Integer> getMatrikelnummern() {
 		return matrikelnummern;
 	}
 
 	/**
-	 * @return the selectedMatrikelnummer
+	 * @return selectedMatrikelnummer
 	 */
 	public Integer getSelectedMatrikelnummer() {
 		return selectedMatrikelnummer;
 	}
 
 	/**
-	 * @param selectedMatrikelnummer the selectedMatrikelnummer to set
+	 * @param selectedMatrikelnummer 
 	 */
 	public void setSelectedMatrikelnummer(Integer selectedMatrikelnummer) {
 		this.selectedMatrikelnummer = selectedMatrikelnummer;
 	}
 
 	/**
-	 * @param pruefungsfaecherService the pruefungsfaecherService to set
+	 * @param pruefungsfaecherService 
 	 */
 	public void setPruefungsfaecherService(
 			PruefungsfaecherService pruefungsfaecherService) {
@@ -135,14 +135,14 @@ public class PruefungenHistorieAction extends ActionSupport {
 	}
 
 	/**
-	 * @return the pruefungsleistungenList
+	 * @return pruefungsleistungenList
 	 */
 	public List<Pruefungsleistung> getPruefungsleistungenList() {
 		return pruefungsleistungenList;
 	}
 
 	/**
-	 * @param pruefungsleistungenService the pruefungsleistungenService to set
+	 * @param pruefungsleistungenService 
 	 */
 	public void setPruefungsleistungenService(
 			PruefungsleistungenService pruefungsleistungenService) {
@@ -150,14 +150,14 @@ public class PruefungenHistorieAction extends ActionSupport {
 	}
 
 	/**
-	 * @return the pruefungsfach
+	 * @return pruefungsfach
 	 */
 	public Pruefungsfach getPruefungsfach() {
 		return pruefungsfach;
 	}
 
 	/**
-	 * @return the student
+	 * @return student
 	 */
 	public Student getStudent() {
 		return student;

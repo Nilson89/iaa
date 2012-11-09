@@ -38,14 +38,14 @@ public class ShowPruefungsleistungenAction extends ActionSupport {
 	}
 
 	/**
-	 * @param selectedPruefungsfachId the selectedPruefungsfachId to set
+	 * @param selectedPruefungsfachId
 	 */
 	public void setSelectedPruefungsfachId(Long selectedPruefungsfachId) {
 		this.selectedPruefungsfachId = selectedPruefungsfachId;
 	}
 
 	/**
-	 * @param pruefungsfaecherService the pruefungsfaecherService to set
+	 * @param pruefungsfaecherService 
 	 */
 	public void setPruefungsfaecherService(
 			PruefungsfaecherService pruefungsfaecherService) {
@@ -53,28 +53,28 @@ public class ShowPruefungsleistungenAction extends ActionSupport {
 	}
 
 	/**
-	 * @return the pruefungsfach
+	 * @return pruefungsfach
 	 */
 	public Pruefungsfach getPruefungsfach() {
 		return pruefungsfach;
 	}
 
 	/**
-	 * @param studentService the studentService to set
+	 * @param studentService 
 	 */
 	public void setStudentService(StudentService studentService) {
 		this.studentService = studentService;
 	}
 
 	/**
-	 * @return the studenten
+	 * @return studenten
 	 */
 	public List<Student> getStudenten() {
 		return studenten;
 	}
 
 	/**
-	 * @return the selectedPruefungsfachId
+	 * @return selectedPruefungsfachId
 	 */
 	public Long getSelectedPruefungsfachId() {
 		return selectedPruefungsfachId;

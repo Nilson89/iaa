@@ -58,35 +58,35 @@ public class PruefungslistAction extends ActionSupport {
 	}
 
 	/**
-	 * @return the selectedPruefungsfachId
+	 * @return selectedPruefungsfachId
 	 */
 	public Long getSelectedPruefungsfachId() {
 		return selectedPruefungsfachId;
 	}
 
 	/**
-	 * @param selectedPruefungsfachId the selectedPruefungsfachId to set
+	 * @param selectedPruefungsfachId 
 	 */
 	public void setSelectedPruefungsfachId(Long selectedPruefungsfachId) {
 		this.selectedPruefungsfachId = selectedPruefungsfachId;
 	}
 
 	/**
-	 * @return the pruefungen
+	 * @return pruefungen
 	 */
 	public List<Pruefung> getPruefungen() {
 		return pruefungen;
 	}
 
 	/**
-	 * @param pruefungenService the pruefungenService to set
+	 * @param pruefungenService 
 	 */
 	public void setPruefungenService(PruefungenService pruefungenService) {
 		this.pruefungenService = pruefungenService;
 	}
 
 	/**
-	 * @param pruefungsfaecherService the pruefungsfaecherService to set
+	 * @param pruefungsfaecherService 
 	 */
 	public void setPruefungsfaecherService(
 			PruefungsfaecherService pruefungsfaecherService) {
@@ -94,7 +94,7 @@ public class PruefungslistAction extends ActionSupport {
 	}
 
 	/**
-	 * @return the pruefungsfach
+	 * @return pruefungsfach
 	 */
 	public Pruefungsfach getPruefungsfach() {
 		return pruefungsfach;

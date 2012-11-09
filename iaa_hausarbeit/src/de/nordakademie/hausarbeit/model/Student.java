@@ -36,7 +36,7 @@ public class Student {
 	private List<Pruefungsleistung> pruefungsleistungen;
 	
 	/**
-	 * @return the matrikelnummer
+	 * @return matrikelnummer
 	 */
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -44,14 +44,14 @@ public class Student {
 		return matrikelnummer;
 	}
 	/**
-	 * @param matrikelnummer the matrikelnummer to set
+	 * @param matrikelnummer 
 	 */
 	public void setMatrikelnummer(int matrikelnummer) {
 		this.matrikelnummer = matrikelnummer;
 	}
 	
 	/**
-	 * @return the person
+	 * @return person
 	 */
 	@OneToOne
 	@JoinColumn(name= "personid")
@@ -59,14 +59,14 @@ public class Student {
 		return person;
 	}
 	/**
-	 * @param person the person to set
+	 * @param person 
 	 */
 	public void setPerson(Person person) {
 		this.person = person;
 	}
 	
 	/**
-	 * @return the manipel
+	 * @return manipel
 	 */
 	@ManyToOne
 	@JoinColumns({
@@ -77,21 +77,21 @@ public class Student {
 		return manipel;
 	}
 	/**
-	 * @param manipel the manipel to set
+	 * @param manipel 
 	 */
 	public void setManipel(Manipel manipel) {
 		this.manipel = manipel;
 	}
 	
 	/**
-	 * @return the pruefungsleistungen
+	 * @return pruefungsleistungen
 	 */
 	@OneToMany(fetch=FetchType.EAGER, cascade={CascadeType.ALL}, mappedBy="student")
 	public List<Pruefungsleistung> getPruefungsleistungen() {
 		return pruefungsleistungen;
 	}
 	/**
-	 * @param pruefungsleistungen the pruefungsleistungen to set
+	 * @param pruefungsleistungen
 	 */
 	public void setPruefungsleistungen(List<Pruefungsleistung> pruefungsleistungen) {
 		this.pruefungsleistungen = pruefungsleistungen;

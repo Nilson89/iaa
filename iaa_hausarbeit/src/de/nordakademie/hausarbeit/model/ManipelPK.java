@@ -20,28 +20,28 @@ public class ManipelPK implements Serializable {
 	private Studienrichtung studienrichtung;
 
 	/**
-	 * @return the jahrgang
+	 * @return jahrgang
 	 */
 	public int getJahrgang() {
 		return jahrgang;
 	}
 
 	/**
-	 * @param jahrgang the jahrgang to set
+	 * @param jahrgang
 	 */
 	public void setJahrgang(int jahrgang) {
 		this.jahrgang = jahrgang;
 	}
 
 	/**
-	 * @return the studienrichtung
+	 * @return studienrichtung
 	 */
 	public Studienrichtung getStudienrichtung() {
 		return studienrichtung;
 	}
 
 	/**
-	 * @param studienrichtung the studienrichtung to set
+	 * @param studienrichtung 
 	 */
 	public void setStudienrichtung(Studienrichtung studienrichtung) {
 		this.studienrichtung = studienrichtung;

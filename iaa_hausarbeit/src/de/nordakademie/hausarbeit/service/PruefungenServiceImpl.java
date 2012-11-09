@@ -18,7 +18,7 @@ public class PruefungenServiceImpl implements PruefungenService {
 	/**
 	 * listPruefungen
 	 * 
-	 * @param pruefungsfachId the Id of the pruefungsfach
+	 * @param pruefungsfachId 
 	 * @return List<Pruefung>
 	 */
 	public List<Pruefung> listPruefungen(Long pruefungsfachId) {
@@ -28,9 +28,9 @@ public class PruefungenServiceImpl implements PruefungenService {
 	/**
 	 * checkPruefungExists
 	 * 
-	 * @param pruefungsfachId the Id of the pruefungsfach
-	 * @param datum the date of the pruefung
-	 * @param dozentId the dozent of the pruefung
+	 * @param pruefungsfachId 
+	 * @param datum 
+	 * @param dozentId 
 	 * @return Boolean
 	 */
 	public boolean checkPruefungExists(Long pruefungsfachId, Date datum, Long dozentId) {
@@ -50,7 +50,7 @@ public class PruefungenServiceImpl implements PruefungenService {
 	/**
 	 * getPruefungById
 	 * 
-	 * @param Long the pruefungId
+	 * @param pruefungId
 	 * @return Pruefung
 	 */
 	public Pruefung getPruefungById(Long pruefungId) {
@@ -58,7 +58,7 @@ public class PruefungenServiceImpl implements PruefungenService {
 	}
 
 	/**
-	 * @param pruefungenDAO the pruefungenDAO to set
+	 * @param pruefungenDAO 
 	 */
 	public void setPruefungenDAO(PruefungenDAO pruefungenDAO) {
 		this.pruefungenDAO = pruefungenDAO;

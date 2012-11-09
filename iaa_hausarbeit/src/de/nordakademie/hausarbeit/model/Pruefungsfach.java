@@ -21,7 +21,7 @@ public class Pruefungsfach {
 	private Manipel manipel;
 	
 	/**
-	 * @return the id
+	 * @return id
 	 */
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -29,42 +29,42 @@ public class Pruefungsfach {
 		return id;
 	}
 	/**
-	 * @param id the id to set
+	 * @param id 
 	 */
 	public void setId(Long id) {
 		this.id = id;
 	}
 	
 	/**
-	 * @return the titel
+	 * @return titel
 	 */
 	@Column(nullable = false)
 	public String getTitel() {
 		return titel;
 	}
 	/**
-	 * @param titel the titel to set
+	 * @param titel 
 	 */
 	public void setTitel(String titel) {
 		this.titel = titel;
 	}
 	
 	/**
-	 * @return the beschreibung
+	 * @return beschreibung
 	 */
 	@Column(nullable = true)
 	public String getBeschreibung() {
 		return beschreibung;
 	}
 	/**
-	 * @param beschreibung the beschreibung to set
+	 * @param beschreibung 
 	 */
 	public void setBeschreibung(String beschreibung) {
 		this.beschreibung = beschreibung;
 	}
 	
 	/**
-	 * @return the manipel
+	 * @return manipel
 	 */
 	@ManyToOne
 	@JoinColumns({
@@ -75,7 +75,7 @@ public class Pruefungsfach {
 		return manipel;
 	}
 	/**
-	 * @param manipel the manipel to set
+	 * @param manipel 
 	 */
 	public void setManipel(Manipel manipel) {
 		this.manipel = manipel;

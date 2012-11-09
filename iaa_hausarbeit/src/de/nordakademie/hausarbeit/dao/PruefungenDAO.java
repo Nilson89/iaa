@@ -17,7 +17,7 @@ public class PruefungenDAO extends HibernateDaoSupport {
 	/**
 	 * loadPruefungen
 	 * 
-	 * @param pruefungsfachId the Id of the pruefungsfach
+	 * @param pruefungsfachId 
 	 * @return List<Pruefung>
 	 */
 	@SuppressWarnings("unchecked")
@@ -45,10 +45,10 @@ public class PruefungenDAO extends HibernateDaoSupport {
 	 * 	true if the pruefung already exists
 	 *  false otherwise
 	 * 
-	 * @param Long the id of the pruefungsfach
-	 * @param Date the date
-	 * @param Long the id of the dozent
-	 * @return Pruefung
+	 * @param pruefungsfachId
+	 * @param datum
+	 * @param dozentId
+	 * @return pruefung
 	 */
 	public boolean checkPruefungByPruefungsfachAndDateAndDozent(Long pruefungsfachId, Date datum, Long dozentId) {
 		Session session = this.getSessionFactory().getCurrentSession();
@@ -67,8 +67,8 @@ public class PruefungenDAO extends HibernateDaoSupport {
 	/**
 	 * loadPruefungById
 	 * 
-	 * @param Long pruefungId
-	 * @return Pruefung
+	 * @param pruefungId
+	 * @return pruefung
 	 */
 	public Pruefung loadPruefungById(Long pruefungId) {
 		Session session = this.getSessionFactory().getCurrentSession();

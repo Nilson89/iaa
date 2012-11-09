@@ -39,7 +39,7 @@ public class Pruefungsleistung {
 	private boolean aenderungseintrag = false;
 	
 	/**
-	 * @return the id
+	 * @return id
 	 */
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -47,28 +47,28 @@ public class Pruefungsleistung {
 		return id;
 	}
 	/**
-	 * @param id the id to set
+	 * @param id 
 	 */
 	public void setId(Long id) {
 		this.id = id;
 	}
 	
 	/**
-	 * @return the versuch
+	 * @return versuch
 	 */
 	@Column(nullable = false)
 	public int getVersuch() {
 		return versuch;
 	}
 	/**
-	 * @param versuch the versuch to set
+	 * @param versuch
 	 */
 	public void setVersuch(int versuch) {
 		this.versuch = versuch;
 	}
 	
 	/**
-	 * @return the note
+	 * @return note
 	 */
 	@Column(nullable = false)
 	@Enumerated(EnumType.STRING)
@@ -76,42 +76,42 @@ public class Pruefungsleistung {
 		return note;
 	}
 	/**
-	 * @param note the note to set
+	 * @param note 
 	 */
 	public void setNote(Note note) {
 		this.note = note;
 	}
 	
 	/**
-	 * @return the mdl_moeglich
+	 * @return mdl_moeglich
 	 */
 	@Column(nullable = false)
 	public boolean isMdl_moeglich() {
 		return mdl_moeglich;
 	}
 	/**
-	 * @param mdl_moeglich the mdl_moeglich to set
+	 * @param mdl_moeglich 
 	 */
 	public void setMdl_moeglich(boolean mdl_moeglich) {
 		this.mdl_moeglich = mdl_moeglich;
 	}
 	
 	/**
-	 * @return the gueltig
+	 * @return gueltig
 	 */
 	@Column(nullable = false)
 	public boolean isGueltig() {
 		return gueltig;
 	}
 	/**
-	 * @param gueltig the gueltig to set
+	 * @param gueltig 
 	 */
 	public void setGueltig(boolean gueltig) {
 		this.gueltig = gueltig;
 	}
 	
 	/**
-	 * @return the erfassungsdatum
+	 * @return erfassungsdatum
 	 */
 	@Column(nullable = false)
 	@Type(type="date")
@@ -119,14 +119,14 @@ public class Pruefungsleistung {
 		return erfassungsdatum;
 	}
 	/**
-	 * @param erfassungsdatum the erfassungsdatum to set
+	 * @param erfassungsdatum 
 	 */
 	public void setErfassungsdatum(Date erfassungsdatum) {
 		this.erfassungsdatum = erfassungsdatum;
 	}
 	
 	/**
-	 * @return the pruefung
+	 * @return pruefung
 	 */
 	@ManyToOne
 	@JoinColumn(name="pruefungid", referencedColumnName="id")
@@ -134,14 +134,14 @@ public class Pruefungsleistung {
 		return pruefung;
 	}
 	/**
-	 * @param pruefung the pruefung to set
+	 * @param pruefung 
 	 */
 	public void setPruefung(Pruefung pruefung) {
 		this.pruefung = pruefung;
 	}
 	
 	/**
-	 * @return the student
+	 * @return student
 	 */
 	@ManyToOne
 	@JoinColumn(name="studentmatrikelnummer")
@@ -149,14 +149,14 @@ public class Pruefungsleistung {
 		return student;
 	}
 	/**
-	 * @param student the student to set
+	 * @param student
 	 */
 	public void setStudent(Student student) {
 		this.student = student;
 	}
 	
 	/**
-	 * @return the erfasser
+	 * @return erfasser
 	 */
 	@ManyToOne
 	@JoinColumn(name="userid", referencedColumnName="id")
@@ -164,14 +164,14 @@ public class Pruefungsleistung {
 		return erfasser;
 	}
 	/**
-	 * @param erfasser the erfasser to set
+	 * @param erfasser 
 	 */
 	public void setErfasser(User erfasser) {
 		this.erfasser = erfasser;
 	}
 	
 	/**
-	 * @return the ergaenzungspruefung
+	 * @return ergaenzungspruefung
 	 */
 	@OneToOne
 	@JoinColumn(name="ergaenzungspruefungid", referencedColumnName="id")
@@ -180,21 +180,21 @@ public class Pruefungsleistung {
 		return ergaenzungspruefung;
 	}
 	/**
-	 * @param ergaenzungspruefung the ergaenzungspruefung to set
+	 * @param ergaenzungspruefung 
 	 */
 	public void setErgaenzungspruefung(Ergaenzungspruefung ergaenzungspruefung) {
 		this.ergaenzungspruefung = ergaenzungspruefung;
 	}
 	
 	/**
-	 * @return the aenderungseintrag
+	 * @return aenderungseintrag
 	 */
 	@Column(nullable = false)
 	public boolean isAenderungseintrag() {
 		return aenderungseintrag;
 	}
 	/**
-	 * @param aenderungseintrag the aenderungseintrag to set
+	 * @param aenderungseintrag
 	 */
 	public void setAenderungseintrag(boolean aenderungseintrag) {
 		this.aenderungseintrag = aenderungseintrag;
@@ -203,7 +203,7 @@ public class Pruefungsleistung {
 	/**
 	 * getEndNote
 	 * 
-	 * @return the final note
+	 * @return note
 	 */
 	@Transient
 	public Note getEndNote() {
@@ -224,14 +224,14 @@ public class Pruefungsleistung {
 		}
 	}
 	/**
-	 * @return the studentmatrikelnummer
+	 * @return studentmatrikelnummer
 	 */
 	@Transient
 	public int getStudentmatrikelnummer() {
 		return studentmatrikelnummer;
 	}
 	/**
-	 * @param studentmatrikelnummer the studentmatrikelnummer to set
+	 * @param studentmatrikelnummer 
 	 */
 	public void setStudentmatrikelnummer(int studentmatrikelnummer) {
 		this.studentmatrikelnummer = studentmatrikelnummer;

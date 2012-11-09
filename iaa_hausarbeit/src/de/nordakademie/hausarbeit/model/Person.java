@@ -18,7 +18,7 @@ public class Person {
 	private String vorname;
 	
 	/**
-	 * @return the id
+	 * @return id
 	 */
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -27,41 +27,41 @@ public class Person {
 	}
 	
 	/**
-	 * @param id the id to set
+	 * @param id 
 	 */
 	@Column(nullable = true)
 	public void setId(Long id) {
 		this.id = id;
 	}
 	/**
-	 * @return the name
+	 * @return name
 	 */
 	public String getName() {
 		return name;
 	}
 	
 	/**
-	 * @param name the name to set
+	 * @param name 
 	 */
 	@Column(nullable = true)
 	public void setName(String name) {
 		this.name = name;
 	}
 	/**
-	 * @return the vorname
+	 * @return vorname
 	 */
 	public String getVorname() {
 		return vorname;
 	}
 	/**
-	 * @param vorname the vorname to set
+	 * @param vorname 
 	 */
 	public void setVorname(String vorname) {
 		this.vorname = vorname;
 	}
 	
 	/*
-	 * return String the Fullname
+	 * @return String the Fullname
 	 */
 	@Transient
 	public String getFullName() {

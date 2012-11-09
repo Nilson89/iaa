@@ -35,7 +35,7 @@ public class DozentenDAO extends HibernateDaoSupport{
 	/**
 	 * loadById
 	 * 
-	 * @param Long id
+	 * @param id
 	 * @reutrn Dozent
 	 */
 	public Dozent loadById(Long id) {

@@ -22,15 +22,15 @@ public class PruefungsfaecherServiceImpl implements PruefungsfaecherService {
 	}
 
 	/**
-	 * @param pruefungsfaecherDAO the pruefungsfaecherDAO to set
+	 * @param pruefungsfaecherDAO
 	 */
 	public void setPruefungsfaecherDAO(PruefungsfaecherDAO pruefungsfaecherDAO) {
 		this.pruefungsfaecherDAO = pruefungsfaecherDAO;
 	}
 
 	/**
-	 * @param pruefungsfachId the Id of the Pruefungsfach
-	 * @return Pruefungsfach
+	 * @param pruefungsfachId
+	 * @return pruefungsfach
 	 */
 	public Pruefungsfach getPruefungsfach(Long pruefungsfachId) {
 		return pruefungsfaecherDAO.loadPruefungsfachById(pruefungsfachId);

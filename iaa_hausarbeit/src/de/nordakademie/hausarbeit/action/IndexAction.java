@@ -33,7 +33,7 @@ public class IndexAction implements Action {
 	}
 
 	/**
-	 * @param pruefungsfaecherService the pruefungsfaecherService to set
+	 * @param pruefungsfaecherService 
 	 */
 	public void setPruefungsfaecherService(PruefungsfaecherService pruefungsfaecherService) {
 		this.pruefungsfaecherService = pruefungsfaecherService;

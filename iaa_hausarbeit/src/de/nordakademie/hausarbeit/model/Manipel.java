@@ -15,14 +15,14 @@ public class Manipel {
 	private ManipelPK pk = new ManipelPK();
 
 	/**
-	 * @return the pk
+	 * @return pk
 	 */
 	public ManipelPK getPk() {
 		return pk;
 	}
 
 	/**
-	 * @param pk the pk to set
+	 * @param pk 
 	 */
 	public void setPk(ManipelPK pk) {
 		this.pk = pk;
