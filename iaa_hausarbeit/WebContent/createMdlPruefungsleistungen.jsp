@@ -2,7 +2,7 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ taglib prefix="sj" uri="/struts-jquery-tags"%>
 
-<%-- Sabrina Schramm --%>
+<%-- Sabrina Schramm und Niels Maseberg --%>
 
 <h2><s:text name="txtHeadingMdlPruefungsleistungsanlage" /> "<s:property value="%{pruefung.getPruefungsfach().getTitel()}" />"</h2>
 <div class="textBox">

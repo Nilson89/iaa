@@ -12,6 +12,7 @@
 		<title><tiles:insertAttribute name="title" ignore="true" /></title>
 		<link rel="stylesheet" type="text/css" href="/iaa_hausarbeit/styles/reset.css" />
 		<link rel="stylesheet" type="text/css" href="/iaa_hausarbeit/styles/layout.css" />
+		<link rel="stylesheet" type="text/css" href="/iaa_hausarbeit/styles/print.css" media="print" />
 		<link rel="icon" type="image/gif" href="/iaa_hausarbeit/images/nak.gif" />
 		<sj:head/>
 	</head>

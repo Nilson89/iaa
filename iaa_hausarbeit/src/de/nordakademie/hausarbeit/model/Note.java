@@ -97,6 +97,8 @@ public enum Note {
 			return Note.FUENF;
 		} else if (value.equals("6.0")) {
 			return Note.SECHS;
+		} else if (value.equals("nicht teilgenommen")) {
+			return Note.KeineTeilnahme;
 		} else {
 			throw new IllegalArgumentException("Given String '" + value +"' could not be resolved to a value of Note");
 		}
