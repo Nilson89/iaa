@@ -1,5 +1,7 @@
 package de.nordakademie.hausarbeit.action;
 
+import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -27,12 +29,16 @@ public class CreatePruefungsleistungenAction extends ActionSupport {
 	private Long selectedPruefungId;
 	
 	private PruefungenService pruefungenService;
+	private PruefungsleistungenService pruefungsleistungenService;
 	private StudentService studentService;
 	private Pruefung pruefung;
+	private Pruefungsleistung pruefungleistung;
 	private Pruefungsfach pruefungsfach;
 	private List<Student> studenten;
-	private List<Pruefungsleistung> pruefungsleistungenList;
-	private Note[] noten = Note.values();
+	private List<Pruefungsleistung> pruefungsleistungenList = new ArrayList();
+	
+	private Calendar cal = Calendar.getInstance();
+	private Date date = cal.getTime();
 	
 	
 	/**
@@ -48,11 +54,26 @@ public class CreatePruefungsleistungenAction extends ActionSupport {
 	}
 	
 	/**
-	 * savePruefungsleistungen
+	 * save
 	 */
 	public String save() throws Exception {
 		for (Pruefungsleistung pruefungsleistung : pruefungsleistungenList) {
-			System.out.println("PruefungsleistungId: " + pruefungsleistung.getId());
+			// Get Pruefungsleistung
+			pruefungsleistung = pruefungsleistungenService.getPruefungsleistungById(pruefungsleistung.getId());
+			
+			// Save Pruefungsleistung
+			if (!pruefungsleistung.getNote().equals(Note.KeineTeilnahme)) {
+				// Create Pruefungsleistung
+				pruefungsleistung.setErfassungsdatum(date);
+				
+				pruefungsleistung = pruefungsleistungenService.createPruefungsleistung(pruefungsleistung);
+				
+				// Update Pruefungsleistung
+				pruefungsleistungenService.createPruefungsleistung(pruefungsleistung);
+			}
+			
+			// Add Pruefungsleistung to List of new Pruefungsleistungen
+			pruefungsleistungenList.add(pruefungsleistung);
 		}
 		
 		return SUCCESS;
@@ -66,6 +87,7 @@ public class CreatePruefungsleistungenAction extends ActionSupport {
 		
 		// Load Data
 		loadPruefungAndStudents();
+
 	}
 	
 	/**
@@ -81,8 +103,6 @@ public class CreatePruefungsleistungenAction extends ActionSupport {
 		studenten = studentService.getStudentenByManipelAndPruefungsleistungenByPruefungsfach(pruefung.getPruefungsfach());
 
 	}
-	
-	
 
 	/**
 	 * @return the pruefungsfach
@@ -126,10 +146,6 @@ public class CreatePruefungsleistungenAction extends ActionSupport {
 
 	public void setSelectedPruefungId(Long selectedPruefungId) {
 		this.selectedPruefungId = selectedPruefungId;
-	}
-
-	public Note[] getNoten() {
-		return noten;
 	}	
 	
 	/**
@@ -149,7 +165,7 @@ public class CreatePruefungsleistungenAction extends ActionSupport {
 	/**
 	 * @return the ergaenzungspruefungenList
 	 */
-	public List<Pruefungsleistung> getPruefungsleistungenListt() {
+	public List<Pruefungsleistung> getPruefungsleistungenList() {
 		return pruefungsleistungenList;
 	}
 

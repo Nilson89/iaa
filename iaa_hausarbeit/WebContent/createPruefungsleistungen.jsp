@@ -19,6 +19,7 @@
 					<th><s:text name="txtPLName" /></th>
 					<th><s:text name="txtPLVorname" /></th>
 					<th><s:text name="txtPLVersuch" /></th>
+					<th><s:text name="txtPLDatum" /></th>
 					<th><s:text name="txtPLNote" /></th>
 				</tr>
 			</thead>

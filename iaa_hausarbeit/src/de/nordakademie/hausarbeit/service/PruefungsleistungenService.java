@@ -18,6 +18,6 @@ public interface PruefungsleistungenService {
 	public List<Pruefungsleistung> getHistoriePruefungen(Student student, Pruefungsfach pruefungsfach);
 	public Pruefungsleistung getPruefungsleistungById(Long pruefungsleistungId);
 	public void markPruefungsleistungAsInvalid(Pruefungsleistung pruefungsleistung);
-	public void createPruefungsleistung(Pruefungsleistung pruefungsleistung);
+	public Pruefungsleistung createPruefungsleistung(Pruefungsleistung pruefungsleistung);
 	public Ergaenzungspruefung createErgaenzungspruefung(Ergaenzungspruefung ergaenzungspruefung);
 }

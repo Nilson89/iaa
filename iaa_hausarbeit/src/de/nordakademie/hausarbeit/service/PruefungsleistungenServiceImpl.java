@@ -51,9 +51,10 @@ public class PruefungsleistungenServiceImpl implements PruefungsleistungenServic
 	 * createPruefungsleistung
 	 * 
 	 * @param pruefungsleistung the pruefungsleistung
+	 * @return Pruefungsleistung
 	 */
-	public void createPruefungsleistung(Pruefungsleistung pruefungsleistung) {
-		pruefungsleistungenDAO.savePruefungsleistung(pruefungsleistung);
+	public Pruefungsleistung createPruefungsleistung(Pruefungsleistung pruefungsleistung) {
+		return pruefungsleistungenDAO.savePruefungsleistung(pruefungsleistung);
 	}
 
 	/**

@@ -93,9 +93,11 @@ public class PruefungsleistungenDAO extends HibernateDaoSupport {
 	 * savePruefungsleistung
 	 * 
 	 * @param pruefungsleistung the pruefungsleistung to save
+	 * @return Pruefungsleistung
 	 */
-	public void savePruefungsleistung(Pruefungsleistung pruefungsleistung) {
+	public Pruefungsleistung savePruefungsleistung(Pruefungsleistung pruefungsleistung) {
 		getHibernateTemplate().saveOrUpdate(pruefungsleistung);
+		return pruefungsleistung;
 	}
 	
 	/**

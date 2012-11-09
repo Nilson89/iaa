@@ -78,7 +78,7 @@
 		</action>
 		
 		<action name="savePruefungsleistungen" class="de.nordakademie.hausarbeit.action.CreatePruefungsleistungenAction" method="savePruefungsleistungen">
-			<result type="tiles">createPruefungsleistungen</result>
+			<result type="tiles">createPruefungsleistungenProtocoll</result>
 			<result name="input">createPruefungsleistungen</result>
 		</action>
 		
