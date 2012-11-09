@@ -28,6 +28,7 @@ import de.nordakademie.hausarbeit.service.StudentService;
 
 public class CreateMdlPruefungsleistungenAction extends ActionSupport {
 	private Long selectedPruefungId;
+	private Long selectedPruefungsfachId;
 	private PruefungenService pruefungenService;
 	private Pruefung pruefung;
 	private List<Student> studenten;
@@ -79,8 +80,12 @@ public class CreateMdlPruefungsleistungenAction extends ActionSupport {
 	public void validate() {
 		super.validate();
 		
-		// Load Data
-		loadPruefungAndStudents();
+		if (getSelectedPruefungId() == null) {
+			addActionError(getText("error.no.pruefung.selected"));
+		} else {
+			// Load Data
+			loadPruefungAndStudents();
+		}
 	}
 	
 	/**
@@ -157,5 +162,26 @@ public class CreateMdlPruefungsleistungenAction extends ActionSupport {
 	 */
 	public List<Pruefungsleistung> getNewPruefungsleistungenList() {
 		return newPruefungsleistungenList;
+	}
+
+	/**
+	 * @return the selectedPruefungId
+	 */
+	public Long getSelectedPruefungId() {
+		return selectedPruefungId;
+	}
+
+	/**
+	 * @return the selectedPruefungsfachId
+	 */
+	public Long getSelectedPruefungsfachId() {
+		return selectedPruefungsfachId;
+	}
+
+	/**
+	 * @param selectedPruefungsfachId the selectedPruefungsfachId to set
+	 */
+	public void setSelectedPruefungsfachId(Long selectedPruefungsfachId) {
+		this.selectedPruefungsfachId = selectedPruefungsfachId;
 	}
 }
