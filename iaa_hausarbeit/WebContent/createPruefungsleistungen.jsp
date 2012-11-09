@@ -1,9 +1,9 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
 
-<%-- Sabrina Schramm --%>
+<%-- Sabrina Schramm und Niels Maseberg --%>
 
-<h2><s:text name="txtHeadingPruefungsleistungsanlage" /> "<s:property value="pruefungsfach.getTitel()" />"</h2>
+<h2><s:text name="txtHeadingPruefungsleistungsanlage" /> "<s:property value="%{pruefung.getPruefungsfach().getTitel()}" />"</h2>
 <div class="textBox">
 	<p><s:text name="txtAnweisungPruefungsleistungsanlageOben" /></p>
 </div>
@@ -12,7 +12,7 @@
 	<s:hidden name="selectedPruefungsfachId" value="%{pruefung.getPruefungsfach().getId()}" />
 	<s:if test="studenten.size != 0">
 		<table cellpadding="0">
-			<caption><s:text name="txtCaptionPruefungsleistungsanlage" /> "<s:property value="pruefungsfach.getTitel()" />"</caption>
+			<caption><s:text name="txtCaptionPruefungsleistungsanlage" /> "<s:property value="%{pruefung.getPruefungsfach().getTitel()}" />"</caption>
 			<thead>
 				<tr>
 					<th><s:text name="txtMatrikelnummer" /></th>
@@ -34,7 +34,14 @@
 						<td><s:property value="matrikelnummer"/></td>
 						<td><s:property value="person.getName()"/>
 						<td><s:property value="person.getVorname()"/></td>
-						<td><s:property value="pruefungsleistungen.size"/></td>
+						<td>
+							<s:if test="pruefungsleistungen.size != 0">
+								<s:property value="%{pruefungsleistungen.get(pruefungsleistungen.size - 1).getVersuch() + 1}"/>
+							</s:if>
+							<s:else>
+								1
+							</s:else>	
+						</td>
 						<td><s:select name="pruefungsleistungenList(%{pruefungsleistungen.get(pruefungsleistungen.size - 1).getId()}).note" list="%{@de.nordakademie.hausarbeit.model.Note@values()}"/></td>
 					</tr>
 				</s:iterator>

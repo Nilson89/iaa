@@ -60,5 +60,14 @@ public class StudentServiceImpl implements StudentService {
 	public List<Student> getStudentenByManipelAndPruefungsleistungenByPruefung(Pruefung pruefung) {
 		return studentDAO.getStudentenByManipelAndPruefungsleistungenByPruefung(pruefung);
 	}
+	
+	/**
+	 * getStudentenByManipelWithLessThenThreeGradesAndPruefungsleistungenByPruefung
+	 * 
+	 * @param Pruefung the pruefung
+	 */
+	public List<Student> getStudentenByManipelWithLessThenThreeGradesAndPruefungsleistungenByPruefung(Pruefung pruefung) {
+		return studentDAO.getStudentenByManipelWithLessThenThreeGradesAndPruefungsleistungenByPruefung(pruefung);
+	}
 
 }

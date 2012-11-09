@@ -10,7 +10,7 @@
 	<!-- dataSource -->
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
 		<property name="driverClassName" value="org.h2.Driver"/>
-		<property name="url" value="jdbc:h2:E:/Tomcat/webapps/iaa_hausarbeit/db/nak"/>
+		<property name="url" value="jdbc:h2:C:/Program Files (x86)/Apache Software Foundation/Tomcat 6.0/webapps/iaa_hausarbeit/db/nak"/>
 		<property name="username" value="sa"/>
 		<property name="password" value=""/>
 	</bean>
