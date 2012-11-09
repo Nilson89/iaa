@@ -99,7 +99,7 @@ public class CreatePruefungsleistungenAction extends ActionSupport {
 		System.out.println("Prüfung wurde geladen: " + pruefung.getId());
 		
 		// Load Studenten of Manipel and it´s Noten
-		studenten = studentService.getStudentenByManipelAndPruefungsleistungenByPruefungsfach(pruefung.getPruefungsfach());
+		studenten = studentService.getStudentenByManipelWithLessThenThreeGradesAndPruefungsleistungenByPruefung(pruefung);
 
 	}
 

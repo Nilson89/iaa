@@ -129,6 +129,52 @@ public class StudentDAO extends HibernateDaoSupport {
 				.add( Subqueries.gt(Long.valueOf(2), addGradeCount) ) // Only Students that have less then 2 Ergaenzungspruefung
 				.list();
 		
+		// TODO: Nur die Prüfungsleistungen berücksichtigen, die im gewählten Prüfungsfach sind
+		
+		return studenten;
+	}
+	
+	/**
+	 * getStudentenByManipelWithLessThenThreeGradesAndPruefungsleistungenByPruefung
+	 * 
+	 * @param Pruefung the pruefung
+	 * @return List<Student>
+	 */
+	@SuppressWarnings("unchecked")
+	public List<Student> getStudentenByManipelWithLessThenThreeGradesAndPruefungsleistungenByPruefung(Pruefung pruefung) {
+		Session session = this.getSessionFactory().getCurrentSession();
+		
+		// Count of Grades of a Student in a Pruefungsfach
+		DetachedCriteria addGradeCount = DetachedCriteria.forClass(Pruefungsleistung.class, "plAddGradeCount")
+				.setProjection( Projections.rowCount() )
+				.add( Property.forName("gueltig").eq(true) )
+				.add( Property.forName("plAddGradeCount.student").eqProperty("pl.student"))
+				.createCriteria("pruefung", "plLastPruefung")
+				.add( Property.forName("pruefungsfach").eq(pruefung.getPruefungsfach()) );
+		
+		List<Student> studenten = session.createCriteria(Student.class, "s")
+				.add( Property.forName("manipel").eq(pruefung.getPruefungsfach().getManipel()) )
+				.setResultTransformer( Criteria.DISTINCT_ROOT_ENTITY )
+				.createAlias("person", "p")
+				.addOrder( Property.forName("p.name").asc() )
+				.createCriteria("pruefungsleistungen", "pl", Criteria.LEFT_JOIN)
+				.add( Restrictions.or(
+						Restrictions.eq("gueltig", true), // Only grades that are valid
+						Restrictions.isNull("gueltig")
+				) )
+				.add( Subqueries.gt(Long.valueOf(3), addGradeCount) ) // Only Students that have less then 2 Pruefungsleistungen
+				.add( Restrictions.or(
+						Restrictions.ne("pruefung", pruefung), // Only Students that have no grade in the selected Pruefung
+						Restrictions.isNull("pruefung")
+				) )
+				.addOrder( Property.forName("pl.versuch").asc() )
+				.createCriteria("pruefung", "pr", Criteria.LEFT_JOIN)
+				.add( Restrictions.or(
+						Restrictions.eq("pr.pruefungsfach", pruefung.getPruefungsfach()),
+						Restrictions.isNull("pr.pruefungsfach")
+				) )
+				.list();
+		
 		return studenten;
 	}
 }
