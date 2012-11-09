@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.log4j.Logger;
 
 import com.opensymphony.xwork2.Action;
+import com.opensymphony.xwork2.ActionSupport;
 
 import de.nordakademie.hausarbeit.model.Pruefung;
 import de.nordakademie.hausarbeit.model.Pruefungsfach;
@@ -15,7 +16,7 @@ import de.nordakademie.hausarbeit.service.PruefungsfaecherService;
  * 
  * @author Niels Maseberg
  */
-public class PruefungslistAction implements Action {
+public class PruefungslistAction extends ActionSupport {
 	private PruefungenService pruefungenService;
 	private PruefungsfaecherService pruefungsfaecherService;
 	
@@ -43,6 +44,17 @@ public class PruefungslistAction implements Action {
 		}
 		
 		return SUCCESS;
+	}
+
+	/**
+	 * validate
+	 */
+	public void validate() {
+		super.validate();
+		
+		if (getSelectedPruefungsfachId() == null) {
+			addActionError(getText(""));
+		}
 	}
 
 	/**

@@ -128,7 +128,6 @@ public class StudentDAO extends HibernateDaoSupport {
 				.add( Property.forName("pruefung").eq(pruefung) ) // Only if the last try was in the selected Pruefung
 				.add( Subqueries.gt(Long.valueOf(2), addGradeCount) ) // Only Students that have less then 2 Ergaenzungspruefung
 				.list();
-		// TODO: Studenten, die schon 2 Ergaenzungspruefungen durchgeführt haben nicht mit aufführen!!!!
 		
 		return studenten;
 	}
