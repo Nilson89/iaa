@@ -64,6 +64,9 @@
 	<definition name="createMdlPruefungsleistungen" extends="mainLayout">
 		<put-attribute name="content" value="/createMdlPruefungsleistungen.jsp" />
 	</definition>
+	<definition name="createMdlPruefungsleistungenError" extends="mainLayout">
+		<put-attribute name="content" value="/createMdlPruefungsleistungenError.jsp" />
+	</definition>
 	<definition name="createMdlPruefungsleistungenProtocoll" extends="mainLayout">
 		<put-attribute name="content" value="/protocollMdlPruefungsleistungen.jsp" />
 	</definition>
