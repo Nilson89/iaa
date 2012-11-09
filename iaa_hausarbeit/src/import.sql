@@ -111,6 +111,7 @@ INSERT INTO Person (id, name, vorname) VALUES (30, 'Rehder', 'Heiko');
 INSERT INTO Person (id, name, vorname) VALUES (31, 'Brauer', 'Johannes');
 INSERT INTO Person (id, name, vorname) VALUES (32, 'Pan', 'Peter');
 INSERT INTO Person (id, name, vorname) VALUES (33, 'Maya', 'Biene');
+INSERT INTO Person (id, name, vorname) VALUES (34, 'Hansen', 'Ulrich');
 
 
 /* Dozent */
@@ -148,6 +149,7 @@ INSERT INTO Student (matrikelnummer, manipelstudienrichtung, manipeljahrgang, pe
 INSERT INTO Student (matrikelnummer, manipelstudienrichtung, manipeljahrgang, personid) VALUES (4052, 'I', 2011, 25);
 INSERT INTO Student (matrikelnummer, manipelstudienrichtung, manipeljahrgang, personid) VALUES (4019, 'I', 2007, 32);
 INSERT INTO Student (matrikelnummer, manipelstudienrichtung, manipeljahrgang, personid) VALUES (4020, 'I', 2007, 33);
+INSERT INTO Student (matrikelnummer, manipelstudienrichtung, manipeljahrgang, personid) VALUES (4021, 'I', 2007, 34);
 
 /* User */
 INSERT INTO User (id, personid) VALUES (1, 7); /* Ulrike Heinrich */
@@ -169,6 +171,7 @@ INSERT INTO Pruefung (id, dozentid, pruefungsfachid, datum) VALUES (13, 8, 40, '
 INSERT INTO Pruefung (id, dozentid, pruefungsfachid, datum) VALUES (14, 11, 41, '2012-03-14');
 INSERT INTO Pruefung (id, dozentid, pruefungsfachid, datum) VALUES (15, 12, 42, '2011-07-21');
 INSERT INTO Pruefung (id, dozentid, pruefungsfachid, datum) VALUES (16, 13, 43, '2012-10-02');
+INSERT INTO Pruefung (id, dozentid, pruefungsfachid, datum) VALUES (17, 1, 1, '2012-10-02');
 
 /* Ergaenzungspruefung */
 INSERT INTO Ergaenzungspruefung (id, note, datum, erfassungsdatum) VALUES (1, 'ZWEI', '2012-10-28', '2012-10-30');
@@ -182,6 +185,8 @@ INSERT INTO Ergaenzungspruefung (id, note, datum, erfassungsdatum) VALUES (8, 'Z
 INSERT INTO Ergaenzungspruefung (id, note, datum, erfassungsdatum) VALUES (9, 'ZWEI', '2012-03-28', '2012-04-10');
 INSERT INTO Ergaenzungspruefung (id, note, datum, erfassungsdatum) VALUES (10, 'ZWEI', '2012-06-16', '2012-06-24');
 INSERT INTO Ergaenzungspruefung (id, note, datum, erfassungsdatum) VALUES (11, 'EINSDREI', '2012-01-10', '2012-01-21');
+INSERT INTO Ergaenzungspruefung (id, note, datum, erfassungsdatum) VALUES (12, 'FUENF', '2011-12-20', '2011-12-22');
+INSERT INTO Ergaenzungspruefung (id, note, datum, erfassungsdatum) VALUES (13, 'FUENF', '2012-10-01', '2012-10-02');
 
 
 /* Prüfungsleistungen */
@@ -195,5 +200,12 @@ INSERT INTO Pruefungsleistung (id, studentmatrikelnummer, pruefungid, userid, ve
 INSERT INTO Pruefungsleistung (id, studentmatrikelnummer, pruefungid, userid, versuch, note, mdl_moeglich, gueltig, erfassungsdatum, aenderungseintrag) VALUES (8, 4032, 13, 1, 1, 'FUENF', 1, 1, '2011-10-25', 0);
 INSERT INTO Pruefungsleistung (id, studentmatrikelnummer, pruefungid, userid, versuch, note, mdl_moeglich, gueltig, erfassungsdatum, aenderungseintrag) VALUES (9, 3810, 1, 1, 1, 'SECHS', 0, 1, '2011-10-30', 0);
 INSERT INTO Pruefungsleistung (id, studentmatrikelnummer, pruefungid, userid, versuch, note, mdl_moeglich, gueltig, erfassungsdatum, aenderungseintrag) VALUES (10, 4020, 1, 1, 1, 'FUENF', 1, 1, '2011-07-02', 0);
-INSERT INTO Pruefungsleistung (id, studentmatrikelnummer, pruefungid, userid, versuch, note, mdl_moeglich, gueltig, erfassungsdatum, aenderungseintrag, ergaenzungspruefungid) VALUES (11, 4020, 1, 1, 2, 'FUENF', 1, 1, '2011-12-12', 0, 11);
+INSERT INTO Pruefungsleistung (id, studentmatrikelnummer, pruefungid, userid, versuch, note, mdl_moeglich, gueltig, erfassungsdatum, aenderungseintrag, ergaenzungspruefungid) VALUES (11, 4020, 2, 1, 2, 'FUENF', 1, 1, '2011-12-12', 0, 11);
+INSERT INTO Pruefungsleistung (id, studentmatrikelnummer, pruefungid, userid, versuch, note, mdl_moeglich, gueltig, erfassungsdatum, aenderungseintrag) VALUES (12, 3811, 1, 1, 1, 'FUENF', 1, 1, '2011-12-12', 0);
+INSERT INTO Pruefungsleistung (id, studentmatrikelnummer, pruefungid, userid, versuch, note, mdl_moeglich, gueltig, erfassungsdatum, aenderungseintrag) VALUES (13, 3812, 1, 1, 1, 'FUENF', 1, 1, '2011-12-12', 0);
+INSERT INTO Pruefungsleistung (id, studentmatrikelnummer, pruefungid, userid, versuch, note, mdl_moeglich, gueltig, erfassungsdatum, aenderungseintrag) VALUES (14, 3811, 2, 1, 2, 'SECHS', 1, 1, '2012-09-30', 0);
+INSERT INTO Pruefungsleistung (id, studentmatrikelnummer, pruefungid, userid, versuch, note, mdl_moeglich, gueltig, erfassungsdatum, aenderungseintrag) VALUES (15, 3811, 17, 1, 3, 'FUENF', 1, 1, '2012-10-10', 0);
+INSERT INTO Pruefungsleistung (id, studentmatrikelnummer, pruefungid, userid, versuch, note, mdl_moeglich, gueltig, erfassungsdatum, aenderungseintrag, ergaenzungspruefungid) VALUES (16, 4021, 1, 1, 1, 'FUENF', 1, 1, '2011-12-12', 0, 12);
+INSERT INTO Pruefungsleistung (id, studentmatrikelnummer, pruefungid, userid, versuch, note, mdl_moeglich, gueltig, erfassungsdatum, aenderungseintrag, ergaenzungspruefungid) VALUES (17, 4021, 2, 1, 2, 'FUENF', 1, 1, '2012-09-30', 0, 13);
+INSERT INTO Pruefungsleistung (id, studentmatrikelnummer, pruefungid, userid, versuch, note, mdl_moeglich, gueltig, erfassungsdatum, aenderungseintrag) VALUES (18, 4021, 17, 1, 3, 'FUENF', 1, 1, '2012-10-10', 0);
 

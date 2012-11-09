@@ -16,4 +16,5 @@ public interface StudentService {
 	public Student getStudentByMatrikelnummer(Integer matrikelnummer);
 	public List<Student> getStudentenByManipelAndPruefungsleistungenByPruefungsfach(Pruefungsfach pruefungsfach);
 	public List<Student> getStudentenByManipelAndPruefungsleistungenByPruefung(Pruefung pruefung);
+	public List<Student> getStudentenByManipelWithLessThenThreeGradesAndPruefungsleistungenByPruefung(Pruefung pruefung);
 }

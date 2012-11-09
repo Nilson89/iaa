@@ -2,12 +2,14 @@ package de.nordakademie.hausarbeit.dao;
 
 import java.util.List;
 
+import org.hibernate.Criteria;
 import org.hibernate.ObjectNotFoundException;
 import org.hibernate.Session;
 import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.Property;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
+import de.nordakademie.hausarbeit.model.Ergaenzungspruefung;
 import de.nordakademie.hausarbeit.model.Pruefungsfach;
 import de.nordakademie.hausarbeit.model.Pruefungsleistung;
 import de.nordakademie.hausarbeit.model.Student;
@@ -36,6 +38,7 @@ public class PruefungsleistungenDAO extends HibernateDaoSupport {
 		
 		List<Pruefungsleistung> pruefungsleistungen = session.createCriteria(Pruefungsleistung.class, "pl")
 				.add( Property.forName("versuch").eq(letzterVersuch) )
+				.setResultTransformer( Criteria.DISTINCT_ROOT_ENTITY )
 				.createAlias("pruefung", "pr")
 				.createCriteria("student", "s")
 				.add( Property.forName("s.manipel.pk.jahrgang").eq(jahrgang) )
@@ -90,8 +93,21 @@ public class PruefungsleistungenDAO extends HibernateDaoSupport {
 	 * savePruefungsleistung
 	 * 
 	 * @param pruefungsleistung the pruefungsleistung to save
+	 * @return Pruefungsleistung
 	 */
-	public void savePruefungsleistung(Pruefungsleistung pruefungsleistung) {
+	public Pruefungsleistung savePruefungsleistung(Pruefungsleistung pruefungsleistung) {
 		getHibernateTemplate().saveOrUpdate(pruefungsleistung);
+		return pruefungsleistung;
+	}
+	
+	/**
+	 * saveErgaenzungspruefung
+	 * 
+	 * @param Ergaenzungspruefung the ergaenzungspruefung to save
+	 * @return Ergaenzungspruefung
+	 */
+	public Ergaenzungspruefung saveErgaenzungspruefung(Ergaenzungspruefung ergaenzungspruefung) {
+		getHibernateTemplate().saveOrUpdate(ergaenzungspruefung);
+		return ergaenzungspruefung;
 	}
 }

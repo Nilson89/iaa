@@ -18,12 +18,12 @@
 	<!-- TODO: Tabelle nur anzeigen, wenn auch Prüfungen in diesem Prüfungsfach existieren -->
 	
 	<table cellpadding="0">
-		<caption>Liste aller Prüfungen im Prüfungsfach "<s:property value="pruefungsfach.getTitel()" />"</caption>
+		<caption><s:text name="txtCaptionPruefungslist" /> "<s:property value="pruefungsfach.getTitel()" />"</caption>
 		<thead>
 			<tr>
 				<th>&nbsp;</th>
-				<th><s:text name="txtPruefungslistDatum" /></th>
-				<th><s:text name="txtPruefungslistDozent" /></th>
+				<th><s:text name="txtDatum" /></th>
+				<th><s:text name="txtDozent" /></th>
 			</tr>
 		</thead>
 		<tbody>
@@ -41,7 +41,9 @@
 			</s:iterator>
 		</tbody>
 	</table>
-	
+	<div class="textBox">
+		<p><s:text name="txtPruefungslistAnweisungPruefungsleistungsanlage" /></p>
+	</div>
 	<div class="buttons">
 		<div class="button">
 			<s:submit key="btnCreatePl" action="createPruefungsleistungen" cssClass="add" />

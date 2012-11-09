@@ -41,6 +41,7 @@
 		
 		<action name="pruefungslist" class="de.nordakademie.hausarbeit.action.PruefungslistAction">
 			<result type="tiles">pruefungslist</result>
+			<result name="input">pruefungslistError</result>
 		</action>
 		
 		<action name="createPruefung" class="de.nordakademie.hausarbeit.action.CreatePruefungAction">
@@ -75,23 +76,21 @@
 		
 		<action name="createPruefungsleistungen" class="de.nordakademie.hausarbeit.action.CreatePruefungsleistungenAction">
 			<result type="tiles">createPruefungsleistungen</result>
+			<result name="input">createPruefungsleistungenError</result>
 		</action>
 		
-		<action name="savePruefungsleistungen" class="de.nordakademie.hausarbeit.action.CreatePruefungsleistungenAction" method="savePruefungsleistungen">
-			<result type="chain">pruefungslist</result>
+		<action name="createPruefungsleistungenSave" class="de.nordakademie.hausarbeit.action.CreatePruefungsleistungenAction" method="save">
+			<result type="tiles">createPruefungsleistungenProtocoll</result>
 			<result name="input">createPruefungsleistungen</result>
 		</action>
 		
 		<action name="createMdlPruefungsleistungen" class="de.nordakademie.hausarbeit.action.CreateMdlPruefungsleistungenAction">
 			<result type="tiles">createMdlPruefungsleistungen</result>
-			<interceptor-ref name="defaultStack">
-				<param name="validation.validateAnnotatedMethodOnly">true</param>                
-  				<param name="validation.excludeMethods">execute</param>
-			</interceptor-ref>
+			<result name="input">createMdlPruefungsleistungenError</result>
 		</action>
 		
 		<action name="createMdlPruefungsleistungenSave" class="de.nordakademie.hausarbeit.action.CreateMdlPruefungsleistungenAction" method="save">
-			<result type="tiles">createMdlPruefungsleistungen</result>
+			<result type="tiles">createMdlPruefungsleistungenProtocoll</result>
 			<result name="input">createMdlPruefungsleistungen</result>
 		</action>
 		

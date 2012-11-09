@@ -33,6 +33,9 @@
 	<definition name="pruefungslist" extends="mainLayout">
 		<put-attribute name="content" value="/pruefungslist.jsp" />
 	</definition>
+	<definition name="pruefungslistError" extends="mainLayout">
+		<put-attribute name="content" value="/pruefungslistError.jsp" />
+	</definition>
 	
 	<!-- CreatePruefung -->
 	<definition name="createPruefung" extends="mainLayout">
@@ -56,10 +59,22 @@
 	<definition name="createPruefungsleistungen" extends="mainLayout">
 		<put-attribute name="content" value="/createPruefungsleistungen.jsp" />
 	</definition>
+	<definition name="createPruefungsleistungenError" extends="mainLayout">
+		<put-attribute name="content" value="/createPruefungsleistungenError.jsp" />
+	</definition>
+	<definition name="createPruefungsleistungenProtocoll" extends="mainLayout">
+		<put-attribute name="content" value="/protocollPruefungsleistungen.jsp" />
+	</definition>
 	
 	<!-- CreateMdlPruefungsleistungen -->
 	<definition name="createMdlPruefungsleistungen" extends="mainLayout">
 		<put-attribute name="content" value="/createMdlPruefungsleistungen.jsp" />
+	</definition>
+	<definition name="createMdlPruefungsleistungenError" extends="mainLayout">
+		<put-attribute name="content" value="/createMdlPruefungsleistungenError.jsp" />
+	</definition>
+	<definition name="createMdlPruefungsleistungenProtocoll" extends="mainLayout">
+		<put-attribute name="content" value="/protocollMdlPruefungsleistungen.jsp" />
 	</definition>
 	
 	<!-- EditPruefungsleistung -->
