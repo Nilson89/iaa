@@ -95,6 +95,10 @@ public enum Note {
 			return Note.VIER;
 		} else if (value.equals("5.0")) {
 			return Note.FUENF;
+		} else if (value.equals("5.0*")) {
+			return Note.FUENF;
+		} else if (value.equals("5.0**")) {
+			return Note.SECHS;
 		} else if (value.equals("6.0")) {
 			return Note.SECHS;
 		} else if (value.equals("nicht teilgenommen")) {

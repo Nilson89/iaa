@@ -10,6 +10,7 @@
 <s:form>
 	<s:hidden name="selectedPruefungId" value="%{pruefung.getId()}" />
 	<s:hidden name="selectedPruefungsfachId" value="%{pruefung.getPruefungsfach().getId()}" />
+	
 	<s:if test="studenten.size != 0">
 		<table cellpadding="0">
 			<caption>Anlage neuer Prüfungsleistungen im Prüfungsfach "<s:property value="%{pruefung.getPruefungsfach().getTitel()}" />"</caption>
@@ -24,7 +25,7 @@
 			</thead>
 			<tbody>
 				<s:iterator value="studenten" status="rowstatus">
-					<s:hidden name="pruefungsleistungenList(%{pruefungsleistungen.get(pruefungsleistungen.size - 1).getId()}).pruefungsleistungId" value="%{pruefungsleistungen.get(pruefungsleistungen.size - 1).getId()}" />
+					<s:hidden name="pruefungsleistungenList(%{matrikelnummer}).studentmatrikelnummer" value="%{matrikelnummer}" />
 					<s:if test="#rowstatus.odd == true">
 						<tr class="odd">
 					</s:if>
@@ -37,12 +38,14 @@
 						<td>
 							<s:if test="pruefungsleistungen.size != 0">
 								<s:property value="%{pruefungsleistungen.get(pruefungsleistungen.size - 1).getVersuch() + 1}"/>
+								<s:hidden name="pruefungsleistungenList(%{matrikelnummer}).versuch" value="%{pruefungsleistungen.get(pruefungsleistungen.size - 1).getVersuch() + 1}" />
 							</s:if>
 							<s:else>
 								1
+								<s:hidden name="pruefungsleistungenList(%{matrikelnummer}).versuch" value="1" />
 							</s:else>	
 						</td>
-						<td><s:select name="pruefungsleistungenList(%{pruefungsleistungen.get(pruefungsleistungen.size - 1).getId()}).note" list="%{@de.nordakademie.hausarbeit.model.Note@values()}"/></td>
+						<td><s:select name="pruefungsleistungenList(%{matrikelnummer}).note" list="%{@de.nordakademie.hausarbeit.model.Note@values()}"/></td>
 					</tr>
 				</s:iterator>
 			</tbody>
@@ -54,7 +57,7 @@
 	</div>
 	<div class="buttons">
 		<div class="button">
-			<s:submit key="btnCreatePruefungsleistung" action="savePruefungsleistung" cssClass="save" />
+			<s:submit key="btnCreatePruefungsleistung" action="createPruefungsleistungenSave" cssClass="save" />
 			<s:submit key="btnAbbrechen" action="pruefungslist" cssClass="cancel"  />
 		</div>
 		<div class="clear"></div>

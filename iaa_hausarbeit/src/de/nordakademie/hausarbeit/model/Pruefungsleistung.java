@@ -33,9 +33,10 @@ public class Pruefungsleistung {
 	private Date erfassungsdatum;
 	private Pruefung pruefung;
 	private Student student;
+	private int studentmatrikelnummer;
 	private User erfasser;
 	private Ergaenzungspruefung ergaenzungspruefung;
-	private boolean aenderungseintrag;
+	private boolean aenderungseintrag = false;
 	
 	/**
 	 * @return the id
@@ -221,5 +222,18 @@ public class Pruefungsleistung {
 		} else {
 			return note;
 		}
+	}
+	/**
+	 * @return the studentmatrikelnummer
+	 */
+	@Transient
+	public int getStudentmatrikelnummer() {
+		return studentmatrikelnummer;
+	}
+	/**
+	 * @param studentmatrikelnummer the studentmatrikelnummer to set
+	 */
+	public void setStudentmatrikelnummer(int studentmatrikelnummer) {
+		this.studentmatrikelnummer = studentmatrikelnummer;
 	}
 }

@@ -3,7 +3,7 @@
 
 <%-- Niels Maseberg --%>
 
-<h2><s:text name="txtHeadingMdlPruefungsleistungsanlageError" /></h2>
+<h2><s:text name="txtHeadingPruefungsleistungsanlageError" /></h2>
 
 <s:form>
 	<s:hidden name="selectedPruefungsfachId" value="%{selectedPruefungsfachId}" />

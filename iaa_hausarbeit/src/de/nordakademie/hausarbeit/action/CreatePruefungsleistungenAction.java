@@ -9,10 +9,12 @@ import com.opensymphony.xwork2.ActionSupport;
 
 import de.nordakademie.hausarbeit.model.Ergaenzungspruefung;
 import de.nordakademie.hausarbeit.model.Note;
+import de.nordakademie.hausarbeit.model.Person;
 import de.nordakademie.hausarbeit.model.Pruefung;
 import de.nordakademie.hausarbeit.model.Pruefungsfach;
 import de.nordakademie.hausarbeit.model.Pruefungsleistung;
 import de.nordakademie.hausarbeit.model.Student;
+import de.nordakademie.hausarbeit.model.User;
 import de.nordakademie.hausarbeit.service.PruefungenService;
 import de.nordakademie.hausarbeit.service.PruefungsfaecherService;
 import de.nordakademie.hausarbeit.service.PruefungsleistungenService;
@@ -32,13 +34,9 @@ public class CreatePruefungsleistungenAction extends ActionSupport {
 	private PruefungsleistungenService pruefungsleistungenService;
 	private StudentService studentService;
 	private Pruefung pruefung;
-	private Pruefungsleistung pruefungleistung;
-	private Pruefungsfach pruefungsfach;
 	private List<Student> studenten;
 	private List<Pruefungsleistung> pruefungsleistungenList = new ArrayList();
-	
-	private Calendar cal = Calendar.getInstance();
-	private Date date = cal.getTime();
+	private List<Pruefungsleistung> newPruefungsleistungenList = new ArrayList();
 	
 	
 	/**
@@ -50,30 +48,45 @@ public class CreatePruefungsleistungenAction extends ActionSupport {
 		loadPruefungAndStudents();
 		
 		return SUCCESS;
-
 	}
 	
 	/**
 	 * save
 	 */
 	public String save() throws Exception {
+		System.out.println("Ich speicher");
 		for (Pruefungsleistung pruefungsleistung : pruefungsleistungenList) {
-			// Get Pruefungsleistung
-			pruefungsleistung = pruefungsleistungenService.getPruefungsleistungById(pruefungsleistung.getId());
+			System.out.println("Eine Prüfungsleistung!!!!");
+			
+			// Load Student
+			Student student = studentService.getStudentByMatrikelnummer(pruefungsleistung.getStudentmatrikelnummer());
+			pruefungsleistung.setStudent(student);
+			
+			// Set Erfasser static till there is a securityconcept
+			User user = new User();
+			user.setId(Integer.valueOf(1).longValue());
+			Person person = new Person();
+			person.setId(Integer.valueOf(7).longValue());
+			person.setName("Heinrich");
+			person.setVorname("Ulrike");
+			user.setPerson(person);
+			pruefungsleistung.setErfasser(user);
+			
+			// Set Erfassungsdatum
+			pruefungsleistung.setErfassungsdatum(new Date());
 			
 			// Save Pruefungsleistung
 			if (!pruefungsleistung.getNote().equals(Note.KeineTeilnahme)) {
-				// Create Pruefungsleistung
-				pruefungsleistung.setErfassungsdatum(date);
-				
+				// Set Properties
+				if (pruefungsleistung.getNote().equals(Note.FUENF)) {
+					pruefungsleistung.setMdl_moeglich(true);
+				}
+				pruefungsleistung.setPruefung(pruefung);
 				pruefungsleistung = pruefungsleistungenService.createPruefungsleistung(pruefungsleistung);
-				
-				// Update Pruefungsleistung
-				pruefungsleistungenService.createPruefungsleistung(pruefungsleistung);
 			}
 			
 			// Add Pruefungsleistung to List of new Pruefungsleistungen
-			pruefungsleistungenList.add(pruefungsleistung);
+			newPruefungsleistungenList.add(pruefungsleistung);
 		}
 		
 		return SUCCESS;
@@ -86,7 +99,11 @@ public class CreatePruefungsleistungenAction extends ActionSupport {
 		super.validate();
 		
 		// Load Data
-		loadPruefungAndStudents();
+		if (getSelectedPruefungId() == null) {
+			addActionError(getText("error.no.pruefung.selected"));
+		} else {
+			loadPruefungAndStudents();
+		}
 	}
 	
 	/**
@@ -101,13 +118,6 @@ public class CreatePruefungsleistungenAction extends ActionSupport {
 		// Load Studenten of Manipel and it´s Noten
 		studenten = studentService.getStudentenByManipelWithLessThenThreeGradesAndPruefungsleistungenByPruefung(pruefung);
 
-	}
-
-	/**
-	 * @return the pruefungsfach
-	 */
-	public Pruefungsfach getPruefungsfach() {
-		return pruefungsfach;
 	}
 
 	/**
@@ -148,6 +158,21 @@ public class CreatePruefungsleistungenAction extends ActionSupport {
 	}	
 	
 	/**
+	 * @return the pruefungsleistungenList
+	 */
+	public List<Pruefungsleistung> getPruefungsleistungenList() {
+		return pruefungsleistungenList;
+	}
+
+	/**
+	 * @param pruefungsleistungenList the pruefungsleistungenList to set
+	 */
+	public void setPruefungsleistungenList(
+			List<Pruefungsleistung> pruefungsleistungenList) {
+		this.pruefungsleistungenList = pruefungsleistungenList;
+	}
+
+	/**
 	 * @return the pruefung
 	 */
 	public Pruefung getPruefung() {
@@ -162,18 +187,17 @@ public class CreatePruefungsleistungenAction extends ActionSupport {
 	}
 
 	/**
-	 * @return the ergaenzungspruefungenList
+	 * @return the newPruefungsleistungenList
 	 */
-	public List<Pruefungsleistung> getPruefungsleistungenList() {
-		return pruefungsleistungenList;
+	public List<Pruefungsleistung> getNewPruefungsleistungenList() {
+		return newPruefungsleistungenList;
 	}
 
 	/**
-	 * @param ergaenzungspruefungenList the ergaenzungspruefungenList to set
+	 * @param pruefungsleistungenService the pruefungsleistungenService to set
 	 */
-	public void setPruefungsleistungenList(
-			List<Pruefungsleistung> pruefungsleistungenList) {
-		this.pruefungsleistungenList = pruefungsleistungenList;
+	public void setPruefungsleistungenService(
+			PruefungsleistungenService pruefungsleistungenService) {
+		this.pruefungsleistungenService = pruefungsleistungenService;
 	}
-
 }
