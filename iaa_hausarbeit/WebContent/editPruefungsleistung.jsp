@@ -30,7 +30,7 @@
 		
 		<div class="field">
 			<span class="label"><s:text name="txtLetzterVersuch" />:</span>
-			<span><s:property value="%{pruefungsleistung.versuch}" />. <s:text name="txtLabelTry" /></span>
+			<span><s:property value="%{pruefungsleistung.versuch}" />. <s:text name="txtVersuch" /></span>
 			<div class="clear"></div>
 		</div>
 		

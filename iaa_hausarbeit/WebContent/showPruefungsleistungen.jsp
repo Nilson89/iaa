@@ -18,7 +18,7 @@
 				<th><s:text name="txtNote" /> 1 (<s:text name="txtErgaenzungspruefung" />)</th>
 				<th><s:text name="txtNote" /> 2 (<s:text name="txtErgaenzungspruefung" />)</th>
 				<th><s:text name="txtNote" /> 3 (<s:text name="txtErgaenzungspruefung" />)</th>
-				<th><s:text name="txtNoteAktuell" /></th>
+				<th><s:text name="txtAktuelleNote" /></th>
 			</tr>
 		</thead>
 		<tbody>
