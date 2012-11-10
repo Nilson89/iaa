@@ -63,28 +63,28 @@ public class NotenuebersichtAction extends ActionSupport {
 	}
 
 	/**
-	 * @param manipelService the manipelService to set
+	 * @param manipelService
 	 */
 	public void setManipelService(ManipelService manipelService) {
 		this.manipelService = manipelService;
 	}
 
 	/**
-	 * @return the manipelList
+	 * @return manipelList
 	 */
 	public List<Manipel> getManipelList() {
 		return manipelList;
 	}
 
 	/**
-	 * @param selectedManipel the selectedManipel to set
+	 * @param selectedManipel 
 	 */
 	public void setSelectedManipel(String selectedManipel) {
 		this.selectedManipel = selectedManipel;
 	}
 
 	/**
-	 * @return the selectedManipel
+	 * @return selectedManipel
 	 */
 	public String getSelectedManipel() {
 		return selectedManipel;
@@ -98,7 +98,7 @@ public class NotenuebersichtAction extends ActionSupport {
 	}
 
 	/**
-	 * @param pruefungsleistungenService the pruefungsleistungenService to set
+	 * @param pruefungsleistungenService 
 	 */
 	public void setPruefungsleistungenService(
 			PruefungsleistungenService pruefungsleistungenService) {
@@ -106,7 +106,7 @@ public class NotenuebersichtAction extends ActionSupport {
 	}
 
 	/**
-	 * @return the noten
+	 * @return noten
 	 */
 	public List<Pruefungsleistung> getNoten() {
 		return noten;

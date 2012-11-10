@@ -25,7 +25,7 @@ public class DozentenServiceImpl implements DozentenService {
 	/**
 	 * getById
 	 * 
-	 * @param Long id
+	 * @param id
 	 * @return Dozent
 	 */
 	public Dozent getById(Long id) {
@@ -33,7 +33,7 @@ public class DozentenServiceImpl implements DozentenService {
 	}
 
 	/**
-	 * @param manipelDAO the manipelDAO to set
+	 * @param dozentenDAO
 	 */
 	public void setDozentenDAO(DozentenDAO dozentenDAO) {
 		this.dozentenDAO = dozentenDAO;

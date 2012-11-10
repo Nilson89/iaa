@@ -90,14 +90,14 @@ public class CreatePruefungAction extends ActionSupport {
 	}
 	
 	/**
-	 * @return the selectedPruefungsfachId
+	 * @return selectedPruefungsfachId
 	 */
 	public Long getSelectedPruefungsfachId() {
 		return selectedPruefungsfachId;
 	}
 
 	/**
-	 * @param selectedPruefungsfachId the selectedPruefungsfachId to set
+	 * @param selectedPruefungsfachId 
 	 */
 	public void setSelectedPruefungsfachId(Long selectedPruefungsfachId) {
 		this.selectedPruefungsfachId = selectedPruefungsfachId;
@@ -105,28 +105,28 @@ public class CreatePruefungAction extends ActionSupport {
 	
 	
 	/**
-	 * @param dozentenService the dozentenService to set
+	 * @param dozentenService 
 	 */
 	public void setDozentenService(DozentenService dozentenService) {
 		this.dozentenService = dozentenService;
 	}
 
 	/**
-	 * @return the dozentenList
+	 * @return dozentenList
 	 */
 	public List<Dozent> getDozentenList() {
 		return dozentenList;
 	}
 
 	/**
-	 * @param selectedDozent the selectedDozent to set
+	 * @param selectedDozent 
 	 */
 	public void setSelectedDozent(String selectedDozent) {
 		this.selectedDozent = selectedDozent;
 	}
 
 	/**
-	 * @return the selectedDozent
+	 * @return selectedDozent
 	 */
 	public String getSelectedDozent() {
 		return selectedDozent;
@@ -139,34 +139,36 @@ public class CreatePruefungAction extends ActionSupport {
 		dozentenList = dozentenService.getDozentenList();
 	}
 
-
+	/**
+	 * @param pruefungenService 
+	 */
 	public void setPruefungenService(PruefungenService pruefungenService) {
 		this.pruefungenService = pruefungenService;
 	}
 
 	/**
-	 * @param pruefungsfaecherService the pruefungsfaecherService to set
+	 * @param pruefungsfaecherService 
 	 */
 	public void setPruefungsfaecherService(PruefungsfaecherService pruefungsfaecherService) {
 		this.pruefungsfaecherService = pruefungsfaecherService;
 	}
 
 	/**
-	 * @return the pruefungsfach
+	 * @return pruefungsfach
 	 */
 	public Pruefungsfach getPruefungsfach() {
 		return pruefungsfach;
 	}
 
 	/**
-	 * @return the selectedDatum
+	 * @return selectedDatum
 	 */
 	public Date getSelectedDatum() {
 		return selectedDatum;
 	}
 
 	/**
-	 * @param selectedDatum the selectedDatum to set
+	 * @param selectedDatum 
 	 */
 	public void setSelectedDatum(Date selectedDatum) {
 		this.selectedDatum = selectedDatum;

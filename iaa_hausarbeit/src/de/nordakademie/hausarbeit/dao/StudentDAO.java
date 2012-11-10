@@ -27,8 +27,8 @@ public class StudentDAO extends HibernateDaoSupport {
 	/**
 	 * loadMatrikelnummerListByManipel
 	 * 
-	 * @param Manipel the Manipel to load MatrikelnummerList for
-	 * @return List<Integer> the List of Matrikelnummer
+	 * @param manipel 
+	 * @return List<Matrikelnummer> 
 	 */
 	@SuppressWarnings("unchecked")
 	public List<Integer> loadMatrikelnummerListByManipel(Manipel manipel) {
@@ -39,8 +39,8 @@ public class StudentDAO extends HibernateDaoSupport {
 	/**
 	 * loadStudent
 	 * 
-	 * @param Integer the matrikelnummer
-	 * @return Student the student
+	 * @param matrikelnummer
+	 * @return student
 	 */
 	public Student loadStudent(Integer matrikelnummer) {
 		Session session = this.getSessionFactory().getCurrentSession();
@@ -57,7 +57,7 @@ public class StudentDAO extends HibernateDaoSupport {
 	/**
 	 * getStudentenByManipelAndPruefungsleistungenByPruefungsfach
 	 * 
-	 * @param Pruefungsfach the pruefungsfach
+	 * @param pruefungsfach
 	 * @return List<Student>
 	 */
 	@SuppressWarnings("unchecked")
@@ -91,7 +91,7 @@ public class StudentDAO extends HibernateDaoSupport {
 	/**
 	 * getStudentenByManipelAndPruefungsleistungenByPruefung
 	 * 
-	 * @param Pruefung the pruefung
+	 * @param pruefung
 	 * @return List<Student>
 	 */
 	@SuppressWarnings("unchecked")
@@ -137,7 +137,7 @@ public class StudentDAO extends HibernateDaoSupport {
 	/**
 	 * getStudentenByManipelWithLessThenThreeGradesAndPruefungsleistungenByPruefung
 	 * 
-	 * @param Pruefung the pruefung
+	 * @param pruefung
 	 * @return List<Student>
 	 */
 	@SuppressWarnings("unchecked")

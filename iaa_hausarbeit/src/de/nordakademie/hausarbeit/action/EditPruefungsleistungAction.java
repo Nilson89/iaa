@@ -104,35 +104,35 @@ public class EditPruefungsleistungAction extends ActionSupport {
 	}
 
 	/**
-	 * @param selectedPruefungsleistungId the selectedPruefungsleistungId to set
+	 * @param selectedPruefungsleistungId 
 	 */
 	public void setSelectedPruefungsleistungId(Long selectedPruefungsleistungId) {
 		this.selectedPruefungsleistungId = selectedPruefungsleistungId;
 	}
 
 	/**
-	 * @return the selectedPruefungsleistungId
+	 * @return selectedPruefungsleistungId
 	 */
 	public Long getSelectedPruefungsleistungId() {
 		return selectedPruefungsleistungId;
 	}
 
 	/**
-	 * @param selectedPruefungsfachId the selectedPruefungsfachId to set
+	 * @param selectedPruefungsfachId 
 	 */
 	public void setSelectedPruefungsfachId(Long selectedPruefungsfachId) {
 		this.selectedPruefungsfachId = selectedPruefungsfachId;
 	}
 	
 	/**
-	 * @return the selectedPruefungsfachId
+	 * @return selectedPruefungsfachId
 	 */
 	public Long getSelectedPruefungsfachId() {
 		return selectedPruefungsfachId;
 	}
 
 	/**
-	 * @param pruefungsleistungenService the pruefungsleistungenService to set
+	 * @param pruefungsleistungenService 
 	 */
 	public void setPruefungsleistungenService(
 			PruefungsleistungenService pruefungsleistungenService) {
@@ -140,7 +140,7 @@ public class EditPruefungsleistungAction extends ActionSupport {
 	}
 
 	/**
-	 * @param pruefungsfaecherService the pruefungsfaecherService to set
+	 * @param pruefungsfaecherService 
 	 */
 	public void setPruefungsfaecherService(
 			PruefungsfaecherService pruefungsfaecherService) {
@@ -148,14 +148,14 @@ public class EditPruefungsleistungAction extends ActionSupport {
 	}
 
 	/**
-	 * @return the pruefungsfach
+	 * @return pruefungsfach
 	 */
 	public Pruefungsfach getPruefungsfach() {
 		return pruefungsfach;
 	}
 
 	/**
-	 * @return the pruefungsleistung
+	 * @return pruefungsleistung
 	 */
 	public Pruefungsleistung getPruefungsleistung() {
 		return pruefungsleistung;
@@ -179,14 +179,14 @@ public class EditPruefungsleistungAction extends ActionSupport {
 	}
 
 	/**
-	 * @return the selectedNote
+	 * @return selectedNote
 	 */
 	public String getSelectedNote() {
 		return selectedNote;
 	}
 
 	/**
-	 * @param selectedNote the selectedNote to set
+	 * @param selectedNote 
 	 */
 	public void setSelectedNote(String selectedNote) {
 		this.selectedNote = selectedNote;

@@ -23,8 +23,8 @@ public class PruefungsleistungenDAO extends HibernateDaoSupport {
 	/**
 	 * loadPruefungsleistungenByJahrgangAndStudienrichtung
 	 * 
-	 * @param Integer the jahrgang
-	 * @param Studienrichtung the studienrichtung
+	 * @param jahrgang
+	 * @param studienrichtung
 	 * @return List<Pruefungsleistung>
 	 */
 	public List<Pruefungsleistung> loadPruefungsleistungenByJahrgangAndStudienrichtung(Integer jahrgang, Studienrichtung studienrichtung) {
@@ -53,8 +53,8 @@ public class PruefungsleistungenDAO extends HibernateDaoSupport {
 	/**
 	 * loadPruefungsleistungenForStudentAndPruefungsfach
 	 * 
-	 * @param Student the student
-	 * @param Pruefungsfach the pruefungsfach
+	 * @param student
+	 * @param pruefungsfach
 	 * @return List<Pruefungsleistung>
 	 */
 	public List<Pruefungsleistung> loadPruefungsleistungenForStudentAndPruefungsfach(Student student, Pruefungsfach pruefungsfach) {
@@ -74,8 +74,8 @@ public class PruefungsleistungenDAO extends HibernateDaoSupport {
 	/**
 	 * loadPruefungsleistungById
 	 * 
-	 * @param Long the pruefungsleistungId
-	 * @return the Pruefungsleistung
+	 * @param pruefungsleistungId
+	 * @return pruefungsleistung
 	 */
 	public Pruefungsleistung loadPruefungsleistungById(Long pruefungsleistungId) {
 		Session session = this.getSessionFactory().getCurrentSession();
@@ -92,8 +92,8 @@ public class PruefungsleistungenDAO extends HibernateDaoSupport {
 	/**
 	 * savePruefungsleistung
 	 * 
-	 * @param pruefungsleistung the pruefungsleistung to save
-	 * @return Pruefungsleistung
+	 * @param pruefungsleistung
+	 * @return pruefungsleistung
 	 */
 	public Pruefungsleistung savePruefungsleistung(Pruefungsleistung pruefungsleistung) {
 		getHibernateTemplate().saveOrUpdate(pruefungsleistung);
@@ -103,8 +103,8 @@ public class PruefungsleistungenDAO extends HibernateDaoSupport {
 	/**
 	 * saveErgaenzungspruefung
 	 * 
-	 * @param Ergaenzungspruefung the ergaenzungspruefung to save
-	 * @return Ergaenzungspruefung
+	 * @param ergaenzungspruefung to save
+	 * @return ergaenzungspruefung
 	 */
 	public Ergaenzungspruefung saveErgaenzungspruefung(Ergaenzungspruefung ergaenzungspruefung) {
 		getHibernateTemplate().saveOrUpdate(ergaenzungspruefung);

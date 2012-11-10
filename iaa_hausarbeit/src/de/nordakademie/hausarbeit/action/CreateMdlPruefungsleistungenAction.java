@@ -100,49 +100,49 @@ public class CreateMdlPruefungsleistungenAction extends ActionSupport {
 	}
 
 	/**
-	 * @return the pruefung
+	 * @return pruefung
 	 */
 	public Pruefung getPruefung() {
 		return pruefung;
 	}
 
 	/**
-	 * @param selectedPruefungId the selectedPruefungId to set
+	 * @param selectedPruefungId 
 	 */
 	public void setSelectedPruefungId(Long selectedPruefungId) {
 		this.selectedPruefungId = selectedPruefungId;
 	}
 
 	/**
-	 * @param pruefungenService the pruefungenService to set
+	 * @param pruefungenService 
 	 */
 	public void setPruefungenService(PruefungenService pruefungenService) {
 		this.pruefungenService = pruefungenService;
 	}
 
 	/**
-	 * @return the studenten
+	 * @return studenten
 	 */
 	public List<Student> getStudenten() {
 		return studenten;
 	}
 
 	/**
-	 * @param studentService the studentService to set
+	 * @param studentService 
 	 */
 	public void setStudentService(StudentService studentService) {
 		this.studentService = studentService;
 	}
 
 	/**
-	 * @return the ergaenzungspruefungenList
+	 * @return ergaenzungspruefungenList
 	 */
 	public List<Ergaenzungspruefung> getErgaenzungspruefungenList() {
 		return ergaenzungspruefungenList;
 	}
 
 	/**
-	 * @param ergaenzungspruefungenList the ergaenzungspruefungenList to set
+	 * @param ergaenzungspruefungenList 
 	 */
 	public void setErgaenzungspruefungenList(
 			List<Ergaenzungspruefung> ergaenzungspruefungenList) {
@@ -150,7 +150,7 @@ public class CreateMdlPruefungsleistungenAction extends ActionSupport {
 	}
 
 	/**
-	 * @param pruefungsleistungenService the pruefungsleistungenService to set
+	 * @param pruefungsleistungenService 
 	 */
 	public void setPruefungsleistungenService(
 			PruefungsleistungenService pruefungsleistungenService) {
@@ -158,28 +158,28 @@ public class CreateMdlPruefungsleistungenAction extends ActionSupport {
 	}
 
 	/**
-	 * @return the newPruefungsleistungenList
+	 * @return newPruefungsleistungenList
 	 */
 	public List<Pruefungsleistung> getNewPruefungsleistungenList() {
 		return newPruefungsleistungenList;
 	}
 
 	/**
-	 * @return the selectedPruefungId
+	 * @return selectedPruefungId
 	 */
 	public Long getSelectedPruefungId() {
 		return selectedPruefungId;
 	}
 
 	/**
-	 * @return the selectedPruefungsfachId
+	 * @return selectedPruefungsfachId
 	 */
 	public Long getSelectedPruefungsfachId() {
 		return selectedPruefungsfachId;
 	}
 
 	/**
-	 * @param selectedPruefungsfachId the selectedPruefungsfachId to set
+	 * @param selectedPruefungsfachId 
 	 */
 	public void setSelectedPruefungsfachId(Long selectedPruefungsfachId) {
 		this.selectedPruefungsfachId = selectedPruefungsfachId;

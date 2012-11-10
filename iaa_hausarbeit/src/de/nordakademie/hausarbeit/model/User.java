@@ -17,7 +17,7 @@ public class User {
 	private Person person;
 	
 	/**
-	 * @return the id
+	 * @return id
 	 */
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -25,14 +25,14 @@ public class User {
 		return id;
 	}
 	/**
-	 * @param id the id to set
+	 * @param id 
 	 */
 	public void setId(Long id) {
 		this.id = id;
 	}
 	
 	/**
-	 * @return the person
+	 * @return person
 	 */
 	@OneToOne
 	@JoinColumn(name= "personid")
@@ -40,7 +40,7 @@ public class User {
 		return person;
 	}
 	/**
-	 * @param person the person to set
+	 * @param person 
 	 */
 	public void setPerson(Person person) {
 		this.person = person;

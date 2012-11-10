@@ -10,6 +10,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 		<title><tiles:insertAttribute name="title" ignore="true" /></title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<link rel="stylesheet" type="text/css" href="/iaa_hausarbeit/styles/reset.css" />
 		<link rel="stylesheet" type="text/css" href="/iaa_hausarbeit/styles/layout.css" />
 		<link rel="stylesheet" type="text/css" href="/iaa_hausarbeit/styles/print.css" media="print" />

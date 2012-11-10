@@ -26,7 +26,7 @@ public class Ergaenzungspruefung {
 	private Long pruefungsleistungId;
 	
 	/**
-	 * @return the id
+	 * @return id
 	 */
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -34,14 +34,14 @@ public class Ergaenzungspruefung {
 		return id;
 	}
 	/**
-	 * @param id the id to set
+	 * @param id 
 	 */
 	public void setId(Long id) {
 		this.id = id;
 	}
 	
 	/**
-	 * @return the note
+	 * @return note
 	 */
 	@Enumerated(EnumType.STRING)
 	@Column(nullable = false)
@@ -49,14 +49,14 @@ public class Ergaenzungspruefung {
 		return note;
 	}
 	/**
-	 * @param note the note to set
+	 * @param note 
 	 */
 	public void setNote(Note note) {
 		this.note = note;
 	}
 	
 	/**
-	 * @return the datum
+	 * @return datum
 	 */
 	@Column(nullable = false)
 	@Type(type="date")
@@ -64,14 +64,14 @@ public class Ergaenzungspruefung {
 		return datum;
 	}
 	/**
-	 * @param datum the datum to set
+	 * @param datum 
 	 */
 	public void setDatum(Date datum) {
 		this.datum = datum;
 	}
 	
 	/**
-	 * @return the erfassungsdatum
+	 * @return erfassungsdatum
 	 */
 	@Column(nullable = false)
 	@Type(type="date")
@@ -79,21 +79,21 @@ public class Ergaenzungspruefung {
 		return erfassungsdatum;
 	}
 	/**
-	 * @param erfassungsdatum the erfassungsdatum to set
+	 * @param erfassungsdatum 
 	 */
 	public void setErfassungsdatum(Date erfassungsdatum) {
 		this.erfassungsdatum = erfassungsdatum;
 	}
 	
 	/**
-	 * @return the pruefungsleistungId
+	 * @return pruefungsleistungId
 	 */
 	@Transient
 	public Long getPruefungsleistungId() {
 		return pruefungsleistungId;
 	}
 	/**
-	 * @param pruefungsleistungId the pruefungsleistungId to set
+	 * @param pruefungsleistungId 
 	 */
 	public void setPruefungsleistungId(Long pruefungsleistungId) {
 		this.pruefungsleistungId = pruefungsleistungId;

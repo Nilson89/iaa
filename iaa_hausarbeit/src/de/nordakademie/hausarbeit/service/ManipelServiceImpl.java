@@ -22,7 +22,7 @@ public class ManipelServiceImpl implements ManipelService {
 	}
 
 	/**
-	 * @param manipelDAO the manipelDAO to set
+	 * @param manipelDAO
 	 */
 	public void setManipelDAO(ManipelDAO manipelDAO) {
 		this.manipelDAO = manipelDAO;

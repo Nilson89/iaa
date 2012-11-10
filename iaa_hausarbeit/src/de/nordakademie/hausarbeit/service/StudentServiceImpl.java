@@ -18,8 +18,8 @@ public class StudentServiceImpl implements StudentService {
 	/**
 	 * getMatrikelnummerListByManipel
 	 * 
-	 * @param Manipel the Manipel to get Matrikelnummerlist for
-	 * @return List<Integer> the List of Matrikelnummer
+	 * @param manipel
+	 * @return List<Matrikelnummer>
 	 */
 	public List<Integer> getMatrikelnummerListByManipel(Manipel manipel) {
 		return studentDAO.loadMatrikelnummerListByManipel(manipel);
@@ -28,8 +28,8 @@ public class StudentServiceImpl implements StudentService {
 	/**
 	 * getStudentByMatrikelnummer
 	 * 
-	 * @param Integer the matrikelnummer
-	 * @return Student the Student
+	 * @param matrikelnummer
+	 * @return student
 	 */
 	public Student getStudentByMatrikelnummer(Integer matrikelnummer) {
 		return studentDAO.loadStudent(matrikelnummer);
@@ -38,7 +38,7 @@ public class StudentServiceImpl implements StudentService {
 	/**
 	 * getStudentenByManipelAndPruefungsleistungenByPruefungsfach
 	 * 
-	 * @param Pruefungsfach the pruefungsfach
+	 * @param pruefungsfach
 	 * @return List<Student>
 	 */
 	public List<Student> getStudentenByManipelAndPruefungsleistungenByPruefungsfach(Pruefungsfach pruefungsfach) {
@@ -46,7 +46,7 @@ public class StudentServiceImpl implements StudentService {
 	}
 
 	/**
-	 * @param studentDAO the studentDAO to set
+	 * @param studentDAO
 	 */
 	public void setStudentDAO(StudentDAO studentDAO) {
 		this.studentDAO = studentDAO;
@@ -55,7 +55,7 @@ public class StudentServiceImpl implements StudentService {
 	/**
 	 * getStudentenByManipelAndPruefungsleistungenByPruefung
 	 * 
-	 * @param Pruefung the pruefung
+	 * @param pruefung
 	 */
 	public List<Student> getStudentenByManipelAndPruefungsleistungenByPruefung(Pruefung pruefung) {
 		return studentDAO.getStudentenByManipelAndPruefungsleistungenByPruefung(pruefung);
@@ -64,7 +64,7 @@ public class StudentServiceImpl implements StudentService {
 	/**
 	 * getStudentenByManipelWithLessThenThreeGradesAndPruefungsleistungenByPruefung
 	 * 
-	 * @param Pruefung the pruefung
+	 * @param pruefung
 	 */
 	public List<Student> getStudentenByManipelWithLessThenThreeGradesAndPruefungsleistungenByPruefung(Pruefung pruefung) {
 		return studentDAO.getStudentenByManipelWithLessThenThreeGradesAndPruefungsleistungenByPruefung(pruefung);
