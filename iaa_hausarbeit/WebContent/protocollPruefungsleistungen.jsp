@@ -1,9 +1,9 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
 
-<%-- Niels Maseberg --%>
+<%-- Sabrina Schramm --%>
 
-<h2><s:text name="txtHeadingProtocollMdlPruefungsleistungsanlage" /> "<s:property value="%{pruefung.getPruefungsfach().getTitel()}" />"</h2>
+<h2><s:text name="txtHeadingProtocollPruefungsleistungsanlage" /> "<s:property value="%{pruefung.getPruefungsfach().getTitel()}" />"</h2>
 <s:form>
 	<s:hidden name="selectedPruefungId" value="%{pruefung.getId()}" />
 	<s:hidden name="selectedPruefungsfachId" value="%{pruefung.getPruefungsfach().getId()}" />
