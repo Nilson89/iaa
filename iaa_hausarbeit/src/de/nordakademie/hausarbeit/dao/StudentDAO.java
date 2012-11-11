@@ -155,12 +155,22 @@ public class StudentDAO extends HibernateDaoSupport {
 				.createCriteria("pruefung", "plLastPruefung")
 				.add( Property.forName("pruefungsfach").eq(pruefung.getPruefungsfach()) );
 		
+		// Detached get Pruefungen of Pruefungsfach
+		List<Pruefung> pruefungen = session.createCriteria(Pruefung.class, "pruefungen")
+				.add( Restrictions.eq("pruefungsfach", pruefung.getPruefungsfach()) )
+				.list();
+		
 		List<Student> studenten = session.createCriteria(Student.class, "s")
 				.add( Property.forName("manipel").eq(pruefung.getPruefungsfach().getManipel()) )
 				.setResultTransformer( Criteria.DISTINCT_ROOT_ENTITY )
 				.createAlias("person", "p")
 				.addOrder( Property.forName("p.name").asc() )
-				.createCriteria("pruefungsleistungen", "pl", Criteria.LEFT_JOIN)
+				.createCriteria(
+						"pruefungsleistungen",
+						"pl",
+						Criteria.LEFT_JOIN,
+						Restrictions.in("pruefung", pruefungen) // Only Pruefungsleistungen of the selected pruefungsfach
+				)
 				.add( Restrictions.or(
 						Restrictions.eq("gueltig", true), // Only grades that are valid
 						Restrictions.isNull("gueltig")
@@ -171,11 +181,6 @@ public class StudentDAO extends HibernateDaoSupport {
 						Restrictions.isNull("pruefung")
 				) )
 				.addOrder( Property.forName("pl.versuch").asc() )
-				.createCriteria("pruefung", "pr", Criteria.LEFT_JOIN)
-				.add( Restrictions.or(
-						Restrictions.eq("pr.pruefungsfach", pruefung.getPruefungsfach()),
-						Restrictions.isNull("pr.pruefungsfach")
-				) )
 				.list();
 		
 		return studenten;
