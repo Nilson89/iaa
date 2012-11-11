@@ -65,22 +65,27 @@ public class StudentDAO extends HibernateDaoSupport {
 		Session session = this.getSessionFactory().getCurrentSession();
 		//session.enableFetchProfile("student-with-pruefungsleistungen"); // Enable fetchProfile to deactivate lazyLoading
 		
+		// Detached get Pruefungen of Pruefungsfach
+		List<Pruefung> pruefungen = session.createCriteria(Pruefung.class, "pruefungen")
+				.add( Restrictions.eq("pruefungsfach", pruefungsfach) )
+				.list();
+		
 		List<Student> studenten = session.createCriteria(Student.class, "s")
 				.add( Property.forName("manipel").eq(pruefungsfach.getManipel()) )
 				.setResultTransformer( Criteria.DISTINCT_ROOT_ENTITY )
 				.createAlias("person", "p")
 				.addOrder( Property.forName("p.name").asc() )
-				.createCriteria("pruefungsleistungen", "pl", Criteria.LEFT_JOIN)
+				.createCriteria(
+						"pruefungsleistungen",
+						"pl",
+						Criteria.LEFT_JOIN,
+						Restrictions.in("pruefung", pruefungen)
+				)
 				.add( Restrictions.or(
 						Restrictions.eq("gueltig", true),
 						Restrictions.isNull("gueltig")
 				) )
 				.addOrder( Property.forName("pl.versuch").asc() )
-				.createCriteria("pruefung", "pr", Criteria.LEFT_JOIN)
-				.add( Restrictions.or(
-						Restrictions.eq("pr.pruefungsfach", pruefungsfach),
-						Restrictions.isNull("pr.pruefungsfach")
-				) )
 				.list();
 		
 		//session.disableFetchProfile("student-with-pruefungsleistungen");
