@@ -5,6 +5,12 @@
 
 <h2><s:text name="txtHeadingIndex" /></h2>
 <s:form>
+	<div class="buttons">
+		<div class="button">
+			<s:submit key="btnPrüfungenAnzeigen" action="pruefungslist" cssClass="listTable"  />
+		</div>
+		<div class="clear"></div>
+	</div>
 	<table cellpadding="0">
 		<caption><s:text name="txtCaptionIndex" /></caption>
 		<thead>

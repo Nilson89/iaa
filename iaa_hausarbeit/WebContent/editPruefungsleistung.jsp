@@ -30,7 +30,7 @@
 		
 		<div class="field">
 			<span class="label"><s:text name="txtLetzterVersuch" />:</span>
-			<span><s:property value="%{pruefungsleistung.versuch}" />. <s:text name="txtLabelTry" /></span>
+			<span><s:property value="%{pruefungsleistung.versuch}" />. <s:text name="txtVersuch" /></span>
 			<div class="clear"></div>
 		</div>
 		
@@ -70,13 +70,13 @@
 	
 	<div class="buttons">
 		<div class="button">
-			<s:submit key="btnSave" action="editPruefungsleistungSave" cssClass="save" />
-		</div>
-		<div class="button">
 			<s:submit key="btnCancel" action="showPruefungsleistungen" cssClass="cancel" />
 		</div>
 		<div class="button">
 			<s:submit key="btnReverse" action="editPruefungsleistungReverse" cssClass="reverse" />
+		</div>
+		<div class="button">
+			<s:submit key="btnSave" action="editPruefungsleistungSave" cssClass="save" />
 		</div>
 		<div class="clear"></div>
 	</div>

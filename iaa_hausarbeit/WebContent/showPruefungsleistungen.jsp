@@ -18,7 +18,7 @@
 				<th><s:text name="txtNote" /> 1 (<s:text name="txtErgaenzungspruefung" />)</th>
 				<th><s:text name="txtNote" /> 2 (<s:text name="txtErgaenzungspruefung" />)</th>
 				<th><s:text name="txtNote" /> 3 (<s:text name="txtErgaenzungspruefung" />)</th>
-				<th><s:text name="txtNoteAktuell" /></th>
+				<th><s:text name="txtAktuelleNote" /></th>
 			</tr>
 		</thead>
 		<tbody>
@@ -85,10 +85,10 @@
 	
 	<div class="buttons">
 		<div class="button">
-			<s:submit key="btnEditPruefungsleistung" action="editPruefungsleistung" cssClass="edit" />
+			<s:submit key="btnBack" action="pruefungslist" cssClass="btnBack" />
 		</div>
 		<div class="button">
-			<s:submit key="btnBack" action="pruefungslist" cssClass="btnBack" />
+			<s:submit key="btnEditPruefungsleistung" action="editPruefungsleistung" cssClass="edit" />
 		</div>
 		<div class="clear"></div>
 	</div>
