@@ -85,10 +85,10 @@
 	
 	<div class="buttons">
 		<div class="button">
-			<s:submit key="btnEditPruefungsleistung" action="editPruefungsleistung" cssClass="edit" />
+			<s:submit key="btnBack" action="pruefungslist" cssClass="btnBack" />
 		</div>
 		<div class="button">
-			<s:submit key="btnBack" action="pruefungslist" cssClass="btnBack" />
+			<s:submit key="btnEditPruefungsleistung" action="editPruefungsleistung" cssClass="edit" />
 		</div>
 		<div class="clear"></div>
 	</div>

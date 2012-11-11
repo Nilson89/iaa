@@ -51,7 +51,6 @@
 		</div>
 		<div class="clear"></div>
 	</div>
-	
 	<div class="buttons">
 		<div class="button">
 			<s:submit key="btnBack" action="index" cssClass="btnBack" />

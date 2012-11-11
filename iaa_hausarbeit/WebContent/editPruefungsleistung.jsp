@@ -70,13 +70,13 @@
 	
 	<div class="buttons">
 		<div class="button">
-			<s:submit key="btnSave" action="editPruefungsleistungSave" cssClass="save" />
-		</div>
-		<div class="button">
 			<s:submit key="btnCancel" action="showPruefungsleistungen" cssClass="cancel" />
 		</div>
 		<div class="button">
 			<s:submit key="btnReverse" action="editPruefungsleistungReverse" cssClass="reverse" />
+		</div>
+		<div class="button">
+			<s:submit key="btnSave" action="editPruefungsleistungSave" cssClass="save" />
 		</div>
 		<div class="clear"></div>
 	</div>

@@ -67,10 +67,10 @@
 		
 		<div class="buttons">
 			<div class="button">
-				<s:submit key="btnSave" action="createMdlPruefungsleistungenSave" cssClass="save" />
+				<s:submit key="btnCancel" action="pruefungslist" cssClass="cancel" />
 			</div>
 			<div class="button">
-				<s:submit key="btnCancel" action="pruefungslist" cssClass="cancel" />
+				<s:submit key="btnSave" action="createMdlPruefungsleistungenSave" cssClass="save" />
 			</div>
 			<div class="clear"></div>
 		</div>

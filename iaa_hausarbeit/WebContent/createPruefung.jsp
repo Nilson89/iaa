@@ -25,9 +25,11 @@
 	</div>
 	<div class="buttons">
 		<div class="button">
-			<s:submit key="btnCreatePruefung" action="savePruefung" cssClass="save" />
-			<s:submit key="btnCancel" action="pruefungslist" cssClass="cancel" />
-		</div>
+				<s:submit key="btnCancel" action="pruefungslist" cssClass="cancel" />
+			</div>
+			<div class="button">
+				<s:submit key="btnSave" action="createMdlPruefungsleistungenSave" cssClass="save" />
+			</div>
 		<div class="clear"></div>
 	</div>
 </s:form>
