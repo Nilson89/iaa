@@ -129,8 +129,6 @@ public class StudentDAO extends HibernateDaoSupport {
 				.add( Subqueries.gt(Long.valueOf(2), addGradeCount) ) // Only Students that have less then 2 Ergaenzungspruefung
 				.list();
 		
-		// TODO: Nur die Prüfungsleistungen berücksichtigen, die im gewählten Prüfungsfach sind
-		
 		return studenten;
 	}
 	
