@@ -50,6 +50,7 @@ h2 {
 
 #Navigation ul.nav li {
     float: left;
+    margin-right: 10px;
 }
 
 #Navigation ul.nav li a {
