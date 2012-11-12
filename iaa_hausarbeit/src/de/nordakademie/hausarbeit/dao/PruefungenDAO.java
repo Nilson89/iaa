@@ -3,6 +3,7 @@ package de.nordakademie.hausarbeit.dao;
 import java.util.Date;
 import java.util.List;
 
+import org.apache.log4j.Logger;
 import org.hibernate.ObjectNotFoundException;
 import org.hibernate.Session;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
@@ -14,6 +15,8 @@ import de.nordakademie.hausarbeit.model.Pruefung;
  * @author Niels Maseberg, Sabrina Schramm
  */
 public class PruefungenDAO extends HibernateDaoSupport {
+	private static final Logger logger = Logger.getLogger(PruefungenDAO.class);
+	
 	/**
 	 * loadPruefungen
 	 * 
@@ -76,8 +79,7 @@ public class PruefungenDAO extends HibernateDaoSupport {
 		try {
 			return (Pruefung) session.get(Pruefung.class, pruefungId);
 		} catch (ObjectNotFoundException e) {
-			// TODO: handle exception
-			// TODO: get Logger and log this!!!
+			logger.error("Pruefung with ID '" + pruefungId + "' could not be loaded", e);
 		}
 		return null;
 	}

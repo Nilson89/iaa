@@ -2,6 +2,7 @@ package de.nordakademie.hausarbeit.dao;
 
 import java.util.List;
 
+import org.apache.log4j.Logger;
 import org.hibernate.Criteria;
 import org.hibernate.ObjectNotFoundException;
 import org.hibernate.Session;
@@ -9,6 +10,7 @@ import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.Property;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
+import de.nordakademie.hausarbeit.action.EditPruefungsleistungAction;
 import de.nordakademie.hausarbeit.model.Ergaenzungspruefung;
 import de.nordakademie.hausarbeit.model.Pruefungsfach;
 import de.nordakademie.hausarbeit.model.Pruefungsleistung;
@@ -20,6 +22,8 @@ import de.nordakademie.hausarbeit.model.Studienrichtung;
  * @author Niels Maseberg
  */
 public class PruefungsleistungenDAO extends HibernateDaoSupport {
+	private static final Logger logger = Logger.getLogger(PruefungsleistungenDAO.class);
+	
 	/**
 	 * loadPruefungsleistungenByJahrgangAndStudienrichtung
 	 * 
@@ -83,8 +87,7 @@ public class PruefungsleistungenDAO extends HibernateDaoSupport {
 		try {
 			return (Pruefungsleistung) session.get(Pruefungsleistung.class, pruefungsleistungId);
 		} catch (ObjectNotFoundException e) {
-			// TODO: handle exception
-			// TODO: get Logger and log this!!!
+			logger.error("Pruefungsleistung with ID '" + pruefungsleistungId + "' could not be loaded", e);
 		}
 		return null;
 	}

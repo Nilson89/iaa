@@ -2,6 +2,7 @@ package de.nordakademie.hausarbeit.dao;
 
 import java.util.List;
 
+import org.apache.log4j.Logger;
 import org.hibernate.ObjectNotFoundException;
 import org.hibernate.Session;
 import org.hibernate.criterion.Property;
@@ -15,6 +16,8 @@ import de.nordakademie.hausarbeit.model.Dozent;
  */
 
 public class DozentenDAO extends HibernateDaoSupport{
+	private static final Logger logger = Logger.getLogger(DozentenDAO.class);
+	
 	/**
 	 * loadDozenten
 	 * 
@@ -44,8 +47,7 @@ public class DozentenDAO extends HibernateDaoSupport{
 		try {
 			return (Dozent) session.get(Dozent.class, id);
 		} catch (ObjectNotFoundException e) {
-			// TODO: handle exception
-			// TODO: get Logger and log this!!!
+			logger.error("Dozent with ID '" + id + "' could not be loaded", e);
 		}
 		return null;
 	}
