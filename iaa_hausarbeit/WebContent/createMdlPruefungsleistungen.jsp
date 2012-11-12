@@ -50,7 +50,9 @@
 							</s:if>
 						</td>
 						<td>
-							<sj:datepicker id="datum" name="ergaenzungspruefungenList(%{pruefungsleistungen.get(pruefungsleistungen.size - 1).getId()}).datum"  value="%{new java.util.Date()}" timepicker="false" displayFormat="dd.mm.yy" readonly="true" />
+							<sj:datepicker id="datum_%{pruefungsleistungen.get(pruefungsleistungen.size - 1).getId()}" 
+							name="ergaenzungspruefungenList(%{pruefungsleistungen.get(pruefungsleistungen.size - 1).getId()}).datum"  
+							value="%{new java.util.Date()}" timepicker="false" displayFormat="dd.mm.yy" readonly="true" maxDate="0" />
 						</td>
 						<td>
 							<s:select name="ergaenzungspruefungenList(%{pruefungsleistungen.get(pruefungsleistungen.size - 1).getId()}).note" list="%{@de.nordakademie.hausarbeit.model.Note@values()}"/>

@@ -8,7 +8,6 @@
           <param name="ConversionPattern" value="%d %-5p %c.%M:%L - %m%n"/> 
        </layout> 
     </appender>
-    
     <appender name="FILE" class="org.apache.log4j.RollingFileAppender">
     	<param name="File" value="${catalina.home}/webapps/iaa_hausarbeit/log/debug.log" />
     	<param name="MaxFileSize" value="10MB" />

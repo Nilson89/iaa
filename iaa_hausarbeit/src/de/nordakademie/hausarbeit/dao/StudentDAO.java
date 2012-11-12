@@ -6,6 +6,7 @@ import org.hibernate.Criteria;
 import org.hibernate.ObjectNotFoundException;
 import org.hibernate.Session;
 import org.hibernate.criterion.DetachedCriteria;
+import org.hibernate.criterion.Projection;
 import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Property;
 import org.hibernate.criterion.Restrictions;
@@ -79,12 +80,11 @@ public class StudentDAO extends HibernateDaoSupport {
 						"pruefungsleistungen",
 						"pl",
 						Criteria.LEFT_JOIN,
-						Restrictions.in("pruefung", pruefungen)
+						Restrictions.and(
+								Restrictions.in("pruefung", pruefungen), // Only Pruefungsleistungen that are in the selected Pruefungsfach
+								Restrictions.eq("gueltig", true) // Only Pruefungsleistungen that are valid
+						)
 				)
-				.add( Restrictions.or(
-						Restrictions.eq("gueltig", true),
-						Restrictions.isNull("gueltig")
-				) )
 				.addOrder( Property.forName("pl.versuch").asc() )
 				.list();
 		
@@ -160,6 +160,34 @@ public class StudentDAO extends HibernateDaoSupport {
 				.add( Restrictions.eq("pruefungsfach", pruefung.getPruefungsfach()) )
 				.list();
 		
+		// Count of exams the student passed in the pruefungsfach
+		Note[] passedGrades = {Note.EINS, Note.EINSDREI, Note.EINSSIEBEN, Note.ZWEI, Note.ZWEIDREI, Note.ZWEISIEBEN, Note.DREI, Note.DREIDREI, Note.DREISIEBEN, Note.VIER};
+		Note[] passedGradesErgaenzung = {Note.EINS, Note.EINSDREI, Note.EINSSIEBEN, Note.ZWEI};
+		DetachedCriteria passedExamCount = DetachedCriteria.forClass(Pruefungsleistung.class, "plPassedGradeCount")
+				.setProjection( Projections.rowCount() )
+				.add( Property.forName("gueltig").eq(true) )
+				.add( Property.forName("plPassedGradeCount.student").eqProperty("pl.student") )
+				.createAlias("ergaenzungspruefung", "passedErgaenzung", Criteria.LEFT_JOIN)
+				.add( Restrictions.or(
+						Restrictions.in("note", passedGrades),
+						Restrictions.and(
+								Restrictions.eq("note", Note.FUENF),
+								Restrictions.in("passedErgaenzung.note", passedGradesErgaenzung)
+						)
+				) )
+				.createCriteria("pruefung", "plPassedLastPruefung")
+				.add( Property.forName("pruefungsfach").eq(pruefung.getPruefungsfach()) );
+		
+		// Get Date of last exam
+		DetachedCriteria lastDateCount = DetachedCriteria.forClass(Pruefungsleistung.class, "plLastDate")
+				.setProjection( Projections.rowCount() )
+				.add( Property.forName("gueltig").eq(true) )
+				.add( Property.forName("plLastDate.student").eqProperty("pl.student") )
+				.createCriteria("pruefung", "prLastDate")
+				.add( Property.forName("datum").gt(pruefung.getDatum()) )
+				.add( Property.forName("pruefungsfach").eq(pruefung.getPruefungsfach()) );
+		
+		// ### Main Query ###
 		List<Student> studenten = session.createCriteria(Student.class, "s")
 				.add( Property.forName("manipel").eq(pruefung.getPruefungsfach().getManipel()) )
 				.setResultTransformer( Criteria.DISTINCT_ROOT_ENTITY )
@@ -169,19 +197,21 @@ public class StudentDAO extends HibernateDaoSupport {
 						"pruefungsleistungen",
 						"pl",
 						Criteria.LEFT_JOIN,
-						Restrictions.in("pruefung", pruefungen) // Only Pruefungsleistungen of the selected pruefungsfach
+						Restrictions.and(
+								Restrictions.in("pruefung", pruefungen), // Only Pruefungsleistungen that are in the selected Pruefungsfach
+								Restrictions.eq("gueltig", true) // Only Pruefungsleistungen that are valid
+						)
 				)
-				.add( Restrictions.or(
-						Restrictions.eq("gueltig", true), // Only grades that are valid
-						Restrictions.isNull("gueltig")
-				) )
-				.add( Subqueries.gt(Long.valueOf(3), addGradeCount) ) // Only Students that have less then 2 Pruefungsleistungen
+				.add( Subqueries.gt(Long.valueOf(3), addGradeCount) ) // Only Students that have less then 3 Pruefungsleistungen
+				.add( Subqueries.gt(Long.valueOf(1), passedExamCount) ) // Only Student that have not passed the exam yet
+				.add( Subqueries.gt(Long.valueOf(1), lastDateCount) ) // Only Students that have not written an exam later
 				.add( Restrictions.or(
 						Restrictions.ne("pruefung", pruefung), // Only Students that have no grade in the selected Pruefung
 						Restrictions.isNull("pruefung")
 				) )
 				.addOrder( Property.forName("pl.versuch").asc() )
 				.list();
+		
 		
 		return studenten;
 	}
