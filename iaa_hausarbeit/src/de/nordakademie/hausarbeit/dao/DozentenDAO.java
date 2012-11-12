@@ -36,7 +36,7 @@ public class DozentenDAO extends HibernateDaoSupport{
 	 * loadById
 	 * 
 	 * @param id
-	 * @reutrn Dozent
+	 * @return Dozent
 	 */
 	public Dozent loadById(Long id) {
 		Session session = this.getSessionFactory().getCurrentSession();
