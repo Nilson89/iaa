@@ -218,7 +218,6 @@ INSERT INTO Person (id, name, vorname) VALUES (132, 'MacKenzie', 'Molly');
 INSERT INTO Person (id, name, vorname) VALUES (133, 'Biel', 'Steve');
 INSERT INTO Person (id, name, vorname) VALUES (134, 'Gusar', 'Stacey');
 
-
 /* Dozent */
 INSERT INTO Dozent (personid) VALUES (1);
 INSERT INTO Dozent (personid) VALUES (2);
