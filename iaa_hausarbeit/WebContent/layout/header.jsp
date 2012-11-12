@@ -2,5 +2,5 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 <div id="Head">
-	<h1>NORDAKADEMIE - Notendatenbank</h1>
+	<h1><s:text name="txtHeadingHeader" /></h1>
 </div>
