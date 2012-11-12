@@ -80,12 +80,11 @@ public class StudentDAO extends HibernateDaoSupport {
 						"pruefungsleistungen",
 						"pl",
 						Criteria.LEFT_JOIN,
-						Restrictions.in("pruefung", pruefungen)
+						Restrictions.and(
+								Restrictions.in("pruefung", pruefungen), // Only Pruefungsleistungen that are in the selected Pruefungsfach
+								Restrictions.eq("gueltig", true) // Only Pruefungsleistungen that are valid
+						)
 				)
-				.add( Restrictions.or(
-						Restrictions.eq("gueltig", true),
-						Restrictions.isNull("gueltig")
-				) )
 				.addOrder( Property.forName("pl.versuch").asc() )
 				.list();
 		
