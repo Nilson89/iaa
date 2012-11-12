@@ -103,13 +103,17 @@ public class StudentDAO extends HibernateDaoSupport {
 	public List<Student> getStudentenByManipelAndPruefungsleistungenByPruefung(Pruefung pruefung) {
 		Session session = this.getSessionFactory().getCurrentSession();
 		
+		// Detached get Pruefungen of Pruefungsfach
+		List<Pruefung> pruefungen = session.createCriteria(Pruefung.class, "pruefungen")
+				.add( Restrictions.eq("pruefungsfach", pruefung.getPruefungsfach()) )
+				.list();
+		
 		// Last Try of Student in Pruefungsfach that is valid
 		DetachedCriteria lastTry = DetachedCriteria.forClass(Pruefungsleistung.class, "plLast")
 				.setProjection( Property.forName("versuch").max() )
 				.add( Property.forName("gueltig").eq(true) )
 				.add( Property.forName("plLast.student").eqProperty("pl.student"))
-				.createCriteria("pruefung", "plLastPruefung")
-				.add( Property.forName("pruefungsfach").eq(pruefung.getPruefungsfach()) );
+				.add( Restrictions.in("pruefung", pruefungen) );
 		
 		// Count of Additional Grades of a Student in a Pruefungsfach
 		DetachedCriteria addGradeCount = DetachedCriteria.forClass(Pruefungsleistung.class, "plAddGradeCount")
@@ -117,20 +121,32 @@ public class StudentDAO extends HibernateDaoSupport {
 				.add( Property.forName("gueltig").eq(true) )
 				.add( Property.forName("plAddGradeCount.student").eqProperty("pl.student"))
 				.add( Restrictions.isNotNull("ergaenzungspruefung") )
-				.createCriteria("pruefung", "plLastPruefung")
-				.add( Property.forName("pruefungsfach").eq(pruefung.getPruefungsfach()) );		
+				.add( Restrictions.in("pruefung", pruefungen) );		
 		
+		// ## Main Query ##
 		List<Student> studenten = session.createCriteria(Student.class, "s")
 				.add( Property.forName("manipel").eq(pruefung.getPruefungsfach().getManipel()) )
 				.setResultTransformer( Criteria.DISTINCT_ROOT_ENTITY )
 				.createAlias("person", "p")
 				.addOrder( Property.forName("p.name").asc() )
-				.createCriteria("pruefungsleistungen", "pl")
-				.add( Restrictions.eq("gueltig", true) ) // Only Grades that are valid
-				.add( Property.forName("versuch").eq(lastTry) ) // Only the last try of the Pruefungsfach and student
-				.add( Restrictions.isNull("ergaenzungspruefung") ) // Only if there is no additional grade
-				.add( Property.forName("note").eq(Note.FUENF) ) // Only if the last try is a 5.0
-				.add( Property.forName("pruefung").eq(pruefung) ) // Only if the last try was in the selected Pruefung
+				.createCriteria(
+						"pruefungsleistungen",
+						"pl",
+						Criteria.INNER_JOIN,
+						Restrictions.and(
+								Restrictions.eq("gueltig", true), // Only Grades that are valid
+								Restrictions.and(
+										Property.forName("versuch").eq(lastTry), // Only the last try of the Pruefungsfach and student
+										Restrictions.and(
+												Restrictions.isNull("ergaenzungspruefung"), // Only if there is no additional grade
+												Restrictions.and(
+														Property.forName("note").eq(Note.FUENF), // Only if the last try is a 5.0
+														Property.forName("pruefung").eq(pruefung) // Only if the last try was in the selected Pruefung
+												)
+										)
+								)
+						)
+				)
 				.add( Subqueries.gt(Long.valueOf(2), addGradeCount) ) // Only Students that have less then 2 Ergaenzungspruefung
 				.list();
 		
