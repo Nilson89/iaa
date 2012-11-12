@@ -179,6 +179,15 @@ public class StudentDAO extends HibernateDaoSupport {
 				.createCriteria("pruefung", "plPassedLastPruefung")
 				.add( Property.forName("pruefungsfach").eq(pruefung.getPruefungsfach()) );
 		
+		// Get Date of last exam
+		DetachedCriteria lastDateCount = DetachedCriteria.forClass(Pruefungsleistung.class, "plLastDate")
+				.setProjection( Projections.rowCount() )
+				.add( Property.forName("gueltig").eq(true) )
+				.add( Property.forName("plLastDate.student").eqProperty("pl.student") )
+				.createCriteria("pruefung", "prLastDate")
+				.add( Property.forName("datum").gt(pruefung.getDatum()) )
+				.add( Property.forName("pruefungsfach").eq(pruefung.getPruefungsfach()) );
+		
 		List<Student> studenten = session.createCriteria(Student.class, "s")
 				.add( Property.forName("manipel").eq(pruefung.getPruefungsfach().getManipel()) )
 				.setResultTransformer( Criteria.DISTINCT_ROOT_ENTITY )
@@ -196,14 +205,13 @@ public class StudentDAO extends HibernateDaoSupport {
 				) )
 				.add( Subqueries.gt(Long.valueOf(3), addGradeCount) ) // Only Students that have less then 3 Pruefungsleistungen
 				.add( Subqueries.gt(Long.valueOf(1), passedExamCount) ) // Only Student that have not passed the exam yet
+				.add( Subqueries.gt(Long.valueOf(1), lastDateCount) ) // Only Students that have not written an exam later
 				.add( Restrictions.or(
 						Restrictions.ne("pruefung", pruefung), // Only Students that have no grade in the selected Pruefung
 						Restrictions.isNull("pruefung")
 				) )
 				.addOrder( Property.forName("pl.versuch").asc() )
 				.list();
-		
-		// TODO: Only Students that haven´t passed yet
 		
 		
 		return studenten;

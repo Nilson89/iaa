@@ -1,7 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
 
-<%-- Sabrina Schramm --%>
+<%-- Sabrina Schramm und Niels Maseberg --%>
 
 <h2><s:text name="txtHeadingProtocollPruefungsleistungsanlage" /> "<s:property value="%{pruefung.getPruefungsfach().getTitel()}" />"</h2>
 <s:form>
