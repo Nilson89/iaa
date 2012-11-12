@@ -6,6 +6,7 @@ import org.hibernate.Criteria;
 import org.hibernate.ObjectNotFoundException;
 import org.hibernate.Session;
 import org.hibernate.criterion.DetachedCriteria;
+import org.hibernate.criterion.Projection;
 import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Property;
 import org.hibernate.criterion.Restrictions;
@@ -160,6 +161,24 @@ public class StudentDAO extends HibernateDaoSupport {
 				.add( Restrictions.eq("pruefungsfach", pruefung.getPruefungsfach()) )
 				.list();
 		
+		// Count of exams the student passed in the pruefungsfach
+		Note[] passedGrades = {Note.EINS, Note.EINSDREI, Note.EINSSIEBEN, Note.ZWEI, Note.ZWEIDREI, Note.ZWEISIEBEN, Note.DREI, Note.DREIDREI, Note.DREISIEBEN, Note.VIER};
+		Note[] passedGradesErgaenzung = {Note.EINS, Note.EINSDREI, Note.EINSSIEBEN, Note.ZWEI};
+		DetachedCriteria passedExamCount = DetachedCriteria.forClass(Pruefungsleistung.class, "plPassedGradeCount")
+				.setProjection( Projections.rowCount() )
+				.add( Property.forName("gueltig").eq(true) )
+				.add( Property.forName("plPassedGradeCount.student").eqProperty("pl.student") )
+				.createAlias("ergaenzungspruefung", "passedErgaenzung", Criteria.LEFT_JOIN)
+				.add( Restrictions.or(
+						Restrictions.in("note", passedGrades),
+						Restrictions.and(
+								Restrictions.eq("note", Note.FUENF),
+								Restrictions.in("passedErgaenzung.note", passedGradesErgaenzung)
+						)
+				) )
+				.createCriteria("pruefung", "plPassedLastPruefung")
+				.add( Property.forName("pruefungsfach").eq(pruefung.getPruefungsfach()) );
+		
 		List<Student> studenten = session.createCriteria(Student.class, "s")
 				.add( Property.forName("manipel").eq(pruefung.getPruefungsfach().getManipel()) )
 				.setResultTransformer( Criteria.DISTINCT_ROOT_ENTITY )
@@ -175,13 +194,17 @@ public class StudentDAO extends HibernateDaoSupport {
 						Restrictions.eq("gueltig", true), // Only grades that are valid
 						Restrictions.isNull("gueltig")
 				) )
-				.add( Subqueries.gt(Long.valueOf(3), addGradeCount) ) // Only Students that have less then 2 Pruefungsleistungen
+				.add( Subqueries.gt(Long.valueOf(3), addGradeCount) ) // Only Students that have less then 3 Pruefungsleistungen
+				.add( Subqueries.gt(Long.valueOf(1), passedExamCount) ) // Only Student that have not passed the exam yet
 				.add( Restrictions.or(
 						Restrictions.ne("pruefung", pruefung), // Only Students that have no grade in the selected Pruefung
 						Restrictions.isNull("pruefung")
 				) )
 				.addOrder( Property.forName("pl.versuch").asc() )
 				.list();
+		
+		// TODO: Only Students that haven´t passed yet
+		
 		
 		return studenten;
 	}
