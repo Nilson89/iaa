@@ -2,21 +2,15 @@ package de.nordakademie.hausarbeit.action;
 
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
-
 import com.opensymphony.xwork2.ActionSupport;
 
 import de.nordakademie.hausarbeit.model.Ergaenzungspruefung;
 import de.nordakademie.hausarbeit.model.Note;
 import de.nordakademie.hausarbeit.model.Pruefung;
-import de.nordakademie.hausarbeit.model.Pruefungsfach;
 import de.nordakademie.hausarbeit.model.Pruefungsleistung;
 import de.nordakademie.hausarbeit.model.Student;
 import de.nordakademie.hausarbeit.service.PruefungenService;
-import de.nordakademie.hausarbeit.service.PruefungsfaecherService;
 import de.nordakademie.hausarbeit.service.PruefungsleistungenService;
 import de.nordakademie.hausarbeit.service.StudentService;
 
@@ -52,6 +46,12 @@ public class CreateMdlPruefungsleistungenAction extends ActionSupport {
 	 */
 	public String save() throws Exception {
 		for (Ergaenzungspruefung ergaenzungspruefung : ergaenzungspruefungenList) {
+			
+			System.out.println("Ergaenzungspruefung found");
+			System.out.println("with pruefungsleistungId: " + ergaenzungspruefung.getPruefungsleistungId());
+			System.out.println("with erfassungsdatum: " + ergaenzungspruefung.getErfassungsdatum());
+			System.out.println("with note: " + ergaenzungspruefung.getNote());
+			
 			// Get Pruefungsleistung
 			Pruefungsleistung pruefungsleistung = pruefungsleistungenService.getPruefungsleistungById(ergaenzungspruefung.getPruefungsleistungId());
 			pruefungsleistung.setErgaenzungspruefung(ergaenzungspruefung);
