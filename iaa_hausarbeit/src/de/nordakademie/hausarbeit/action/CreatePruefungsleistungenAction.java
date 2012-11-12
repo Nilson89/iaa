@@ -35,8 +35,8 @@ public class CreatePruefungsleistungenAction extends ActionSupport {
 	private StudentService studentService;
 	private Pruefung pruefung;
 	private List<Student> studenten;
-	private List<Pruefungsleistung> pruefungsleistungenList = new ArrayList();
-	private List<Pruefungsleistung> newPruefungsleistungenList = new ArrayList();
+	private List<Pruefungsleistung> pruefungsleistungenList = new ArrayList<Pruefungsleistung>();
+	private List<Pruefungsleistung> newPruefungsleistungenList = new ArrayList<Pruefungsleistung>();
 	
 	
 	/**

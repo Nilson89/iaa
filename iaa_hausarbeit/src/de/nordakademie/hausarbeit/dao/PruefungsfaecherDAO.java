@@ -21,6 +21,7 @@ public class PruefungsfaecherDAO extends HibernateDaoSupport {
 	 * 
 	 * @return List<Pruefungsfach>
 	 */
+	@SuppressWarnings("unchecked")
 	public List<Pruefungsfach> loadPruefungsfaecher() {
 		return getHibernateTemplate().loadAll(Pruefungsfach.class);
 	}

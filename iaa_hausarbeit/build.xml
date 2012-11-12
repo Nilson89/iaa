@@ -23,13 +23,16 @@
 				debug="${compile.debug}"
 				deprecation="${compile.deprecation}"
 				optimize="${compile.optimize}"
-			    source="1.6" target="1.6">
+			    source="1.7" target="1.7"
+				includeantruntime="false">
 			
 			<classpath>
 				<path>
 			    	<fileset dir="${lib.home}" />
 			    </path>
 			</classpath>
+			
+			<compilerarg value="-Xlint:unchecked"/>
 			
 		</javac>
 

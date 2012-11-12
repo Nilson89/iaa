@@ -29,8 +29,8 @@ public class CreateMdlPruefungsleistungenAction extends ActionSupport {
 	private StudentService studentService;
 	private PruefungsleistungenService pruefungsleistungenService;
 	
-	private List<Ergaenzungspruefung> ergaenzungspruefungenList = new ArrayList();
-	private List<Pruefungsleistung> newPruefungsleistungenList = new ArrayList();
+	private List<Ergaenzungspruefung> ergaenzungspruefungenList = new ArrayList<Ergaenzungspruefung>();
+	private List<Pruefungsleistung> newPruefungsleistungenList = new ArrayList<Pruefungsleistung>();
 	
 	/**
 	 * execute

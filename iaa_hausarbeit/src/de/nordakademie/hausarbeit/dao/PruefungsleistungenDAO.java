@@ -31,6 +31,7 @@ public class PruefungsleistungenDAO extends HibernateDaoSupport {
 	 * @param studienrichtung
 	 * @return List<Pruefungsleistung>
 	 */
+	@SuppressWarnings("unchecked")
 	public List<Pruefungsleistung> loadPruefungsleistungenByJahrgangAndStudienrichtung(Integer jahrgang, Studienrichtung studienrichtung) {
 		Session session = getSessionFactory().getCurrentSession();
 		
@@ -61,6 +62,7 @@ public class PruefungsleistungenDAO extends HibernateDaoSupport {
 	 * @param pruefungsfach
 	 * @return List<Pruefungsleistung>
 	 */
+	@SuppressWarnings("unchecked")
 	public List<Pruefungsleistung> loadPruefungsleistungenForStudentAndPruefungsfach(Student student, Pruefungsfach pruefungsfach) {
 		Session session = getSessionFactory().getCurrentSession();
 		

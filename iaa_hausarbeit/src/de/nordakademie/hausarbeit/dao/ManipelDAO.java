@@ -16,6 +16,7 @@ public class ManipelDAO extends HibernateDaoSupport {
 	 * 
 	 * @return List<Manipel>
 	 */
+	@SuppressWarnings("unchecked")
 	public List<Manipel> loadManipel() {
 		return getHibernateTemplate().loadAll(Manipel.class);
 	}
