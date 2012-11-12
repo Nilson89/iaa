@@ -187,6 +187,7 @@ public class StudentDAO extends HibernateDaoSupport {
 				.add( Property.forName("datum").gt(pruefung.getDatum()) )
 				.add( Property.forName("pruefungsfach").eq(pruefung.getPruefungsfach()) );
 		
+		// ### Main Query ###
 		List<Student> studenten = session.createCriteria(Student.class, "s")
 				.add( Property.forName("manipel").eq(pruefung.getPruefungsfach().getManipel()) )
 				.setResultTransformer( Criteria.DISTINCT_ROOT_ENTITY )
@@ -196,12 +197,11 @@ public class StudentDAO extends HibernateDaoSupport {
 						"pruefungsleistungen",
 						"pl",
 						Criteria.LEFT_JOIN,
-						Restrictions.in("pruefung", pruefungen) // Only Pruefungsleistungen of the selected pruefungsfach
+						Restrictions.and(
+								Restrictions.in("pruefung", pruefungen), // Only Pruefungsleistungen that are in the selected Pruefungsfach
+								Restrictions.eq("gueltig", true) // Only Pruefungsleistungen that are valid
+						)
 				)
-				.add( Restrictions.or(
-						Restrictions.eq("gueltig", true), // Only grades that are valid
-						Restrictions.isNull("gueltig")
-				) )
 				.add( Subqueries.gt(Long.valueOf(3), addGradeCount) ) // Only Students that have less then 3 Pruefungsleistungen
 				.add( Subqueries.gt(Long.valueOf(1), passedExamCount) ) // Only Student that have not passed the exam yet
 				.add( Subqueries.gt(Long.valueOf(1), lastDateCount) ) // Only Students that have not written an exam later
